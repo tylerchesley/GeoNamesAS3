@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flexLibProperties includeAllClasses="false" version="1">
+  <includeClasses>
+    <classEntry path="org.geonames.GeoNames"/>
+    <classEntry path="org.geonames.Language"/>
+    <classEntry path="org.geonames.Method"/>
+    <classEntry path="org.geonames.Style"/>
+    <classEntry path="org.geonames.ToponymSearchCriteria"/>
+    <classEntry path="org.geonames.data.Address"/>
+    <classEntry path="org.geonames.data.FreatureClass"/>
+    <classEntry path="org.geonames.data.PostalCode"/>
+    <classEntry path="org.geonames.data.Timezone"/>
+    <classEntry path="org.geonames.data.Toponym"/>
+    <classEntry path="org.geonames.data.ToponymSearchResult"/>
+    <classEntry path="org.geonames.data.XMLDataParser"/>
+    <classEntry path="org.geonames.events.GeoNamesEvent"/>
+    <classEntry path="org.geonames.utils.Bearing"/>
+    <classEntry path="org.geonames.utils.Distance"/>
+    <classEntry path="org.geonames.data.Intersection"/>
+    <classEntry path="org.geonames.data.StreetSegment"/>
+    <classEntry path="org.geonames.data.WikipediaArticle"/>
+    <classEntry path="org.geonames.PostalCodeSearchCriteria"/>
+    <classEntry path="org.geonames.Bounds"/>
+    <classEntry path="org.geonames.data.Country"/>
+    <classEntry path="org.geonames.data.CountrySubdivision"/>
+    <classEntry path="org.geonames.data.Neighborhood"/>
+    <classEntry path="org.geonames.data.Code"/>
+    <classEntry path="org.geonames.data.WeatherObservation"/>
+    <classEntry path="org.geonames.data.PostalCodeCountryInfo"/>
+    <classEntry path="org.geonames.PostalCodeSearchResult"/>
+    <classEntry path="tests.GeoNamesTest"/>
+    <classEntry path="tests.GeoNamesTestSuite"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>
