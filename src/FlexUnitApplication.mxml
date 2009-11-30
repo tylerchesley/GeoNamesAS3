@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
-				xmlns:mx="library://ns.adobe.com/flex/halo" layout="absolute" minWidth="1024" minHeight="768" xmlns:flexunit="flexunit.flexui.*"    creationComplete="onCreationComplete()" >	
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/halo" minWidth="1024" minHeight="768" xmlns:flexunit="flexunit.flexui.*"    creationComplete="onCreationComplete()" >	
 <fx:Script>
 	<![CDATA[
 
 		import org.flexunit.runner.Request;
-		import tests.GeoNamesTestSuite;
+		import org.geonames.tests.GeoNamesTest;
 
 		public function currentRunTestSuite():Array
 		{
 			var testsToRun:Array = new Array();
-			testsToRun.push(tests.GeoNamesTestSuite);
+			testsToRun.push(org.geonames.tests.GeoNamesTest);
 			return testsToRun;
 		}
 		private function onCreationComplete():void
 		{
-			testRunner.runWithFlexUnit4Runner(currentRunTestSuite(), "GeoNamesAS3");
+			testRunner.runWithFlexUnit4Runner(currentRunTestSuite(), "GeonamesAS3");
 		}
 ]]>
 </fx:Script>
 <flexunit:FlexUnitTestRunnerUI id="testRunner"/>
-</mx:Application>
+</s:Application>
