@@ -338,11 +338,13 @@ package org.geonames
 						 findNearbyWikipediaHandler, params);
 		}
 		
-		public function findNearestAddress(latitude:Number, longitude:Number):void
+		public function findNearestAddress(latitude:Number, longitude:Number, 
+										   style:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.latitude = latitude;
 			params.longitude = longitude;
+			params.style = style ? style : defaultStyle;
 			invokeMethod(FIND_NEAREST_ADDRESS_URL, 
 						 findNearestAddressHandler, params);
 		}
@@ -378,11 +380,12 @@ package org.geonames
 			invokeMethod(HIERARCHY_URL, hierarchyHandler, params);
 		}
 		
-		public function neighborhood(latitude:Number, longitude:Number):void
+		public function neighborhood(latitude:Number, longitude:Number, style:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.latitude = latitude;
 			params.longitude = longitude;
+			params.style = style ? style : defaultStyle;
 			invokeMethod(NEIGHBORHOOD_URL, neighborhoodHandler, params);
 		}
 		
@@ -477,8 +480,8 @@ package org.geonames
 		
 		protected function citiesHandler(event:Event):void
 		{
-			var result:GeoNamesEvent = new GeoNamesEvent(GeoNamesEvent.CITIES);
-			
+			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.CITIES, 
+				XMLDataParser.parseCities);
 		}
 		
 		protected function countryCodeHandler(event:Event):void

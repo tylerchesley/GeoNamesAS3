@@ -28,8 +28,7 @@
     <classEntry path="org.geonames.data.WeatherObservation"/>
     <classEntry path="org.geonames.data.PostalCodeCountryInfo"/>
     <classEntry path="org.geonames.PostalCodeSearchResult"/>
-    <classEntry path="tests.GeoNamesTest"/>
-    <classEntry path="tests.GeoNamesTestSuite"/>
+    <classEntry path="org.geonames.tests.GeoNamesTest"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

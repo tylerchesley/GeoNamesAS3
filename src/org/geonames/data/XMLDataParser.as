@@ -29,6 +29,18 @@ package org.geonames.data
 			return address;
 		}
 		
+		public static function parseCities(data:XML):Vector.<Toponym>
+		{
+			var cities:Vector.<Toponym> = new Vector.<Toponym>;
+			
+			for each (var node:XML in data..geoname)
+			{
+				cities.push(parseToponym(node));
+			}
+			
+			return cities;
+		}
+		
 		public static function parseCountryInfo(data:XML):Vector.<Country>
 		{
 			var countries:Vector.<Country> = new Vector.<Country>();

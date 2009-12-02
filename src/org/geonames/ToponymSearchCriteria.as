@@ -31,7 +31,7 @@ package org.geonames
 		
 		public var language:String;
 		
-		public var maxRows:String;
+		public var maxRows:Number;
 		
 		public var name:String;
 		
