@@ -29,6 +29,7 @@
     <classEntry path="org.geonames.data.PostalCodeCountryInfo"/>
     <classEntry path="org.geonames.PostalCodeSearchResult"/>
     <classEntry path="org.geonames.tests.GeoNamesTest"/>
+    <classEntry path="FlexUnitApplication"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
