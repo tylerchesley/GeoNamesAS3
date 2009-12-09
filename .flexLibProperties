@@ -27,6 +27,7 @@
     <classEntry path="org.geonames.data.WeatherObservation"/>
     <classEntry path="org.geonames.data.PostalCodeCountryInfo"/>
     <classEntry path="org.geonames.data.PostalCodeSearchResult"/>
+    <classEntry path="org.geonames.data.Ocean"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

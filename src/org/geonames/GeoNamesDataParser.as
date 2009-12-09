@@ -6,6 +6,7 @@ package org.geonames
 	import org.geonames.data.CountrySubdivision;
 	import org.geonames.data.Intersection;
 	import org.geonames.data.Neighborhood;
+	import org.geonames.data.Ocean;
 	import org.geonames.data.PostalCode;
 	import org.geonames.data.PostalCodeCountryInfo;
 	import org.geonames.data.PostalCodeSearchResult;
@@ -257,6 +258,13 @@ package org.geonames
 			return timezone;
 		}
 		
+		public static function parseOcean(node:XML):Ocean
+		{
+			var ocean:Ocean = new Ocean();
+			ocean.name = node.name;
+			return ocean;
+		}
+		
 		/**
 		 * 
 		 * @param data
@@ -356,6 +364,7 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.OCEAN:
+					result = parseOcean(XML(data).ocean);
 					break;
 				
 				case GeoNamesEvent.POSTAL_CODE_COUNTRY_INFO:
