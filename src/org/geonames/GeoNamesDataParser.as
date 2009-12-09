@@ -1,21 +1,21 @@
 package org.geonames
 {
-	import org.geonames.events.GeoNamesEvent;
-	import org.geonames.data.WeatherObservation;
-	import org.geonames.data.Neighborhood;
-	import org.geonames.data.PostalCodeSearchResult;
-	import org.geonames.data.Country;
 	import org.geonames.data.Address;
-	import org.geonames.data.Timezone;
-	import org.geonames.data.ToponymSearchResult;
 	import org.geonames.data.Code;
+	import org.geonames.data.Country;
 	import org.geonames.data.CountrySubdivision;
-	import org.geonames.data.Toponym;
-	import org.geonames.data.StreetSegment;
-	import org.geonames.data.PostalCode;
-	import org.geonames.data.WikipediaArticle;
-	import org.geonames.data.PostalCodeCountryInfo;
 	import org.geonames.data.Intersection;
+	import org.geonames.data.Neighborhood;
+	import org.geonames.data.PostalCode;
+	import org.geonames.data.PostalCodeCountryInfo;
+	import org.geonames.data.PostalCodeSearchResult;
+	import org.geonames.data.StreetSegment;
+	import org.geonames.data.Timezone;
+	import org.geonames.data.Toponym;
+	import org.geonames.data.ToponymSearchResult;
+	import org.geonames.data.WeatherObservation;
+	import org.geonames.data.WikipediaArticle;
+	import org.geonames.events.GeoNamesEvent;
 	
 
 	/**
@@ -182,9 +182,11 @@ package org.geonames
 			toponym.name = node.name;
 			toponym.numberOfChildren = node.numberOfChildren;
 			toponym.population = node.population;
-			toponym.timezone = new Timezone(node.timezone.@dstOffset, 
-											node.timezone.@gmOffset, 
-											node.timezone);
+			var timezone:Timezone = new Timezone();
+			timezone.dstOffset = node.timezone.@dstOffset;
+			timezone.gmtOffset = node.timezone.@gmOffset;
+			timezone.timezone = node.timezone;
+			toponym.timezone = timezone;
 			return toponym;
 		}
 		
@@ -238,6 +240,21 @@ package org.geonames
 			}
 			result.postalCodes = postalCodes;
 			return result;
+		}
+		
+		public static function parseTimezone(node:XML):Timezone
+		{
+			var timezone:Timezone = new Timezone();
+			timezone.countryCode = node.countryCode;
+			timezone.countryName = node.countryName;
+			timezone.dstOffset = node.dstOffset;
+			timezone.gmtOffset = node.gmtOffset;
+			timezone.latitude = node.lat;
+			timezone.longitude = node.lng;
+			timezone.rawOffset = node.rawOffset;
+			timezone.time = new Date(node.time);
+			timezone.timezone = node.timezoneId;
+			return timezone;
 		}
 		
 		/**
@@ -338,6 +355,7 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.TIMEZONE:
+					result = parseTimezone(XML(data).timezone);
 					break;
 				
 				case GeoNamesEvent.WIKIPEDIA_BOUNDING_BOX:

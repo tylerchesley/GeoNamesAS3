@@ -3,22 +3,32 @@ package org.geonames.data
 	[Bindable]
 	public class Timezone
 	{
-		public function Timezone(dstOffset:Number, gmOffset:Number, timezone:String)
+		public function Timezone()
 		{
-			this.dstOffset = dstOffset;
-			this.gmtOffset = gmOffset;
-			this.timezone = timezone;
+			
 		}
 	
 	//------------------------------------------------------------------------------
 	//	Properties
 	//------------------------------------------------------------------------------
 		
+		public var countryCode:String;
+		
+		public var countryName:String;
+		
 		public var dstOffset:Number;
 		
 		public var gmtOffset:Number;
 		
+		public var latitude:Number;
+		
+		public var longitude:Number;
+		
+		public var rawOffset:Number;
+		
 		public var timezone:String;
+		
+		public var time:Date;
 		
 	}
 }
