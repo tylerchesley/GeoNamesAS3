@@ -18,7 +18,6 @@ package org.geonames
 	import org.geonames.data.WikipediaEntry;
 	import org.geonames.events.GeoNamesEvent;
 	
-
 	/**
 	 * 
 	 * @author Tyler Chesley
@@ -42,28 +41,6 @@ package org.geonames
 			address.adminName2 = node.adminName2;
 			address.distance = node.distance;
 			return address;
-		}
-		
-		public static function parseCities(data:XML):Vector.<Toponym>
-		{
-			var cities:Vector.<Toponym> = new Vector.<Toponym>;
-			
-			for each (var node:XML in data..geoname)
-			{
-				cities.push(parseToponym(node));
-			}
-			
-			return cities;
-		}
-		
-		public static function parseCountryInfo(data:XML):Vector.<Country>
-		{
-			var countries:Vector.<Country> = new Vector.<Country>();
-			for each (var node:XML in data..country)
-			{
-				countries.push(parseCountry(node));
-			}
-			return countries;
 		}
 		
 		public static function parseCountry(node:XML):Country
@@ -213,7 +190,7 @@ package org.geonames
 			return observation;
 		}
 		
-		public static function parseWikipediaArticle(node:XML):WikipediaEntry
+		public static function parseWikipediaEntry(node:XML):WikipediaEntry
 		{
 			var article:WikipediaEntry = new WikipediaEntry();
 			article.language = node.lang;
@@ -286,16 +263,16 @@ package org.geonames
 			return result;
 		}
 		
-		public static function parseWikipediaEntries(data:XML):Vector.<WikipediaEntry>
+		public static function parseRepeatedElements(elementName:String, parseFunction:Function, data:XML):Array
 		{
-			var entries:Vector.<WikipediaEntry> = new Vector.<WikipediaEntry>;
+			var result:Array = [];
 			
-			for each (var entry:XML in data..entry)
+			for each (var node:XML in data.descendants(elementName))
 			{
-				entries.push(parseWikipediaArticle(entry));
+				result.push(parseFunction(node));
 			}
 			
-			return entries;
+			return result;
 		}
 		
 		public static function parse(type:String, data:String):Object
@@ -313,7 +290,8 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.CITIES:
-					result = parseCities(XML(data));
+				case GeoNamesEvent.FIND_NEARBY_PLACE_NAME:
+					result = parseRepeatedElements("geoname", parseToponym, XML(data));
 					break;
 				
 				case GeoNamesEvent.COUNTRY_CODE:
@@ -321,38 +299,37 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.COUNTRY_INFO:
-					result = parseCountryInfo(XML(data));
+					result = parseRepeatedElements("country", parseCountry, XML(data));
 					break;
 				
 				case GeoNamesEvent.COUNTRY_SUBDIVISION:
 					result = parseCountrySubdivision(XML(data));
 					break;
 				
-				case GeoNamesEvent.FIND_NEARBY_PLACE_NAME:
-					result = parseToponym(XML(data));
-					break;
-				
 				case GeoNamesEvent.FIND_NEARBY_POSTAL_CODES:
+					result = parseRepeatedElements("code", parsePostalCode, XML(data));
 					break;
 				
 				case GeoNamesEvent.FIND_NEARBY_STREETS:
-					result = parseStreetSegment(XML(data));
+					result = parseRepeatedElements("streetSegment", parseStreetSegment, XML(data));
 					break;
 				
 				case GeoNamesEvent.FIND_NEARBY_WEARTHER:
-					result = parseWeatherObservation(XML(data));
+					result = parseRepeatedElements("observation", parseWeatherObservation, XML(data));
 					break;
 				
 				case GeoNamesEvent.FIND_NEARBY_WIKIPEDIA:
-					result = parseWikipediaArticle(XML(data));
+				case GeoNamesEvent.WIKIPEDIA_BOUNDING_BOX:
+				case GeoNamesEvent.WIKIPEDIA_SEARCH:
+					result = parseRepeatedElements("entry", parseWikipediaEntry, XML(data));
 					break;
 				
 				case GeoNamesEvent.FIND_NEAREST_ADDRESS:
-					result = parseAddress(XML(data));
+					result = parseAddress(XML(data).address);
 					break;
 				
 				case GeoNamesEvent.FIND_NEAREST_INTERSECTION:
-					result = parseToponym(XML(data));
+					result = parseToponym(XML(data).intersection);
 					break;
 				
 				case GeoNamesEvent.GET_TOPONYM:
@@ -360,7 +337,7 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.NEIGHBORHOOD:
-					result = parseNeighborhood(XML(data));
+					result = parseNeighborhood(XML(data).neighborhood);
 					break;
 				
 				case GeoNamesEvent.OCEAN:
@@ -379,10 +356,6 @@ package org.geonames
 					result = parseTimezone(XML(data).timezone);
 					break;
 				
-				case GeoNamesEvent.WIKIPEDIA_BOUNDING_BOX:
-				case GeoNamesEvent.WIKIPEDIA_SEARCH:
-					result = parseWikipediaEntries(XML(data));
-					break;
 			}
 			
 			return result;
