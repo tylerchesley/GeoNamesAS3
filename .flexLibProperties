@@ -19,7 +19,7 @@
     <classEntry path="org.geonames.data.StreetSegment"/>
     <classEntry path="org.geonames.data.WikipediaEntry"/>
     <classEntry path="org.geonames.PostalCodeSearchCriteria"/>
-    <classEntry path="org.geonames.Bounds"/>
+    <classEntry path="org.geonames.data.Bounds"/>
     <classEntry path="org.geonames.data.Country"/>
     <classEntry path="org.geonames.data.CountrySubdivision"/>
     <classEntry path="org.geonames.data.Neighborhood"/>

@@ -1,4 +1,4 @@
-package org.geonames
+package org.geonames.data
 {
 	public class Bounds
 	{

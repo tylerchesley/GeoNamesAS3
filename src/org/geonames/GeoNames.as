@@ -124,6 +124,10 @@ package org.geonames
 		
 		private static const WIKIPEDIA_SEARCH_URL:String = "/wikipediaSearch?";
 		
+	//------------------------------------------------------------------------------
+	//	Constructor
+	//------------------------------------------------------------------------------
+		
 		/**
 		 * Constructor 
 		 */		
@@ -146,6 +150,17 @@ package org.geonames
 		 */		
 		private var _defaultLanguage:String = Language.ENGLISH;
 		
+		/**
+		 * The default language to use for all methods that support a 
+		 * language parameter.
+		 * 
+		 * You can override the default language set here for any method that has a 
+		 * language parameter by passing in a value to the method, otherwise the 
+		 * <code>defaultLanguage</code> property will be used.
+		 * 
+		 * @default "en"
+		 * 
+		 */		
 		public function get defaultLanguage():String
 		{
 			return _defaultLanguage;
@@ -172,6 +187,14 @@ package org.geonames
 		 */		
 		private var _defaultStyle:String = Style.MEDIUM;
 		
+		[Inspectable(category="General", enumeration="short,medium,long,full", defaultValue="medium")]
+		
+		/**
+		 * The style property controls the verbosity of returned xml document.
+		 * 
+		 * @default "medium" 
+		 * 
+		 */		
 		public function get defaultStyle():String
 		{
 			return _defaultStyle;
@@ -198,11 +221,17 @@ package org.geonames
 		 */		
 		private var _geoNamesServer:String = "http://ws.geonames.org";
 		
+		/**
+		 * @default "http://ws.geonames.org"
+		 */		
 		public function get geoNamesServer():String
 		{
 			return _geoNamesServer;
 		}
 		
+		/**
+		 * @private
+		 */		
 		public function set geoNamesServer(value:String):void
 		{
 			if (_geoNamesServer == value)
