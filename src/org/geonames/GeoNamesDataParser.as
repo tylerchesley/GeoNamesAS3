@@ -14,7 +14,7 @@ package org.geonames
 	import org.geonames.data.Toponym;
 	import org.geonames.data.ToponymSearchResult;
 	import org.geonames.data.WeatherObservation;
-	import org.geonames.data.WikipediaArticle;
+	import org.geonames.data.WikipediaEntry;
 	import org.geonames.events.GeoNamesEvent;
 	
 
@@ -212,9 +212,9 @@ package org.geonames
 			return observation;
 		}
 		
-		public static function parseWikipediaArticle(node:XML):WikipediaArticle
+		public static function parseWikipediaArticle(node:XML):WikipediaEntry
 		{
-			var article:WikipediaArticle = new WikipediaArticle();
+			var article:WikipediaEntry = new WikipediaEntry();
 			article.language = node.lang;
 			article.elevation = node.altitude;
 			article.title = node.title;
@@ -276,6 +276,18 @@ package org.geonames
 			}
 			result.toponyms = toponyms;
 			return result;
+		}
+		
+		public static function parseWikipediaEntries(data:XML):Vector.<WikipediaEntry>
+		{
+			var entries:Vector.<WikipediaEntry> = new Vector.<WikipediaEntry>;
+			
+			for each (var entry:XML in data..entry)
+			{
+				entries.push(parseWikipediaArticle(entry));
+			}
+			
+			return entries;
 		}
 		
 		public static function parse(type:String, data:String):Object
@@ -359,11 +371,9 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.WIKIPEDIA_BOUNDING_BOX:
-					break;
-				
 				case GeoNamesEvent.WIKIPEDIA_SEARCH:
+					result = parseWikipediaEntries(XML(data));
 					break;
-					
 			}
 			
 			return result;

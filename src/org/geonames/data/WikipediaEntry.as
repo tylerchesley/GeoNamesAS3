@@ -6,14 +6,14 @@ package org.geonames.data
 	 * @author Tyler Chesley
 	 * 
 	 */	
-	public class WikipediaArticle
+	public class WikipediaEntry
 	{
 		
 		/**
 		 * Constructor 
 		 * 
 		 */		
-		public function WikipediaArticle()
+		public function WikipediaEntry()
 		{
 		}
 	

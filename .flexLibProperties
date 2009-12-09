@@ -17,7 +17,7 @@
     <classEntry path="org.geonames.utils.Distance"/>
     <classEntry path="org.geonames.data.Intersection"/>
     <classEntry path="org.geonames.data.StreetSegment"/>
-    <classEntry path="org.geonames.data.WikipediaArticle"/>
+    <classEntry path="org.geonames.data.WikipediaEntry"/>
     <classEntry path="org.geonames.PostalCodeSearchCriteria"/>
     <classEntry path="org.geonames.Bounds"/>
     <classEntry path="org.geonames.data.Country"/>
