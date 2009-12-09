@@ -1,9 +1,9 @@
 package org.geonames
 {
+	import com.adobe.net.DynamicURLLoader;
 	import com.adobe.webapis.URLLoaderBase;
 	
 	import flash.events.Event;
-	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.net.URLVariables;
 	
@@ -214,25 +214,31 @@ package org.geonames
 	//	Methods
 	//------------------------------------------------------------------------------
 		
-		protected function invokeMethod(url:String, resultHandler:Function, 
+		/**
+		 * 
+		 * @param url
+		 * @param resultHandler
+		 * @param params
+		 * 
+		 */		
+		protected function invokeMethod(url:String, eventType:String, 
 								params:Object = null):void
 		{
-			var loader:URLLoader = getURLLoader();
+			var loader:DynamicURLLoader = getURLLoader();
 			var request:URLRequest = new URLRequest(geoNamesServer + url);
-			loader.addEventListener(Event.COMPLETE, resultHandler);
+			loader.eventType = eventType;
+			loader.addEventListener(Event.COMPLETE, completeHandler);
 			request.data = params;
 			loader.load(request);
 		}
 		
-		protected function processAndDispatch(data:String, type:String, 
-											  parseFunction:Function):void
-		{
-			var result:XML = XML(data);
-			var event:GeoNamesEvent = new GeoNamesEvent(type);
-			event.data = parseFunction(XML(data));
-			dispatchEvent(event);
-		}
-		
+		/**
+		 * 
+		 * @param geonameId
+		 * @param style
+		 * @param language
+		 * 
+		 */		
 		public function children(geonameId:int, style:String = null, 
 								 language:String = null):void
 		{
@@ -240,9 +246,19 @@ package org.geonames
 			params.geonameId = geonameId;
 			params.language = language ? language : defaultLanguage;
 			params.style = style ? style : defaultStyle;
-			invokeMethod(CHILDREN_URL, childrenHandler, params);
+			invokeMethod(CHILDREN_URL, GeoNamesEvent.CHILDREN, params);
 		}
 		
+		/**
+		 * 
+		 * @param north
+		 * @param south
+		 * @param east
+		 * @param west
+		 * @param maxRows
+		 * @param language
+		 * 
+		 */		
 		public function cities(north:Number, south:Number, east:Number, west:Number, 
 							   maxRows:Number = 10, language:String = null):void
 		{
@@ -254,26 +270,47 @@ package org.geonames
 			params.maxRows = maxRows;
 			params.style = defaultStyle;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(CITIES_URL, citiesHandler, params);
+			invokeMethod(CITIES_URL, GeoNamesEvent.CITIES, params);
 		}
 		
+		/**
+		 * 
+		 * @param latitude
+		 * @param longitude
+		 * 
+		 */		
 		public function countryCode(latitude:Number, longitude:Number):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.latitude  = latitude;
 			params.longitude = longitude;
-			invokeMethod(COUNTRY_CODE_URL, countryCodeHandler, params);
+			invokeMethod(COUNTRY_CODE_URL, GeoNamesEvent.COUNTRY_CODE, params);
 		}
 		
+		/**
+		 * 
+		 * @param country
+		 * @param language
+		 * 
+		 */		
 		public function countryInfo(country:String = null, 
 									language:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.country = country;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(COUNTRY_INFO_URL, countryInfoHandler, params);
+			invokeMethod(COUNTRY_INFO_URL, GeoNamesEvent.COUNTRY_INFO, params);
 		}
 		
+		/**
+		 * 
+		 * @param latitude
+		 * @param longitude
+		 * @param radius
+		 * @param maxRows
+		 * @param language
+		 * 
+		 */		
 		public function countrySubdivision(latitude:Number, longitude:Number, 
 										   radius:Number = 0, maxRows:Number = 10,
 										   language:String = null):void
@@ -285,9 +322,17 @@ package org.geonames
 			params.maxRows = maxRows;
 			params.language = language ? language : defaultLanguage;
 			invokeMethod(COUNTRY_SUBDIVISION_URL, 
-						 countrySubdivisionHandler, params);
+						 GeoNamesEvent.COUNTRY_SUBDIVISION, params);
 		}
 		
+		/**
+		 * 
+		 * @param latitude
+		 * @param longitude
+		 * @param style
+		 * @param language
+		 * 
+		 */		
 		public function findNearbyPlaceName(latitude:Number, longitude:Number, 
 											style:String = null, 
 											language:String = null):void
@@ -298,25 +343,42 @@ package org.geonames
 			params.style = style ? style : defaultStyle;
 			params.lang = language ? language : defaultLanguage;
 			invokeMethod(FIND_NEARBY_PLACE_NAME_URL, 
-						 findNearbyPlaceNameHandler, params);
+						 GeoNamesEvent.FIND_NEARBY_PLACE_NAME, params);
 		}
 		
+		/**
+		 * 
+		 * 
+		 */		
 		public function findNearbyPostalCodes():void
 		{
 			var params:URLVariables = new URLVariables();
 			invokeMethod(FIND_NEARBY_POSTAL_CODES_URL, 
-						 findNearbyPostalCodesHandler, params);
+						 GeoNamesEvent.FIND_NEARBY_POSTAL_CODES, params);
 		}
 		
+		/**
+		 * 
+		 * @param latitude
+		 * @param longitude
+		 * 
+		 */		
 		public function findNearbyStreets(latitude:Number, longitude:Number):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.latitude = latitude;
 			params.longitude = longitude;
 			invokeMethod(FIND_NEARBY_STREETS_URL, 
-						 findNearbyStreetsHandler, params);
+						 GeoNamesEvent.FIND_NEARBY_STREETS, params);
 		}
 		
+		/**
+		 * 
+		 * @param latitude
+		 * @param longitude
+		 * @param style
+		 * 
+		 */		
 		public function findNearbyWeather(latitude:Number, longitude:Number, 
 										  style:String = null):void
 		{
@@ -324,9 +386,16 @@ package org.geonames
 			params.lat = latitude;
 			params.lng = longitude;
 			params.style = style ? style : defaultStyle;
-			invokeMethod(FIND_NEARBY_WEATHER_URL, findNearbyWeatherHandler, params);
+			invokeMethod(FIND_NEARBY_WEATHER_URL, GeoNamesEvent.FIND_NEARBY_WEARTHER, params);
 		}
 		
+		/**
+		 * 
+		 * @param latitude
+		 * @param longitude
+		 * @param language
+		 * 
+		 */		
 		public function findNearbyWikipedia(latitude:Number, longitude:Number, 
 											language:String = null):void
 		{
@@ -335,9 +404,16 @@ package org.geonames
 			params.longitude = longitude;
 			params.language = language;
 			invokeMethod(FIND_NEARBY_WIKIPEDIA_URL, 
-						 findNearbyWikipediaHandler, params);
+						 GeoNamesEvent.FIND_NEARBY_WIKIPEDIA, params);
 		}
 		
+		/**
+		 * 
+		 * @param latitude
+		 * @param longitude
+		 * @param style
+		 * 
+		 */		
 		public function findNearestAddress(latitude:Number, longitude:Number, 
 										   style:String = null):void
 		{
@@ -346,9 +422,16 @@ package org.geonames
 			params.longitude = longitude;
 			params.style = style ? style : defaultStyle;
 			invokeMethod(FIND_NEAREST_ADDRESS_URL, 
-						 findNearestAddressHandler, params);
+						 GeoNamesEvent.FIND_NEAREST_ADDRESS, params);
 		}
 		
+		/**
+		 * 
+		 * @param latitude
+		 * @param longitude
+		 * @param style
+		 * 
+		 */		
 		public function findNearestIntersection(latitude:Number, longitude:Number, 
 												style:String = null):void
 		{
@@ -357,9 +440,16 @@ package org.geonames
 			params.lng = longitude;
 			params.style = style ? style : defaultStyle;
 			invokeMethod(FIND_NEAREST_INTERSECTION_URL, 
-				findNearestIntersectionHandler, params);
+				GeoNamesEvent.FIND_NEAREST_INTERSECTION, params);
 		}
 		
+		/**
+		 * 
+		 * @param geonameId
+		 * @param style
+		 * @param language
+		 * 
+		 */		
 		public function getToponym(geonameId:int, style:String = null, 
 								   language:String = null):void
 		{
@@ -367,9 +457,16 @@ package org.geonames
 			params.geonameid = geonameId;
 			params.style = style ? style : defaultStyle;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(GET_TOPONYM_URL, getToponymHandler, params);
+			invokeMethod(GET_TOPONYM_URL, GeoNamesEvent.GET_TOPONYM, params);
 		}
 		
+		/**
+		 * 
+		 * @param geonameId
+		 * @param style
+		 * @param language
+		 * 
+		 */		
 		public function hierarchy(geonameId:int, style:String = null, 
 								  language:String = null):void
 		{
@@ -377,18 +474,32 @@ package org.geonames
 			params.geonameid = geonameId;
 			params.style = style;
 			params.language = language;
-			invokeMethod(HIERARCHY_URL, hierarchyHandler, params);
+			invokeMethod(HIERARCHY_URL, GeoNamesEvent.HIERARCHY, params);
 		}
 		
+		/**
+		 * 
+		 * @param latitude
+		 * @param longitude
+		 * @param style
+		 * 
+		 */		
 		public function neighborhood(latitude:Number, longitude:Number, style:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.latitude = latitude;
 			params.longitude = longitude;
 			params.style = style ? style : defaultStyle;
-			invokeMethod(NEIGHBORHOOD_URL, neighborhoodHandler, params);
+			invokeMethod(NEIGHBORHOOD_URL, GeoNamesEvent.NEIGHBORHOOD, params);
 		}
 		
+		/**
+		 * 
+		 * @param geonameId
+		 * @param style
+		 * @param language
+		 * 
+		 */		
 		public function neighbors(geonameId:Number, style:String = null, 
 								  language:String = null):void
 		{
@@ -396,32 +507,59 @@ package org.geonames
 			params.geonameid = geonameId;
 			params.style = style ? style : defaultStyle;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(NEIGHBORS_URL, neighborsHandler, params);
+			invokeMethod(NEIGHBORS_URL, GeoNamesEvent.NEIGHBORS, params);
 		}
 		
+		/**
+		 * 
+		 * @param latitude
+		 * @param longitude
+		 * 
+		 */		
 		public function ocean(latitude:Number, longitude:Number):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
-			invokeMethod(OCEAN_URL, oceanHandler, params);
+			invokeMethod(OCEAN_URL, GeoNamesEvent.OCEAN, params);
 		}
 		
+		/**
+		 * 
+		 * 
+		 */		
 		public function postalCodeCountryInfo():void
 		{
-			invokeMethod(POSTAL_CODE_COUNTRY_INFO, postalCodeCountryInfoHandler);
+			invokeMethod(POSTAL_CODE_COUNTRY_INFO, GeoNamesEvent.POSTAL_CODE_COUNTRY_INFO);
 		}
 		
+		/**
+		 * 
+		 * @param criteria
+		 * 
+		 */		
 		public function postalCodeSearch(criteria:PostalCodeSearchCriteria):void
 		{
-			invokeMethod(POSTAL_CODE_SEARCH_URL, postalCodeSearchHandler, criteria);
+			invokeMethod(POSTAL_CODE_SEARCH_URL, GeoNamesEvent.POSTAL_CODE_SEARCH, criteria);
 		}
 		
+		/**
+		 * 
+		 * @param criteria
+		 * 
+		 */		
 		public function search(criteria:ToponymSearchCriteria):void
 		{
-			invokeMethod(SEARCH_URL, searchHandler, criteria);
+			invokeMethod(SEARCH_URL, GeoNamesEvent.SEARCH, criteria);
 		}
 		
+		/**
+		 * 
+		 * @param geonameId
+		 * @param style
+		 * @param language
+		 * 
+		 */		
 		public function siblings(geonameId:int, style:String = null, 
 								 language:String = null):void
 		{
@@ -429,17 +567,33 @@ package org.geonames
 			params.geonameid = geonameId;
 			params.style = style ? style : defaultStyle;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(SIBLINGS_URL, siblingsHandler, params);
+			invokeMethod(SIBLINGS_URL, GeoNamesEvent.SIBLINGS, params);
 		}
 		
+		/**
+		 * 
+		 * @param latitude
+		 * @param longitude
+		 * 
+		 */		
 		public function timezone(latitude:Number, longitude:Number):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.latitude = latitude;
 			params.longitude = longitude;
-			invokeMethod(TIMEZONE_URL, timezoneHandler, params);
+			invokeMethod(TIMEZONE_URL, GeoNamesEvent.TIMEZONE, params);
 		}
 		
+		/**
+		 * 
+		 * @param north
+		 * @param south
+		 * @param east
+		 * @param west
+		 * @param maxRows
+		 * @param language
+		 * 
+		 */		
 		public function wikipediaBoundingBox(north:Number, south:Number, 
 											 east:Number, west:Number, 
 											 maxRows:Number = 10, 
@@ -452,10 +606,18 @@ package org.geonames
 			params.west = west;
 			params.maxRows = maxRows;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(WIKIPEDIA_BOUNDING_BOX_URL, wikipediaBoundingBoxHandler, 
+			invokeMethod(WIKIPEDIA_BOUNDING_BOX_URL, GeoNamesEvent.WIKIPEDIA_BOUNDING_BOX, 
 				params);
 		}
 		
+		/**
+		 * 
+		 * @param placeName
+		 * @param title
+		 * @param maxRows
+		 * @param language
+		 * 
+		 */		
 		public function wikipediaSearch(placeName:String, title:String = null, 
 										maxRows:Number = 10, 
 										language:String = null):void
@@ -465,151 +627,20 @@ package org.geonames
 			params.title = title;
 			params.maxRows = maxRows;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(WIKIPEDIA_SEARCH_URL, wikipediaSearchHandler, params);
+			invokeMethod(WIKIPEDIA_SEARCH_URL, GeoNamesEvent.WIKIPEDIA_SEARCH, params);
 		}
 	
 	//------------------------------------------------------------------------------
 	//	Event Handlers
 	//------------------------------------------------------------------------------
 		
-		protected function childrenHandler(event:Event):void
+		private function completeHandler(event:Event):void
 		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.CHILDREN, 
-							   XMLDataParser.parseToponymSearchResult);
-		}
-		
-		protected function citiesHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.CITIES, 
-				XMLDataParser.parseCities);
-		}
-		
-		protected function countryCodeHandler(event:Event):void
-		{
-			var result:GeoNamesEvent = new GeoNamesEvent(GeoNamesEvent.COUNTRY_CODE);
-			result.data = URLLoader(event.target).data;
-			dispatchEvent(result);
-		}
-		
-		protected function countryInfoHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.COUNTRY_INFO, 
-							   XMLDataParser.parseCountryInfo);
-		}
-		
-		protected function countrySubdivisionHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.COUNTRY_SUBDIVISION, 
-							   XMLDataParser.parseCountrySubdivision);
-		}
-		
-		protected function findNearbyPlaceNameHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.FIND_NEARBY_PLACE_NAME, 
-				XMLDataParser.parseToponym);
-		}
-		
-		protected function findNearbyPostalCodesHandler(event:Event):void
-		{
-			
-		}
-		
-		protected function findNearbyStreetsHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.FIND_NEARBY_STREETS, 
-							   XMLDataParser.parseStreetSegment);
-		}
-		
-		protected function findNearbyWeatherHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.FIND_NEARBY_WEARTHER, 
-							   XMLDataParser.parseWeatherObservation);
-		}
-		
-		protected function findNearbyWikipediaHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.FIND_NEARBY_WIKIPEDIA, 
-				XMLDataParser.parseWikipediaArticle);
-		}
-		
-		protected function findNearestAddressHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.FIND_NEAREST_ADDRESS, 
-				XMLDataParser.parseAddress);
-		}
-		
-		protected function findNearestIntersectionHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.FIND_NEAREST_INTERSECTION, 
-				XMLDataParser.parseIntersection);
-		}
-		
-		protected function getToponymHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.GET_TOPONYM, 
-				XMLDataParser.parseToponym);
-		}
-		
-		protected function hierarchyHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.HIERARCHY, 
-				XMLDataParser.parseToponymSearchResult);
-		}
-		
-		protected function neighborhoodHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.NEIGHBORHOOD, 
-				XMLDataParser.parseNeighborhood);
-		}
-		
-		protected function neighborsHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.NEIGHBORS, 
-				XMLDataParser.parseToponymSearchResult);
-		}
-		
-		protected function oceanHandler(event:Event):void
-		{
-			
-		}
-		
-		protected function postalCodeCountryInfoHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.POSTAL_CODE_COUNTRY_INFO, 
-				XMLDataParser.parsePostalCodeCountryInfo);
-		}
-		
-		protected function postalCodeSearchHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.POSTAL_CODE_SEARCH, 
-				XMLDataParser.parsePostalCodeSearchResult);
-		}
-		
-		protected function searchHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.SEARCH, 
-				XMLDataParser.parseToponymSearchResult);
-		}
-		
-		protected function siblingsHandler(event:Event):void
-		{
-			processAndDispatch(URLLoader(event.target).data, GeoNamesEvent.SIBLINGS, 
-				XMLDataParser.parseToponymSearchResult);
-		}
-		
-		protected function timezoneHandler(event:Event):void
-		{
-			
-		}
-		
-		protected function wikipediaBoundingBoxHandler(event:Event):void
-		{
-			
-		}
-		
-		protected function wikipediaSearchHandler(event:Event):void
-		{
-			
+			var loader:DynamicURLLoader = event.target as DynamicURLLoader;
+			var data:XML = XML(loader.data);
+			var resultEvent:GeoNamesEvent = new GeoNamesEvent(loader.eventType);
+			resultEvent.data = XMLDataParser.parse(loader.eventType, data);
+			dispatchEvent(resultEvent);
 		}
 		
 	}

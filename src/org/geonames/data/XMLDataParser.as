@@ -1,7 +1,7 @@
 package org.geonames.data
 {
 	import org.geonames.PostalCodeSearchResult;
-
+	import org.geonames.events.GeoNamesEvent;
 	
 
 	/**
@@ -244,6 +244,96 @@ package org.geonames.data
 				toponyms.push(parseToponym(node, style));
 			}
 			result.toponyms = toponyms;
+			return result;
+		}
+		
+		public static function parse(type:String, data:String):Object
+		{
+			var result:Object;
+			
+			switch(type) 
+			{
+				case GeoNamesEvent.CHILDREN:
+				case GeoNamesEvent.HIERARCHY:
+				case GeoNamesEvent.NEIGHBORS:
+				case GeoNamesEvent.SEARCH:
+				case GeoNamesEvent.SIBLINGS:
+					result = parseToponymSearchResult(XML(data));
+					break;
+				
+				case GeoNamesEvent.CITIES:
+					result = parseCities(XML(data));
+					break;
+				
+				case GeoNamesEvent.COUNTRY_CODE:
+					result = data;
+					break;
+				
+				case GeoNamesEvent.COUNTRY_INFO:
+					result = parseCountryInfo(XML(data));
+					break;
+				
+				case GeoNamesEvent.COUNTRY_SUBDIVISION:
+					result = parseCountrySubdivision(XML(data));
+					break;
+				
+				case GeoNamesEvent.FIND_NEARBY_PLACE_NAME:
+					result = parseToponym(XML(data));
+					break;
+				
+				case GeoNamesEvent.FIND_NEARBY_POSTAL_CODES:
+					break;
+				
+				case GeoNamesEvent.FIND_NEARBY_STREETS:
+					result = parseStreetSegment(XML(data));
+					break;
+				
+				case GeoNamesEvent.FIND_NEARBY_WEARTHER:
+					result = parseWeatherObservation(XML(data));
+					break;
+				
+				case GeoNamesEvent.FIND_NEARBY_WIKIPEDIA:
+					result = parseWikipediaArticle(XML(data));
+					break;
+				
+				case GeoNamesEvent.FIND_NEAREST_ADDRESS:
+					result = parseAddress(XML(data));
+					break;
+				
+				case GeoNamesEvent.FIND_NEAREST_INTERSECTION:
+					result = parseToponym(XML(data));
+					break;
+				
+				case GeoNamesEvent.GET_TOPONYM:
+					result = parseToponym(XML(data));
+					break;
+				
+				case GeoNamesEvent.NEIGHBORHOOD:
+					result = parseNeighborhood(XML(data));
+					break;
+				
+				case GeoNamesEvent.OCEAN:
+					break;
+				
+				case GeoNamesEvent.POSTAL_CODE_COUNTRY_INFO:
+					result = parsePostalCodeCountryInfo(XML(data));
+					break;
+				
+				case GeoNamesEvent.POSTAL_CODE_SEARCH:
+					result = parsePostalCodeSearchResult(XML(data));
+					break;
+				
+				case GeoNamesEvent.TIMEZONE:
+					break;
+				
+				case GeoNamesEvent.WIKIPEDIA_BOUNDING_BOX:
+					break;
+				
+				case GeoNamesEvent.WIKIPEDIA_SEARCH:
+					break;
+					
+			}
+			
 			return result;
 		}
 		

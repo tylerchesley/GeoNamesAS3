@@ -3,7 +3,6 @@
   <includeClasses>
     <classEntry path="org.geonames.GeoNames"/>
     <classEntry path="org.geonames.Language"/>
-    <classEntry path="org.geonames.Method"/>
     <classEntry path="org.geonames.Style"/>
     <classEntry path="org.geonames.ToponymSearchCriteria"/>
     <classEntry path="org.geonames.data.Address"/>
@@ -29,7 +28,6 @@
     <classEntry path="org.geonames.data.PostalCodeCountryInfo"/>
     <classEntry path="org.geonames.PostalCodeSearchResult"/>
     <classEntry path="org.geonames.tests.GeoNamesTest"/>
-    <classEntry path="FlexUnitApplication"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
