@@ -1,4 +1,4 @@
-package org.geonames
+package org.geonames.data
 {
 	[Bindable]
 	public class PostalCodeSearchResult

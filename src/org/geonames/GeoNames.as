@@ -7,8 +7,9 @@ package org.geonames
 	import flash.net.URLRequest;
 	import flash.net.URLVariables;
 	
-	import org.geonames.data.XMLDataParser;
 	import org.geonames.events.GeoNamesEvent;
+	import org.geonames.codes.Language;
+	import org.geonames.codes.Style;
 
 	//--------------------------------------
 	//	Events
@@ -639,7 +640,7 @@ package org.geonames
 			var loader:DynamicURLLoader = event.target as DynamicURLLoader;
 			var data:XML = XML(loader.data);
 			var resultEvent:GeoNamesEvent = new GeoNamesEvent(loader.eventType);
-			resultEvent.data = XMLDataParser.parse(loader.eventType, data);
+			resultEvent.data = GeoNamesDataParser.parse(loader.eventType, data);
 			dispatchEvent(resultEvent);
 		}
 		

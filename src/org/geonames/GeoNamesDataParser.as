@@ -1,7 +1,21 @@
-package org.geonames.data
+package org.geonames
 {
-	import org.geonames.PostalCodeSearchResult;
 	import org.geonames.events.GeoNamesEvent;
+	import org.geonames.data.WeatherObservation;
+	import org.geonames.data.Neighborhood;
+	import org.geonames.data.PostalCodeSearchResult;
+	import org.geonames.data.Country;
+	import org.geonames.data.Address;
+	import org.geonames.data.Timezone;
+	import org.geonames.data.ToponymSearchResult;
+	import org.geonames.data.Code;
+	import org.geonames.data.CountrySubdivision;
+	import org.geonames.data.Toponym;
+	import org.geonames.data.StreetSegment;
+	import org.geonames.data.PostalCode;
+	import org.geonames.data.WikipediaArticle;
+	import org.geonames.data.PostalCodeCountryInfo;
+	import org.geonames.data.Intersection;
 	
 
 	/**
@@ -9,7 +23,7 @@ package org.geonames.data
 	 * @author Tyler Chesley
 	 * 
 	 */	
-	public class XMLDataParser
+	public class GeoNamesDataParser
 	{
 		
 		public static function parseAddress(node:XML):Address

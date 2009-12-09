@@ -1,4 +1,4 @@
-package org.geonames
+package org.geonames.codes
 {
 	public class Language
 	{

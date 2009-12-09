@@ -2,8 +2,8 @@
 <flexLibProperties includeAllClasses="false" version="1">
   <includeClasses>
     <classEntry path="org.geonames.GeoNames"/>
-    <classEntry path="org.geonames.Language"/>
-    <classEntry path="org.geonames.Style"/>
+    <classEntry path="org.geonames.codes.Language"/>
+    <classEntry path="org.geonames.codes.Style"/>
     <classEntry path="org.geonames.ToponymSearchCriteria"/>
     <classEntry path="org.geonames.data.Address"/>
     <classEntry path="org.geonames.data.FreatureClass"/>
@@ -11,7 +11,7 @@
     <classEntry path="org.geonames.data.Timezone"/>
     <classEntry path="org.geonames.data.Toponym"/>
     <classEntry path="org.geonames.data.ToponymSearchResult"/>
-    <classEntry path="org.geonames.data.XMLDataParser"/>
+    <classEntry path="org.geonames.GeoNamesDataParser"/>
     <classEntry path="org.geonames.events.GeoNamesEvent"/>
     <classEntry path="org.geonames.utils.Bearing"/>
     <classEntry path="org.geonames.utils.Distance"/>
@@ -26,8 +26,7 @@
     <classEntry path="org.geonames.data.Code"/>
     <classEntry path="org.geonames.data.WeatherObservation"/>
     <classEntry path="org.geonames.data.PostalCodeCountryInfo"/>
-    <classEntry path="org.geonames.PostalCodeSearchResult"/>
-    <classEntry path="org.geonames.tests.GeoNamesTest"/>
+    <classEntry path="org.geonames.data.PostalCodeSearchResult"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
