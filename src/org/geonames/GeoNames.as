@@ -312,8 +312,8 @@ package org.geonames
 		public function countryCode(latitude:Number, longitude:Number):void
 		{
 			var params:URLVariables = new URLVariables();
-			params.latitude  = latitude;
-			params.longitude = longitude;
+			params.lat  = latitude;
+			params.lng = longitude;
 			invokeMethod(COUNTRY_CODE_URL, GeoNamesEvent.COUNTRY_CODE, params);
 		}
 		
@@ -368,8 +368,8 @@ package org.geonames
 											language:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
-			params.latitude = latitude;
-			params.longitude = longitude;
+			params.lat = latitude;
+			params.lng = longitude;
 			params.style = style ? style : defaultStyle;
 			params.lang = language ? language : defaultLanguage;
 			invokeMethod(FIND_NEARBY_PLACE_NAME_URL, 
@@ -396,8 +396,8 @@ package org.geonames
 		public function findNearbyStreets(latitude:Number, longitude:Number):void
 		{
 			var params:URLVariables = new URLVariables();
-			params.latitude = latitude;
-			params.longitude = longitude;
+			params.lat = latitude;
+			params.lng = longitude;
 			invokeMethod(FIND_NEARBY_STREETS_URL, 
 						 GeoNamesEvent.FIND_NEARBY_STREETS, params);
 		}
@@ -430,9 +430,9 @@ package org.geonames
 											language:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
-			params.latitude = latitude;
-			params.longitude = longitude;
-			params.language = language;
+			params.lat = latitude;
+			params.lng = longitude;
+			params.language = language ? language : defaultLanguage;
 			invokeMethod(FIND_NEARBY_WIKIPEDIA_URL, 
 						 GeoNamesEvent.FIND_NEARBY_WIKIPEDIA, params);
 		}
@@ -448,8 +448,8 @@ package org.geonames
 										   style:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
-			params.latitude = latitude;
-			params.longitude = longitude;
+			params.lat = latitude;
+			params.lng = longitude;
 			params.style = style ? style : defaultStyle;
 			invokeMethod(FIND_NEAREST_ADDRESS_URL, 
 						 GeoNamesEvent.FIND_NEAREST_ADDRESS, params);
@@ -517,8 +517,8 @@ package org.geonames
 		public function neighborhood(latitude:Number, longitude:Number, style:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
-			params.latitude = latitude;
-			params.longitude = longitude;
+			params.lat = latitude;
+			params.lng = longitude;
 			params.style = style ? style : defaultStyle;
 			invokeMethod(NEIGHBORHOOD_URL, GeoNamesEvent.NEIGHBORHOOD, params);
 		}
@@ -609,8 +609,8 @@ package org.geonames
 		public function timezone(latitude:Number, longitude:Number):void
 		{
 			var params:URLVariables = new URLVariables();
-			params.latitude = latitude;
-			params.longitude = longitude;
+			params.lat = latitude;
+			params.lng = longitude;
 			invokeMethod(TIMEZONE_URL, GeoNamesEvent.TIMEZONE, params);
 		}
 		
@@ -667,9 +667,8 @@ package org.geonames
 		private function completeHandler(event:Event):void
 		{
 			var loader:DynamicURLLoader = event.target as DynamicURLLoader;
-			var data:XML = XML(loader.data);
 			var resultEvent:GeoNamesEvent = new GeoNamesEvent(loader.eventType);
-			resultEvent.data = GeoNamesDataParser.parse(loader.eventType, data);
+			resultEvent.data = GeoNamesDataParser.parse(loader.eventType, loader.data);
 			dispatchEvent(resultEvent);
 		}
 		
