@@ -1,5 +1,7 @@
 package org.geonames
 {
+	import com.adobe.utils.StringUtil;
+	
 	import org.geonames.data.Address;
 	import org.geonames.data.Code;
 	import org.geonames.data.Country;
@@ -151,12 +153,13 @@ package org.geonames
 			toponym.alternateNames = node.alternateNames;
 			toponym.countryCode = node.countryCode;
 			toponym.countryName = node.countryName;
+			toponym.distance = node.distance;
 			toponym.elevation = node.elevation;
 			toponym.featureClass = node.fcl;
 			toponym.featureCode = node.fcode;
 			toponym.geoNameId = node.geonameId;
-			toponym.latitude = node.latitude;
-			toponym.longitude = node.longitude;
+			toponym.latitude = node.lat;
+			toponym.longitude = node.lng;
 			toponym.name = node.name;
 			toponym.numberOfChildren = node.numberOfChildren;
 			toponym.population = node.population;
@@ -295,7 +298,7 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.COUNTRY_CODE:
-					result = data;
+					result = StringUtil.trim(data);
 					break;
 				
 				case GeoNamesEvent.COUNTRY_INFO:
@@ -303,7 +306,7 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.COUNTRY_SUBDIVISION:
-					result = parseCountrySubdivision(XML(data));
+					result = parseRepeatedElements("countrySubdivision", parseCountrySubdivision, XML(data));
 					break;
 				
 				case GeoNamesEvent.FIND_NEARBY_POSTAL_CODES:

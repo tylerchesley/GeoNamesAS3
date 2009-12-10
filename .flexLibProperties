@@ -28,6 +28,7 @@
     <classEntry path="org.geonames.data.PostalCodeCountryInfo"/>
     <classEntry path="org.geonames.data.PostalCodeSearchResult"/>
     <classEntry path="org.geonames.data.Ocean"/>
+    <classEntry path="org.geonames.tests.GeoNamesTest"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
