@@ -225,7 +225,7 @@ package org.geonames
 			observation.latitude = node.lat;
 			observation.longitude = node.lng;
 			observation.observation = node.observation;
-			observation.observationTime = node.observationTime;
+			observation.observationTime = new Date(node.observationTime);
 			observation.stationName = node.stationName;
 			observation.temperature = node.temperature;
 			observation.weatherCondition = node.weatherCondition;

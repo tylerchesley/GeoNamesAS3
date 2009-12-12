@@ -14,6 +14,7 @@ package org.geonames.tests
 	import org.geonames.data.Timezone;
 	import org.geonames.data.Toponym;
 	import org.geonames.data.ToponymSearchResult;
+	import org.geonames.data.WeatherObservation;
 	import org.geonames.data.WikipediaEntry;
 	import org.geonames.events.GeoNamesEvent;
 	
@@ -292,9 +293,37 @@ package org.geonames.tests
 		}
 		
 		[Test(async)]
+		// http://ws.geonames.org/findNearByWeatherXML?lat=43&lng=-2
 		public function testFindNearbyWeather():void
 		{
-			
+			Async.handleEvent(this, geonames, GeoNamesEvent.FIND_NEARBY_WEARTHER, 
+				findNearbyWeatherHandler, TIMEOUT);
+			geonames.findNearbyWeather(43, -2);
+		}
+		
+		/*<observation>
+			<observation>LESO 112030Z 05004KT 9999 FEW015 07/05 Q1020</observation>
+			<observationTime>2009-12-11 20:30:00</observationTime>
+			<stationName>San Sebastian / Fuenterrabia</stationName>
+			<ICAO>LESO</ICAO>
+			<countryCode>ES</countryCode>
+			<elevation>8</elevation>
+			<lat>43.35</lat>
+			<lng>-1.8</lng>
+			<temperature>7</temperature>
+			<dewPoint>5</dewPoint>
+			<humidity>87</humidity>
+			<clouds>few clouds</clouds>
+			<weatherCondition>n/a</weatherCondition>
+			<hectoPascAltimeter>1020.0</hectoPascAltimeter>
+			<windDirection>50.0</windDirection>
+			<windSpeed>04</windSpeed>
+		</observation>*/
+		private function findNearbyWeatherHandler(event:GeoNamesEvent, params:*):void
+		{
+			var observation:WeatherObservation = event.data[0] as WeatherObservation;
+			Assert.assertEquals("ES", observation.countryCode);
+			Assert.assertEquals("San Sebastian / Fuenterrabia", observation.stationName);
 		}
 		
 		[Test(async)]
