@@ -38,9 +38,9 @@ package org.geonames.events
 		
 		public static const HIERARCHY:String = "hierarchy";
 		
-		public static const NEIGHBORHOOD:String = "neighborhood";
+		public static const NEIGHBOURHOOD:String = "neighbourhood";
 		
-		public static const NEIGHBORS:String = "neighbors";
+		public static const NEIGHBOURS:String = "neighbours";
 		
 		public static const OCEAN:String = "ocean";
 		

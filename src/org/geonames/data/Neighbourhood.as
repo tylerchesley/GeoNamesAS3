@@ -1,9 +1,9 @@
 package org.geonames.data
 {
 	[Bindable]
-	public class Neighborhood
+	public class Neighbourhood
 	{
-		public function Neighborhood()
+		public function Neighbourhood()
 		{
 		}
 	

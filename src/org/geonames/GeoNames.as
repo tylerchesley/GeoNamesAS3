@@ -44,9 +44,9 @@ package org.geonames
 	
 	[Event(name="hierarchy", type="org.geonames.events.GeoNamesEvent")]
 	
-	[Event(name="neighborhood", type="org.geonames.events.GeoNamesEvent")]
+	[Event(name="neighbourhood", type="org.geonames.events.GeoNamesEvent")]
 	
-	[Event(name="neighbors", type="org.geonames.events.GeoNamesEvent")]
+	[Event(name="neighbours", type="org.geonames.events.GeoNamesEvent")]
 	
 	[Event(name="ocean", type="org.geonames.events.GeoNamesEvent")]
 	
@@ -104,9 +104,9 @@ package org.geonames
 		
 		private static const HIERARCHY_URL:String = "/hierarchy?";
 		
-		private static const NEIGHBORHOOD_URL:String = "/neighborhood?";
+		private static const NEIGHBOURHOOD_URL:String = "/neighbourhood?";
 		
-		private static const NEIGHBORS_URL:String = "/neighbors?";
+		private static const NEIGHBOURS_URL:String = "/neighbours?";
 		
 		private static const OCEAN_URL:String = "/ocean?";
 		
@@ -484,7 +484,7 @@ package org.geonames
 								   language:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
-			params.geonameid = geonameId;
+			params.geonameId = geonameId;
 			params.style = style ? style : defaultStyle;
 			params.language = language ? language : defaultLanguage;
 			invokeMethod(GET_TOPONYM_URL, GeoNamesEvent.GET_TOPONYM, params);
@@ -501,9 +501,9 @@ package org.geonames
 								  language:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
-			params.geonameid = geonameId;
-			params.style = style;
-			params.language = language;
+			params.geonameId = geonameId;
+			params.style = style ? style : defaultStyle;
+			params.language = language ? language : defaultLanguage;
 			invokeMethod(HIERARCHY_URL, GeoNamesEvent.HIERARCHY, params);
 		}
 		
@@ -514,13 +514,13 @@ package org.geonames
 		 * @param style
 		 * 
 		 */		
-		public function neighborhood(latitude:Number, longitude:Number, style:String = null):void
+		public function neighbourhood(latitude:Number, longitude:Number, style:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
 			params.style = style ? style : defaultStyle;
-			invokeMethod(NEIGHBORHOOD_URL, GeoNamesEvent.NEIGHBORHOOD, params);
+			invokeMethod(NEIGHBOURHOOD_URL, GeoNamesEvent.NEIGHBOURHOOD, params);
 		}
 		
 		/**
@@ -530,14 +530,14 @@ package org.geonames
 		 * @param language
 		 * 
 		 */		
-		public function neighbors(geonameId:Number, style:String = null, 
+		public function neighbours(geonameId:Number, style:String = null, 
 								  language:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
-			params.geonameid = geonameId;
+			params.geonameId = geonameId;
 			params.style = style ? style : defaultStyle;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(NEIGHBORS_URL, GeoNamesEvent.NEIGHBORS, params);
+			invokeMethod(NEIGHBOURS_URL, GeoNamesEvent.NEIGHBOURS, params);
 		}
 		
 		/**
@@ -594,7 +594,7 @@ package org.geonames
 								 language:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
-			params.geonameid = geonameId;
+			params.geonameId = geonameId;
 			params.style = style ? style : defaultStyle;
 			params.language = language ? language : defaultLanguage;
 			invokeMethod(SIBLINGS_URL, GeoNamesEvent.SIBLINGS, params);
@@ -654,7 +654,8 @@ package org.geonames
 		{
 			var params:URLVariables = new URLVariables();
 			params.q = placeName;
-			params.title = title;
+			if (title)
+				params.title = title;
 			params.maxRows = maxRows;
 			params.language = language ? language : defaultLanguage;
 			invokeMethod(WIKIPEDIA_SEARCH_URL, GeoNamesEvent.WIKIPEDIA_SEARCH, params);

@@ -3,9 +3,15 @@ package org.geonames.tests
 	import org.flexunit.Assert;
 	import org.flexunit.async.Async;
 	import org.geonames.GeoNames;
+	import org.geonames.data.Address;
 	import org.geonames.data.Country;
 	import org.geonames.data.CountrySubdivision;
+	import org.geonames.data.Intersection;
+	import org.geonames.data.Neighbourhood;
+	import org.geonames.data.Ocean;
+	import org.geonames.data.PostalCodeCountryInfo;
 	import org.geonames.data.StreetSegment;
+	import org.geonames.data.Timezone;
 	import org.geonames.data.Toponym;
 	import org.geonames.data.ToponymSearchResult;
 	import org.geonames.data.WikipediaEntry;
@@ -329,55 +335,266 @@ package org.geonames.tests
 			Assert.assertEquals(entry.latitude, 46.9986);
 			Assert.assertEquals(entry.longitude, 8.9986);
 			Assert.assertEquals(entry.wikipediaUrl, "http://en.wikipedia.org/wiki/Gl%C3%A4rnisch");
-			Assert.assertNull(entry.thumbnailImg);
+			Assert.assertEquals(entry.thumbnailImg, "");
 		}
 		
 		[Test(async)]
+		// http://ws.geonames.org/findNearestAddress?lat=37.451&lng=-122.18
 		public function testFindNearestAddress():void
 		{
-			
+			Async.handleEvent(this, geonames, GeoNamesEvent.FIND_NEAREST_ADDRESS, 
+				findNearestAddressHandler, TIMEOUT);
+			geonames.findNearestAddress(37.451, -122.18);
+		}
+		
+		/*<address>
+			<street>Roble Ave</street>
+			<streetNumber>671</streetNumber>
+			<lat>37.45126961535734</lat>
+			<lng>-122.1803227963682</lng>
+			<distance>0.04</distance>
+			<postalcode>94025</postalcode>
+			<placename>Menlo Park</placename>
+			<adminCode2>081</adminCode2>
+			<adminName2>San Mateo</adminName2>
+			<adminCode1>CA</adminCode1>
+			<adminName1>California</adminName1>
+			<countryCode>US</countryCode>
+		</address>*/
+		private function findNearestAddressHandler(event:GeoNamesEvent, params:*):void
+		{
+			var address:Address = event.data as Address;
+			Assert.assertEquals(address.street, "Roble Ave");
+			Assert.assertEquals(address.streetNumber, 671);
+			Assert.assertEquals(address.latitude, 37.45126961535734);
+			Assert.assertEquals(address.longitude, -122.1803227963682);
+			Assert.assertEquals(address.distance, 0.04);
+			Assert.assertEquals(address.postalCode, 94025);
+			Assert.assertEquals(address.placeName, "Menlo Park");
+			Assert.assertEquals(address.adminCode1, "CA");
+			Assert.assertEquals(address.adminName1, "California");
+			Assert.assertEquals(address.adminCode2, "081");
+			Assert.assertEquals(address.adminName2, "San Mateo");
+			Assert.assertEquals(address.countryCode, "US");
 		}
 		
 		[Test(async)]
+		// http://ws.geonames.org/findNearestIntersection?lat=37.451&lng=-122.18
 		public function testFindNearestIntersection():void
 		{
-			
+			Async.handleEvent(this, geonames, GeoNamesEvent.FIND_NEAREST_INTERSECTION, 
+				findNearestIntersectionHandler, TIMEOUT);
+			geonames.findNearestIntersection(37.451, -122.18);
+		}
+		
+		/*<intersection>
+			<street1>Roble Ave</street1>
+			<street2>Curtis St</street2>
+			<lat>37.450649</lat>
+			<lng>-122.180842</lng>
+			<distance>0.08</distance>
+			<postalcode>94025</postalcode>
+			<placename>Menlo Park</placename>
+			<adminName2>San Mateo</adminName2>
+			<adminCode1>CA</adminCode1>
+			<adminName1>California</adminName1>
+			<countryCode>US</countryCode>
+		</intersection>*/
+		private function findNearestIntersectionHandler(event:GeoNamesEvent, params:*):void
+		{
+			var intersection:Intersection = event.data as Intersection;
+			Assert.assertEquals(intersection.street, "Roble Ave");
+			Assert.assertEquals(intersection.street2, "Curtis St");
+			Assert.assertEquals(intersection.latitude, 37.450649);
+			Assert.assertEquals(intersection.longitude, -122.180842);
+			Assert.assertEquals(intersection.distance, 0.08);
+			Assert.assertEquals(intersection.postalCode, 94025);
+			Assert.assertEquals(intersection.placeName, "Menlo Park");
+			Assert.assertEquals(intersection.adminCode1, "CA");
+			Assert.assertEquals(intersection.adminName1, "California");
+			Assert.assertEquals(intersection.adminName2, "San Mateo");
+			Assert.assertEquals(intersection.countryCode, "US");
 		}
 		
 		[Test(async)]
+		// http://ws.geonames.org/get?geonameId=6295630&style=short
 		public function testGetToponym():void
 		{
-			
+			Async.handleEvent(this, geonames, GeoNamesEvent.GET_TOPONYM, 
+				getToponymHandler, TIMEOUT);
+			geonames.getToponym(6295630);
+		}
+		
+		/*<geoname>
+			<name>Earth</name>
+			<lat>0.0</lat>
+			<lng>0.0</lng>
+			<geonameId>6295630</geonameId>
+			<countryCode/>
+			<countryName/>
+			<fcl>L</fcl>
+			<fcode/>
+			<fclName>parks,area, ...</fclName>
+			<fcodeName/>
+			<population/>
+			<alternateNames>
+				Aarde,Earth,Erde,Foeld,Föld,Globe,Jorden,Lurra,Maa,Mondo,Mundo,Mundua,Orbs,Pamant,Pamânt,Planeta Tierra,Tero,Terra,Terre,Tierra,Zemlja,el mon,el món,el planeta,nuestro planeta,Γη,Υδρόγειος,Земля
+			</alternateNames>
+			<elevation/>
+			<adminCode1>20</adminCode1>
+			<adminName1>Opština Priština</adminName1>
+			<adminCode2/>
+			<adminName2/>
+			<timezone dstOffset="2.0" gmtOffset="1.0">Europe/Zurich</timezone>
+		</geoname>*/
+		private function getToponymHandler(event:GeoNamesEvent, params:*):void
+		{
+			var toponym:Toponym = event.data as Toponym;
+			Assert.assertEquals(toponym.name, "Earth");
+			Assert.assertEquals(toponym.latitude, 0);
+			Assert.assertEquals(toponym.longitude, 0);
+			Assert.assertEquals(toponym.geoNameId, 6295630);
+			Assert.assertEquals(toponym.featureClass, "L");
+			Assert.assertEquals(toponym.adminCode1, 20);
+			Assert.assertEquals(toponym.adminName1, "Opština Priština");
 		}
 		
 		[Test(async)]
+		// http://ws.geonames.org/hierarchy?geonameId=2657896
 		public function testHierarchy():void
 		{
-			
+			Async.handleEvent(this, geonames, GeoNamesEvent.HIERARCHY, 
+				hierarchyHandler, TIMEOUT);
+			geonames.hierarchy(2657896);
 		}
 		
-		[Test(async)]
-		public function testNeighborhood():void 
+		/*<geoname>
+			<name>Earth</name>
+			<lat>0.0</lat>
+			<lng>0.0</lng>
+			<geonameId>6295630</geonameId>
+			<countryCode/>
+			<countryName/>
+			<fcl>L</fcl>
+			<fcode/>
+		</geoname>*/
+		private function hierarchyHandler(event:GeoNamesEvent, params:*):void
 		{
-			
+			var result:ToponymSearchResult = event.data as ToponymSearchResult;
+			var toponym:Toponym = result.toponyms[0];
+			Assert.assertEquals(toponym.name, "Earth");
+			Assert.assertEquals(toponym.latitude, 0);
+			Assert.assertEquals(toponym.longitude, 0);
+			Assert.assertEquals("L", toponym.featureClass);
 		}
 		
 		[Test(async)]
-		public function testNeighbors():void
+		// http://ws.geonames.org/neighbourhood?lat=40.78343&lng=-73.96625
+		public function testNeighbourhood():void 
 		{
-			
+			Async.handleEvent(this, geonames, GeoNamesEvent.NEIGHBOURHOOD, 
+				neighbourhoodHandler, TIMEOUT);
+			geonames.neighbourhood(40.78343, -73.96625);
+		}
+		
+		/*<neighbourhood>
+			<countryCode>US</countryCode>
+			<countryName>United States</countryName>
+			<adminCode1>NY</adminCode1>
+			<adminName1>New York</adminName1>
+			<adminCode2>061</adminCode2>
+			<adminName2>New York County</adminName2>
+			<city>New York City-Manhattan</city>
+			<name>Central Park</name>
+		</neighbourhood>*/
+		private function neighbourhoodHandler(event:GeoNamesEvent, params:*):void
+		{
+			var neighbourhood:Neighbourhood = event.data as Neighbourhood;
+			Assert.assertEquals(neighbourhood.countryCode, "US");
+			Assert.assertEquals(neighbourhood.countryName, "United States");
+			Assert.assertEquals(neighbourhood.adminCode1, "NY");
+			Assert.assertEquals(neighbourhood.adminName1, "New York");
+			Assert.assertEquals(neighbourhood.adminCode2, "061");
+			Assert.assertEquals(neighbourhood.adminName2, "New York County");
+			Assert.assertEquals(neighbourhood.city, "New York City-Manhattan");
+			Assert.assertEquals(neighbourhood.name, "Central Park");
 		}
 		
 		[Test(async)]
+		// http://ws.geonames.org/neighbours?geonameId=2658434
+		public function testNeighbours():void
+		{
+			Async.handleEvent(this, geonames, GeoNamesEvent.NEIGHBOURS, 
+				neighboursHandler, TIMEOUT);
+			geonames.neighbours(2658434);
+		}
+		
+		/*<geoname>
+			<name>Austria</name>
+			<lat>47.3333333</lat>
+			<lng>13.3333333</lng>
+			<geonameId>2782113</geonameId>
+			<countryCode>AT</countryCode>
+			<countryName>Austria</countryName>
+			<fcl>A</fcl>
+			<fcode>PCLI</fcode>
+		</geoname>*/
+		private function neighboursHandler(event:GeoNamesEvent, params:*):void
+		{
+			var result:ToponymSearchResult = event.data as ToponymSearchResult;
+			var toponym:Toponym = result.toponyms[0];
+			Assert.assertEquals(result.toponyms.length, 5);
+			Assert.assertEquals(toponym.name, "Austria");
+			Assert.assertEquals(toponym.latitude, 47.3333333);
+			Assert.assertEquals(toponym.longitude, 13.3333333);
+			Assert.assertEquals(toponym.countryCode, "AT");
+			Assert.assertEquals(toponym.countryName, "Austria");
+			Assert.assertEquals(toponym.featureClass, "A");
+			Assert.assertEquals(toponym.featureCode, "PCLI");
+		}
+		
+		[Test(async)]
+		// http://ws.geonames.org/ocean?lat=40.78343&lng=-43.96625
 		public function testOceans():void
 		{
-			
+			Async.handleEvent(this, geonames, GeoNamesEvent.OCEAN, 
+				oceanHandler, TIMEOUT);
+			geonames.ocean(40.78343, -43.96625);
+		}
+		
+		/*<ocean>
+			<name>North Atlantic Ocean</name>
+		</ocean>*/
+		private function oceanHandler(event:GeoNamesEvent, params:*):void
+		{
+			var ocean:Ocean = event.data as Ocean;
+			Assert.assertEquals(ocean.name, "North Atlantic Ocean");
 		}
 		
 		[Test(async)]
+		// http://ws.geonames.org/postalCodeCountryInfo?
 		public function testPostalCodeCountryInfo():void
 		{
-			
+			Async.handleEvent(this, geonames, GeoNamesEvent.POSTAL_CODE_COUNTRY_INFO, 
+				postalCodeCountryInfoHandler, TIMEOUT);
+			geonames.postalCodeCountryInfo();
+		}
+		
+		/*<country>
+			<countryCode>AD</countryCode>
+			<countryName>Andorra</countryName>
+			<numPostalCodes>7</numPostalCodes>
+			<minPostalCode>AD100</minPostalCode>
+			<maxPostalCode>AD700</maxPostalCode>
+		</country>*/
+		private function postalCodeCountryInfoHandler(event:GeoNamesEvent, params:*):void
+		{
+			var country:PostalCodeCountryInfo = event.data[0] as PostalCodeCountryInfo;
+			Assert.assertEquals(country.countryCode, "AD");
+			Assert.assertEquals(country.countryName, "Andorra");
+			Assert.assertEquals(country.numPostalCodes, 7);
+			Assert.assertEquals(country.minPostalCode, "AD100");
+			Assert.assertEquals(country.maxPostalCode, "AD700");
 		}
 		
 		[Test(async)]
@@ -393,27 +610,108 @@ package org.geonames.tests
 		}
 		
 		[Test(async)]
+		// http://ws.geonames.org/siblings?geonameId=3017382
 		public function testSiblings():void
 		{
-			
+			Async.handleEvent(this, geonames, GeoNamesEvent.SIBLINGS, 
+				siblingsHandler, TIMEOUT);
+			geonames.siblings(3017382);
+		}
+		
+		/*<geoname>
+			<name>Albania</name>
+			<lat>41.0</lat>
+			<lng>20.0</lng>
+			<geonameId>783754</geonameId>
+			<countryCode>AL</countryCode>
+			<countryName>Albania</countryName>
+			<fcl>A</fcl>
+			<fcode>PCLI</fcode>
+		</geoname>*/
+		private function siblingsHandler(event:GeoNamesEvent, params:*):void
+		{
+			var result:ToponymSearchResult = event.data as ToponymSearchResult;
+			var toponym:Toponym = result.toponyms[0];
+			Assert.assertEquals(result.total, 48);
+			Assert.assertEquals(toponym.name, "Albania");
+			Assert.assertEquals(toponym.latitude, 41.0);
+			Assert.assertEquals(toponym.geoNameId, 783754);
+			Assert.assertEquals(toponym.countryCode, "AL");
+			Assert.assertEquals(toponym.countryName, "Albania");
+			Assert.assertEquals(toponym.featureClass, "A");
+			Assert.assertEquals(toponym.featureCode, "PCLI");
 		}
 		
 		[Test(async)]
+		// http://ws.geonames.org/timezone?lat=47.01&lng=10.2
 		public function testTimezone():void
 		{
-			
+			Async.handleEvent(this, geonames, GeoNamesEvent.TIMEZONE, 
+				timezoneHandler, TIMEOUT);
+			geonames.timezone(47.01, 10.2);
+		}
+		
+		/*<timezone>
+			<countryCode>AT</countryCode>
+			<countryName>Austria</countryName>
+			<lat>47.01</lat>
+			<lng>10.2</lng>
+			<timezoneId>Europe/Vienna</timezoneId>
+			<dstOffset>2.0</dstOffset>
+			<gmtOffset>1.0</gmtOffset>
+			<rawOffset>1.0</rawOffset>
+			<time>2009-12-11 21:09</time>
+		</timezone>*/
+		private function timezoneHandler(event:GeoNamesEvent, params:*):void
+		{
+			var timezone:Timezone = event.data as Timezone;
+			Assert.assertEquals(timezone.countryCode, "AT");
+			Assert.assertEquals(timezone.countryName, "Austria");
+			Assert.assertEquals(timezone.latitude, 47.01);
+			Assert.assertEquals(timezone.longitude, 10.2);
+			Assert.assertEquals(timezone.timezone, "Europe/Vienna");
+			Assert.assertEquals(timezone.dstOffset, 2.0);
+			Assert.assertEquals(timezone.gmtOffset, 1.0);
+			Assert.assertEquals(timezone.rawOffset, 1.0);
 		}
 		
 		[Test(async)]
+		// http://ws.geonames.org/wikipediaBoundingBox?north=44.1&south=-9.9&east=-22.4&west=55.2
 		public function testWikipediaBoundingBox():void
 		{
-			
+			Async.handleEvent(this, geonames, GeoNamesEvent.WIKIPEDIA_BOUNDING_BOX, 
+				wikipediaBoundingBoxHandler, TIMEOUT);
+			geonames.wikipediaBoundingBox(44.1, -9.9, -22.4, 55.2);
+		}
+		
+		private function wikipediaBoundingBoxHandler(event:GeoNamesEvent, params:*):void
+		{
+			var entries:Array = event.data as Array;
+			var first:WikipediaEntry = entries[0];
+			var last:WikipediaEntry = entries[entries.length - 1];
+			Assert.assertEquals(first.title, "Chongqing");
+			Assert.assertEquals(last.title, "India");
 		}
 		
 		[Test(async)]
+		// http://ws.geonames.org/wikipediaSearch?q=london&maxRows=10
 		public function testWikipediaSearch():void
 		{
-			
+			Async.handleEvent(this, geonames, GeoNamesEvent.WIKIPEDIA_SEARCH, 
+				wikipediaSearchHandler, TIMEOUT);
+			geonames.wikipediaSearch("london");
 		}
+		
+		private function wikipediaSearchHandler(event:GeoNamesEvent, params:*):void
+		{
+			var entries:Array = event.data as Array;
+			var first:WikipediaEntry = entries[0];
+			var last:WikipediaEntry = entries[entries.length - 1];
+			var middle:WikipediaEntry = entries[4];
+			Assert.assertEquals(first.title, "London");
+			Assert.assertEquals(last.title, "London Arch");
+			Assert.assertEquals(middle.title, "London Borough of Lewisham");
+		}
+		
 	}
 }

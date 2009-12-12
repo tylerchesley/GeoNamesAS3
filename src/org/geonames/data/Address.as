@@ -13,6 +13,8 @@ package org.geonames.data
 	//	Properties
 	//------------------------------------------------------------------------------
 		
+		public var countryCode:String;
+		
 		public var street:String;
 		
 		public var streetNumber:Number;

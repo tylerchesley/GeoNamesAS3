@@ -6,7 +6,7 @@ package org.geonames.data
 	 * @author Tyler Chesley
 	 * 
 	 */	
-	public class StreetSegment
+	public class StreetSegment extends PostalCode
 	{
 		
 		/**
@@ -19,6 +19,12 @@ package org.geonames.data
 	//------------------------------------------------------------------------------
 	//	Properties
 	//------------------------------------------------------------------------------
+		
+		public var countryCode:String;
+		
+		public var line:String;
+		
+		public var mtfcc:String;
 		
 		/**
 		 * 

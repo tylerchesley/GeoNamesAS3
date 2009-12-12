@@ -7,7 +7,7 @@ package org.geonames
 	import org.geonames.data.Country;
 	import org.geonames.data.CountrySubdivision;
 	import org.geonames.data.Intersection;
-	import org.geonames.data.Neighborhood;
+	import org.geonames.data.Neighbourhood;
 	import org.geonames.data.Ocean;
 	import org.geonames.data.PostalCode;
 	import org.geonames.data.PostalCodeCountryInfo;
@@ -42,6 +42,8 @@ package org.geonames
 			address.adminName1 = node.adminName1;
 			address.adminName2 = node.adminName2;
 			address.distance = node.distance;
+			address.countryCode = node.countryCode;
+			address.postalCode = node.postalcode;
 			return address;
 		}
 		
@@ -87,18 +89,42 @@ package org.geonames
 			return subdivision;
 		}
 		
+		<intersection>
+			<street1>Roble Ave</street1>
+			<street2>Curtis St</street2>
+			<lat>37.450649</lat>
+			<lng>-122.180842</lng>
+			<distance>0.08</distance>
+			<postalcode>94025</postalcode>
+			<placename>Menlo Park</placename>
+			<adminName2>San Mateo</adminName2>
+			<adminCode1>CA</adminCode1>
+			<adminName1>California</adminName1>
+			<countryCode>US</countryCode>
+			</intersection>
 		public static function parseIntersection(node:XML):Intersection
 		{
 			var intersection:Intersection = new Intersection();
+			intersection.street = node.street1;
+			intersection.street2 = node.street2;
+			intersection.latitude = node.lat;
+			intersection.longitude = node.lng;
+			intersection.distance = node.distance;
+			intersection.postalCode = node.postalcode;
+			intersection.placeName = node.placename;
+			intersection.adminCode1 = node.adminCode1;
+			intersection.adminName1 = node.adminName1;
+			intersection.adminName2 = node.adminName2;
+			intersection.countryCode = node.countryCode;
 			return intersection;
 		}
 		
-		public static function parseNeighborhood(node:XML):Neighborhood
+		public static function parseNeighborhood(node:XML):Neighbourhood
 		{
-			var neighborhood:Neighborhood = new Neighborhood();
+			var neighborhood:Neighbourhood = new Neighbourhood();
 			neighborhood.adminCode1 = node.adminCode1;
 			neighborhood.adminCode2 = node.adminCode2;
-			neighborhood.adminName1 = node.adminCode1;
+			neighborhood.adminName1 = node.adminName1;
 			neighborhood.adminName2 = node.adminName2;
 			neighborhood.city = node.city;
 			neighborhood.countryCode = node.countryCode;
@@ -133,6 +159,21 @@ package org.geonames
 		public static function parseStreetSegment(node:XML):StreetSegment
 		{
 			var segment:StreetSegment = new StreetSegment();
+			segment.line = node.line;
+			segment.distance = node.distance;
+			segment.mtfcc = node.mtfcc;
+			segment.name = node.name;
+			segment.fraddl = node.fraddl;
+			segment.fraddr = node.fraddr;
+			segment.toaddl = node.toaddl;
+			segment.toaddr = node.toaddr;
+			segment.postalCode = node.postalcode;
+			segment.placeName = node.placename;
+			segment.adminCode1 = node.adminCode1;
+			segment.adminCode2 = node.adminCode2;
+			segment.adminName1 = node.adminName1;
+			segment.adminName2 = node.adminName2;
+			segment.countryCode = node.countryCode;
 			return segment;
 		}
 		
@@ -201,10 +242,10 @@ package org.geonames
 			article.title = node.title;
 			article.summary = node.summary;
 			article.feature = node.feature;
-			article.wikipediaUrl = node.wikipediaArticle;
+			article.wikipediaUrl = node.wikipediaUrl;
 			article.thumbnailImg = node.thumbnailImg;
-			article.latitude = node.latitude;
-			article.longitude = node.longitude;
+			article.latitude = node.lat;
+			article.longitude = node.lng;
 			article.population = node.population;
 			return article;
 		}
@@ -286,7 +327,7 @@ package org.geonames
 			{
 				case GeoNamesEvent.CHILDREN:
 				case GeoNamesEvent.HIERARCHY:
-				case GeoNamesEvent.NEIGHBORS:
+				case GeoNamesEvent.NEIGHBOURS:
 				case GeoNamesEvent.SEARCH:
 				case GeoNamesEvent.SIBLINGS:
 					result = parseToponymSearchResult(XML(data));
@@ -328,27 +369,27 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.FIND_NEAREST_ADDRESS:
-					result = parseAddress(XML(data).address);
+					result = parseAddress(XML(data).address[0]);
 					break;
 				
 				case GeoNamesEvent.FIND_NEAREST_INTERSECTION:
-					result = parseToponym(XML(data).intersection);
+					result = parseIntersection(XML(data).intersection[0]);
 					break;
 				
 				case GeoNamesEvent.GET_TOPONYM:
 					result = parseToponym(XML(data));
 					break;
 				
-				case GeoNamesEvent.NEIGHBORHOOD:
-					result = parseNeighborhood(XML(data).neighborhood);
+				case GeoNamesEvent.NEIGHBOURHOOD:
+					result = parseNeighborhood(XML(data).neighbourhood[0]);
 					break;
 				
 				case GeoNamesEvent.OCEAN:
-					result = parseOcean(XML(data).ocean);
+					result = parseOcean(XML(data).ocean[0]);
 					break;
 				
 				case GeoNamesEvent.POSTAL_CODE_COUNTRY_INFO:
-					result = parsePostalCodeCountryInfo(XML(data));
+					result = parseRepeatedElements("country", parsePostalCodeCountryInfo, XML(data));
 					break;
 				
 				case GeoNamesEvent.POSTAL_CODE_SEARCH:
@@ -356,7 +397,7 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.TIMEZONE:
-					result = parseTimezone(XML(data).timezone);
+					result = parseTimezone(XML(data).timezone[0]);
 					break;
 				
 			}
