@@ -9,6 +9,7 @@ package org.geonames
 	
 	import org.geonames.codes.Language;
 	import org.geonames.codes.Style;
+	import org.geonames.criteria.PostalCodeSearchCriteria;
 	import org.geonames.criteria.ToponymSearchCriteria;
 	import org.geonames.events.GeoNamesEvent;
 
