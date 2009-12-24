@@ -29,6 +29,7 @@
     <classEntry path="org.geonames.utils.Bearing"/>
     <classEntry path="org.geonames.utils.Distance"/>
     <classEntry path="org.geonames.codes.Operator"/>
+    <classEntry path="org.geonames.criteria.FindNearbyPostalCodesCriteria"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

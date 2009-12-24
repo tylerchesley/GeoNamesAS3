@@ -9,6 +9,7 @@ package org.geonames
 	
 	import org.geonames.codes.Language;
 	import org.geonames.codes.Style;
+	import org.geonames.criteria.FindNearbyPostalCodesCriteria;
 	import org.geonames.criteria.PostalCodeSearchCriteria;
 	import org.geonames.criteria.ToponymSearchCriteria;
 	import org.geonames.events.GeoNamesEvent;
@@ -381,7 +382,7 @@ package org.geonames
 		 * 
 		 * 
 		 */		
-		public function findNearbyPostalCodes(criteria:PostalCodeSearchCriteria):void
+		public function findNearbyPostalCodes(criteria:FindNearbyPostalCodesCriteria):void
 		{
 			invokeMethod(FIND_NEARBY_POSTAL_CODES_URL, 
 						 GeoNamesEvent.FIND_NEARBY_POSTAL_CODES, criteria);
