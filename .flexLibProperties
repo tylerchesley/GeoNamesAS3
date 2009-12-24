@@ -4,7 +4,7 @@
     <classEntry path="org.geonames.GeoNames"/>
     <classEntry path="org.geonames.GeoNamesDataParser"/>
     <classEntry path="org.geonames.PostalCodeSearchCriteria"/>
-    <classEntry path="org.geonames.ToponymSearchCriteria"/>
+    <classEntry path="org.geonames.criteria.ToponymSearchCriteria"/>
     <classEntry path="org.geonames.codes.Language"/>
     <classEntry path="org.geonames.codes.Style"/>
     <classEntry path="org.geonames.data.Address"/>
