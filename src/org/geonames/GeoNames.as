@@ -7,14 +7,13 @@ package org.geonames
 	import flash.net.URLRequest;
 	import flash.net.URLVariables;
 	
-	import org.geonames.events.GeoNamesEvent;
 	import org.geonames.codes.Language;
 	import org.geonames.codes.Style;
+	import org.geonames.events.GeoNamesEvent;
 
 	//--------------------------------------
 	//	Events
 	//--------------------------------------
-	
 	
 	[Event(name="children", type="org.geonames.events.GeoNamesEvent")]
 	
@@ -252,7 +251,7 @@ package org.geonames
 		 * 
 		 */		
 		protected function invokeMethod(url:String, eventType:String, 
-								params:Object = null):void
+										params:Object = null):void
 		{
 			var loader:DynamicURLLoader = getURLLoader();
 			var request:URLRequest = new URLRequest(geoNamesServer + url);
@@ -380,11 +379,10 @@ package org.geonames
 		 * 
 		 * 
 		 */		
-		public function findNearbyPostalCodes():void
+		public function findNearbyPostalCodes(criteria:PostalCodeSearchCriteria):void
 		{
-			var params:URLVariables = new URLVariables();
 			invokeMethod(FIND_NEARBY_POSTAL_CODES_URL, 
-						 GeoNamesEvent.FIND_NEARBY_POSTAL_CODES, params);
+						 GeoNamesEvent.FIND_NEARBY_POSTAL_CODES, criteria);
 		}
 		
 		/**
