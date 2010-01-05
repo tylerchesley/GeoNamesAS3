@@ -88,20 +88,7 @@ package org.geonames
 			subdivision.codes = codes;
 			return subdivision;
 		}
-		
-		<intersection>
-			<street1>Roble Ave</street1>
-			<street2>Curtis St</street2>
-			<lat>37.450649</lat>
-			<lng>-122.180842</lng>
-			<distance>0.08</distance>
-			<postalcode>94025</postalcode>
-			<placename>Menlo Park</placename>
-			<adminName2>San Mateo</adminName2>
-			<adminCode1>CA</adminCode1>
-			<adminName1>California</adminName1>
-			<countryCode>US</countryCode>
-			</intersection>
+
 		public static function parseIntersection(node:XML):Intersection
 		{
 			var intersection:Intersection = new Intersection();
@@ -192,12 +179,21 @@ package org.geonames
 			toponym.adminName1 = node.adminName1;
 			toponym.adminName2 = node.adminName2;
 			toponym.alternateNames = node.alternateNames;
+			var altNames:Object = {};
+			for each (var altName:XML in node..alternateName)
+			{
+				altNames[altName.@lang] = altName.toString();
+			}
+			toponym.alternateNamesByLanguage = altNames;
+			toponym.continentCode = node.continentCode;
 			toponym.countryCode = node.countryCode;
 			toponym.countryName = node.countryName;
 			toponym.distance = node.distance;
 			toponym.elevation = node.elevation;
 			toponym.featureClass = node.fcl;
+			toponym.featureClassName = node.fclName;
 			toponym.featureCode = node.fcode;
+			toponym.featureCodeName = node.fcodeName;
 			toponym.geoNameId = node.geonameId;
 			toponym.latitude = node.lat;
 			toponym.longitude = node.lng;
@@ -206,7 +202,7 @@ package org.geonames
 			toponym.population = node.population;
 			var timezone:Timezone = new Timezone();
 			timezone.dstOffset = node.timezone.@dstOffset;
-			timezone.gmtOffset = node.timezone.@gmOffset;
+			timezone.gmtOffset = node.timezone.@gmtOffset;
 			timezone.timezone = node.timezone;
 			toponym.timezone = timezone;
 			return toponym;

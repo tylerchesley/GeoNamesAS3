@@ -28,6 +28,7 @@
     <classEntry path="org.geonames.events.GeoNamesEvent"/>
     <classEntry path="org.geonames.utils.Bearing"/>
     <classEntry path="org.geonames.utils.Distance"/>
+    <classEntry path="org.geonames.tests.GeoNamesDataParserTest"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

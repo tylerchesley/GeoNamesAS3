@@ -27,7 +27,9 @@ package org.geonames.data
 		
 		public var alternateNames:String;
 		
-		public var alternateNamesByLanguage:Array;
+		public var alternateNamesByLanguage:Object;
+		
+		public var continentCode:String;
 		
 		public var countryCode:String;
 		
@@ -39,7 +41,11 @@ package org.geonames.data
 		
 		public var featureClass:String;
 		
+		public var featureClassName:String;
+		
 		public var featureCode:String;
+		
+		public var featureCodeName:String;
 		
 		public var geoNameId:int;
 		
