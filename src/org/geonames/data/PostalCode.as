@@ -19,6 +19,8 @@ package org.geonames.data
 		
 		public var adminName2:String;
 		
+		public var countryCode:String;
+		
 		public var distance:Number;
 		
 		public var latitude:Number;

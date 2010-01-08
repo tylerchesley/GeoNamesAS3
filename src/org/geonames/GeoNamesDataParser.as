@@ -81,7 +81,7 @@ package org.geonames
 			for each (var codeNode:XML in node..code)
 			{
 				var code:Code = new Code();
-				code.type = codeNode.type;
+				code.type = codeNode.@type;
 				code.value = codeNode.valueOf();
 				codes.push(code);
 			}
@@ -106,7 +106,7 @@ package org.geonames
 			return intersection;
 		}
 		
-		public static function parseNeighborhood(node:XML):Neighbourhood
+		public static function parseNeighbourhood(node:XML):Neighbourhood
 		{
 			var neighborhood:Neighbourhood = new Neighbourhood();
 			neighborhood.adminCode1 = node.adminCode1;
@@ -377,7 +377,7 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.NEIGHBOURHOOD:
-					result = parseNeighborhood(XML(data).neighbourhood[0]);
+					result = parseNeighbourhood(XML(data).neighbourhood[0]);
 					break;
 				
 				case GeoNamesEvent.OCEAN:
