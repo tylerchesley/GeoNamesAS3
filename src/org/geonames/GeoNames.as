@@ -264,6 +264,12 @@ package org.geonames
 			loader.load(request);
 		}
 		
+		protected function checkError(data:XML):Boolean
+		{
+			
+			return false;
+		}
+		
 		/**
 		 * 
 		 * @param geonameId

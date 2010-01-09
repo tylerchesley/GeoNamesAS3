@@ -29,16 +29,14 @@ package org.geonames.data
 		/**
 		 * 
 		 */		
-		public var latitudes:Vector.<Number>;
+		public var latitudes:Array;
 		
 		/**
 		 * 
 		 */		
-		public var longitudes:Vector.<Number>;
-
-		/**
-		 * 
-		 */		
+		public var longitudes:Array;
+		 
+		
 		public var cfcc:String;
 
 		/**

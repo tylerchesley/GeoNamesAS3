@@ -3,12 +3,14 @@ package org.geonames.tests
 	import org.flexunit.Assert;
 	import org.flexunit.async.Async;
 	import org.geonames.GeoNames;
+	import org.geonames.criteria.FindNearbyPostalCodesCriteria;
 	import org.geonames.data.Address;
 	import org.geonames.data.Country;
 	import org.geonames.data.CountrySubdivision;
 	import org.geonames.data.Intersection;
 	import org.geonames.data.Neighbourhood;
 	import org.geonames.data.Ocean;
+	import org.geonames.data.PostalCode;
 	import org.geonames.data.PostalCodeCountryInfo;
 	import org.geonames.data.StreetSegment;
 	import org.geonames.data.Timezone;
@@ -232,7 +234,10 @@ package org.geonames.tests
 		{
 			Async.handleEvent(this, geonames, GeoNamesEvent.FIND_NEARBY_POSTAL_CODES, 
 				findNearbyPostalCodesHandler, TIMEOUT);
-			geonames.findNearbyPostalCodes();
+			var criteria:FindNearbyPostalCodesCriteria = new FindNearbyPostalCodesCriteria();
+			criteria.lat = 47;
+			criteria.lng = 9;
+			geonames.findNearbyPostalCodes(criteria);
 		}
 		
 		/*<code>
@@ -251,7 +256,9 @@ package org.geonames.tests
 		</code>*/
 		private function findNearbyPostalCodesHandler(event:GeoNamesEvent, params:*):void
 		{
-			
+			var code:PostalCode = event.data[0] as PostalCode;
+			Assert.assertEquals(8750, code.postalCode);
+			Assert.assertEquals("Klöntal", code.placeName);
 		}
 		
 		[Test(async)]

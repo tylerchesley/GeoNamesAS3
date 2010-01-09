@@ -1,5 +1,7 @@
 package org.geonames.criteria
 {
+	import org.geonames.codes.Style;
+
 	public class FindNearbyPostalCodesCriteria
 	{
 		public function FindNearbyPostalCodesCriteria()
@@ -10,13 +12,9 @@ package org.geonames.criteria
 	//	Properties
 	//------------------------------------------------------------------------------
 		
-		public var postalcode:String;
-		
 		public var lat:Number;
 		
 		public var lng:Number;
-		
-		public var radius:Number;
 		
 		/**
 		 * @default 5 
@@ -27,7 +25,7 @@ package org.geonames.criteria
 		/**
 		 * @default "MEDIUM" 
 		 */		
-		public var style:String;
+		public var style:String = Style.MEDIUM;
 		
 		public var country:String;
 		

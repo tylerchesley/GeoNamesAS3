@@ -6,6 +6,7 @@ package org.geonames
 	import org.geonames.data.Code;
 	import org.geonames.data.Country;
 	import org.geonames.data.CountrySubdivision;
+	import org.geonames.data.GeoNamesException;
 	import org.geonames.data.Intersection;
 	import org.geonames.data.Neighbourhood;
 	import org.geonames.data.Ocean;
@@ -89,19 +90,6 @@ package org.geonames
 			return subdivision;
 		}
 		
-		<intersection>
-			<street1>Roble Ave</street1>
-			<street2>Curtis St</street2>
-			<lat>37.450649</lat>
-			<lng>-122.180842</lng>
-			<distance>0.08</distance>
-			<postalcode>94025</postalcode>
-			<placename>Menlo Park</placename>
-			<adminName2>San Mateo</adminName2>
-			<adminCode1>CA</adminCode1>
-			<adminName1>California</adminName1>
-			<countryCode>US</countryCode>
-			</intersection>
 		public static function parseIntersection(node:XML):Intersection
 		{
 			var intersection:Intersection = new Intersection();
@@ -317,6 +305,20 @@ package org.geonames
 			}
 			
 			return result;
+		}
+		
+		public static function parseException(data:XML):GeoNamesException
+		{
+			var exception:GeoNamesException = new GeoNamesException();
+			exception.code = data.value;
+			exception.message = data.message;
+			return exception;
+		}
+		
+		public static function checkException(data:XML):Boolean
+		{
+			var status:XMLList = data.descendants("status");
+			return status.length() > 0 ? true : false;
 		}
 		
 		public static function parse(type:String, data:String):Object

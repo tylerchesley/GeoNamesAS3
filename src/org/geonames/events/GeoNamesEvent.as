@@ -1,6 +1,8 @@
 package org.geonames.events
 {
 	import com.adobe.webapis.events.ServiceEvent;
+	
+	import org.geonames.data.GeoNamesException;
 
 	/**
 	 * 
@@ -58,10 +60,18 @@ package org.geonames.events
 		
 		public static const WIKIPEDIA_SEARCH:String = "wikipediaSearch";
 		
+		public static const GEONAMES_ERROR:String = "geonamesError";
+		
 		public function GeoNamesEvent(type:String, bubbles:Boolean=false, cancelable:Boolean=false)
 		{
 			super(type, bubbles, cancelable);
 		}
+	
+	//------------------------------------------------------------------------------
+	//	Properties
+	//------------------------------------------------------------------------------
+		
+		public var exception:GeoNamesException;
 	
 	}
 }
