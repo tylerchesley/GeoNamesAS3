@@ -26,7 +26,7 @@ package org.geonames
 	 * @author Tyler Chesley
 	 * 
 	 */	
-	public class GeoNamesDataParser
+	public class GeoNamesResultParser
 	{
 		
 		public static function parseAddress(node:XML):Address
@@ -82,14 +82,18 @@ package org.geonames
 			for each (var codeNode:XML in node..code)
 			{
 				var code:Code = new Code();
-				code.type = codeNode.type;
+				code.type = codeNode.@type;
 				code.value = codeNode.valueOf();
 				codes.push(code);
 			}
 			subdivision.codes = codes;
 			return subdivision;
 		}
+<<<<<<< HEAD:src/org/geonames/GeoNamesDataParser.as
 		
+=======
+
+>>>>>>> f40610d4d1d9f96939af096ecc8328fe6b68f2e4:src/org/geonames/GeoNamesResultParser.as
 		public static function parseIntersection(node:XML):Intersection
 		{
 			var intersection:Intersection = new Intersection();
@@ -107,7 +111,7 @@ package org.geonames
 			return intersection;
 		}
 		
-		public static function parseNeighborhood(node:XML):Neighbourhood
+		public static function parseNeighbourhood(node:XML):Neighbourhood
 		{
 			var neighborhood:Neighbourhood = new Neighbourhood();
 			neighborhood.adminCode1 = node.adminCode1;
@@ -126,10 +130,16 @@ package org.geonames
 			var postalCode:PostalCode = new PostalCode();
 			postalCode.adminCode1 = node.adminCode1;
 			postalCode.adminCode2 = node.adminCode2;
+			postalCode.adminCode3 = node.adminCode3;
 			postalCode.adminName1 = node.adminName1;
 			postalCode.adminName2 = node.adminName2;
-			postalCode.postalCode = node.postalCode;
+			postalCode.adminName3 = node.adminName3;
+			postalCode.postalCode = node.postalcode;
 			postalCode.placeName  = node.name;
+			postalCode.distance = node.distance;
+			postalCode.countryCode = node.countryCode;
+			postalCode.latitude = node.lat;
+			postalCode.longitude = node.lng;
 			return postalCode;
 		}
 		
@@ -150,7 +160,7 @@ package org.geonames
 			segment.line = node.line;
 			segment.distance = node.distance;
 			segment.mtfcc = node.mtfcc;
-			segment.name = node.name;
+			segment.placeName = node.name;
 			segment.fraddl = node.fraddl;
 			segment.fraddr = node.fraddr;
 			segment.toaddl = node.toaddl;
@@ -180,12 +190,21 @@ package org.geonames
 			toponym.adminName1 = node.adminName1;
 			toponym.adminName2 = node.adminName2;
 			toponym.alternateNames = node.alternateNames;
+			var altNames:Object = {};
+			for each (var altName:XML in node..alternateName)
+			{
+				altNames[altName.@lang] = altName.toString();
+			}
+			toponym.alternateNamesByLanguage = altNames;
+			toponym.continentCode = node.continentCode;
 			toponym.countryCode = node.countryCode;
 			toponym.countryName = node.countryName;
 			toponym.distance = node.distance;
 			toponym.elevation = node.elevation;
 			toponym.featureClass = node.fcl;
+			toponym.featureClassName = node.fclName;
 			toponym.featureCode = node.fcode;
+			toponym.featureCodeName = node.fcodeName;
 			toponym.geoNameId = node.geonameId;
 			toponym.latitude = node.lat;
 			toponym.longitude = node.lng;
@@ -194,7 +213,7 @@ package org.geonames
 			toponym.population = node.population;
 			var timezone:Timezone = new Timezone();
 			timezone.dstOffset = node.timezone.@dstOffset;
-			timezone.gmtOffset = node.timezone.@gmOffset;
+			timezone.gmtOffset = node.timezone.@gmtOffset;
 			timezone.timezone = node.timezone;
 			toponym.timezone = timezone;
 			return toponym;
@@ -383,7 +402,7 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.NEIGHBOURHOOD:
-					result = parseNeighborhood(XML(data).neighbourhood[0]);
+					result = parseNeighbourhood(XML(data).neighbourhood[0]);
 					break;
 				
 				case GeoNamesEvent.OCEAN:

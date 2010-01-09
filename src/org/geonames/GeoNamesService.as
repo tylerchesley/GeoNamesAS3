@@ -71,7 +71,7 @@ package org.geonames
 	 * @author Tyler Chesley
 	 * 
 	 */	
-	public class GeoNames extends URLLoaderBase
+	public class GeoNamesService extends URLLoaderBase
 	{
 		
 	//------------------------------------------------------------------------------
@@ -133,7 +133,7 @@ package org.geonames
 		/**
 		 * Constructor 
 		 */		
-		public function GeoNames():void
+		public function GeoNamesService():void
 		{
 			super();
 		}
@@ -676,7 +676,7 @@ package org.geonames
 		{
 			var loader:DynamicURLLoader = event.target as DynamicURLLoader;
 			var resultEvent:GeoNamesEvent = new GeoNamesEvent(loader.eventType);
-			resultEvent.data = GeoNamesDataParser.parse(loader.eventType, loader.data);
+			resultEvent.data = GeoNamesResultParser.parse(loader.eventType, loader.data);
 			dispatchEvent(resultEvent);
 		}
 		

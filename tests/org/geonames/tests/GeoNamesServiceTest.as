@@ -2,8 +2,12 @@ package org.geonames.tests
 {
 	import org.flexunit.Assert;
 	import org.flexunit.async.Async;
+<<<<<<< HEAD:src/org/geonames/tests/GeoNamesTest.as
 	import org.geonames.GeoNames;
 	import org.geonames.criteria.FindNearbyPostalCodesCriteria;
+=======
+	import org.geonames.GeoNamesService;
+>>>>>>> f40610d4d1d9f96939af096ecc8328fe6b68f2e4:tests/org/geonames/tests/GeoNamesServiceTest.as
 	import org.geonames.data.Address;
 	import org.geonames.data.Country;
 	import org.geonames.data.CountrySubdivision;
@@ -20,17 +24,17 @@ package org.geonames.tests
 	import org.geonames.data.WikipediaEntry;
 	import org.geonames.events.GeoNamesEvent;
 	
-	public class GeoNamesTest
+	public class GeoNamesServiceTest
 	{
 		
-		private static var geonames:GeoNames = new GeoNames();
+		private static var geonames:GeoNamesService = new GeoNamesService();
 		
 		private static const TIMEOUT:int = 1000000;
 		
 		// Reference declaration for class to test
-		private var classToTestRef : org.geonames.GeoNames;
+		private var classToTestRef : org.geonames.GeoNamesService;
 		
-		public function GeoNamesTest()
+		public function GeoNamesServiceTest()
 		{
 		}
 		

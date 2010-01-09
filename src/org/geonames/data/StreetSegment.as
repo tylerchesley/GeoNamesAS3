@@ -20,8 +20,6 @@ package org.geonames.data
 	//	Properties
 	//------------------------------------------------------------------------------
 		
-		public var countryCode:String;
-		
 		public var line:String;
 		
 		public var mtfcc:String;
@@ -39,10 +37,6 @@ package org.geonames.data
 		
 		public var cfcc:String;
 
-		/**
-		 * 
-		 */		
-		public var name:String;
 
 		/**
 		 * 
