@@ -3,7 +3,7 @@ package org.geonames.tests
 	
 	import flexunit.framework.Assert;
 	
-	import org.geonames.GeoNamesDataParser;
+	import org.geonames.GeoNamesResultParser;
 	import org.geonames.data.Address;
 	import org.geonames.data.Country;
 	import org.geonames.data.CountrySubdivision;
@@ -12,7 +12,7 @@ package org.geonames.tests
 	import org.geonames.data.PostalCode;
 	import org.geonames.data.Toponym;
 	
-	public class GeoNamesDataParserTest
+	public class GeoNamesResultParserTest
 	{
 		
 		private static const ADDRESS:XML = 
@@ -121,9 +121,9 @@ package org.geonames.tests
 			</geoname>;
 		
 		// Reference declaration for class to test
-		private var classToTestRef : org.geonames.GeoNamesDataParser;
+		private var classToTestRef : org.geonames.GeoNamesResultParser;
 		
-		public function GeoNamesDataParserTest()
+		public function GeoNamesResultParserTest()
 		{
 		}
 		
@@ -132,7 +132,7 @@ package org.geonames.tests
 		[Test]
 		public function testParseAddress():void
 		{
-			var address:Address = GeoNamesDataParser.parseAddress(ADDRESS);
+			var address:Address = GeoNamesResultParser.parseAddress(ADDRESS);
 			Assert.assertEquals("Roble Ave", address.street);
 			Assert.assertEquals(671, address.streetNumber);
 			Assert.assertEquals(37.45126961535734, address.latitude);
@@ -150,7 +150,7 @@ package org.geonames.tests
 		[Test]
 		public function testParseCountry():void
 		{
-			var country:Country = GeoNamesDataParser.parseCountry(COUNTRY);
+			var country:Country = GeoNamesResultParser.parseCountry(COUNTRY);
 			Assert.assertEquals("AD", country.countryCode);
 			Assert.assertEquals("Andorra", country.countryName);
 			Assert.assertEquals(20, country.isoNumeric);
@@ -172,7 +172,7 @@ package org.geonames.tests
 		[Test]
 		public function testParseCountrySubdivision():void
 		{
-			var subdivision:CountrySubdivision = GeoNamesDataParser.parseCountrySubdivision(COUNTRY_SUBDIVISION);
+			var subdivision:CountrySubdivision = GeoNamesResultParser.parseCountrySubdivision(COUNTRY_SUBDIVISION);
 			Assert.assertEquals("AT", subdivision.countryCode);
 			Assert.assertEquals("Austria", subdivision.countryName);
 			Assert.assertEquals(07, subdivision.adminCode1);
@@ -187,7 +187,7 @@ package org.geonames.tests
 		[Test]
 		public function testParseIntersection():void
 		{
-			var intersection:Intersection = GeoNamesDataParser.parseIntersection(INTERSECTION);
+			var intersection:Intersection = GeoNamesResultParser.parseIntersection(INTERSECTION);
 			Assert.assertEquals("Roble Ave", intersection.street);
 			Assert.assertEquals("Curtis St", intersection.street2);
 			Assert.assertEquals(37.450649, intersection.latitude);
@@ -204,7 +204,7 @@ package org.geonames.tests
 		[Test]
 		public function testParseNeighbourhood():void
 		{
-			var neighbourhood:Neighbourhood = GeoNamesDataParser.parseNeighbourhood(NEIGHBOURHOOD);
+			var neighbourhood:Neighbourhood = GeoNamesResultParser.parseNeighbourhood(NEIGHBOURHOOD);
 			Assert.assertEquals("US", neighbourhood.countryCode);
 			Assert.assertEquals("United States", neighbourhood.countryName);
 			Assert.assertEquals("NY", neighbourhood.adminCode1);
@@ -234,7 +234,7 @@ package org.geonames.tests
 		[Test]
 		public function testParsePostalCode():void
 		{
-			var code:PostalCode = GeoNamesDataParser.parsePostalCode(POSTAL_CODE);
+			var code:PostalCode = GeoNamesResultParser.parsePostalCode(POSTAL_CODE);
 			Assert.assertEquals("8750", code.postalCode);
 			Assert.assertEquals("Klöntal", code.placeName);
 			Assert.assertEquals("CH", code);
@@ -243,7 +243,7 @@ package org.geonames.tests
 		[Test]
 		public function testParseToponym():void
 		{
-			var toponym:Toponym = GeoNamesDataParser.parseToponym(TOPONYM);
+			var toponym:Toponym = GeoNamesResultParser.parseToponym(TOPONYM);
 			Assert.assertEquals("Latium", toponym.name);
 			Assert.assertEquals(42.0, toponym.latitude);
 			Assert.assertEquals(12.5, toponym.longitude);

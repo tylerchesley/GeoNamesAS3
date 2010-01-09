@@ -669,7 +669,7 @@ package org.geonames
 		{
 			var loader:DynamicURLLoader = event.target as DynamicURLLoader;
 			var resultEvent:GeoNamesEvent = new GeoNamesEvent(loader.eventType);
-			resultEvent.data = GeoNamesDataParser.parse(loader.eventType, loader.data);
+			resultEvent.data = GeoNamesResultParser.parse(loader.eventType, loader.data);
 			dispatchEvent(resultEvent);
 		}
 		

@@ -25,7 +25,7 @@ package org.geonames
 	 * @author Tyler Chesley
 	 * 
 	 */	
-	public class GeoNamesDataParser
+	public class GeoNamesResultParser
 	{
 		
 		public static function parseAddress(node:XML):Address

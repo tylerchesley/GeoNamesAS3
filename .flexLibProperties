@@ -2,7 +2,7 @@
 <flexLibProperties includeAllClasses="false" version="1">
   <includeClasses>
     <classEntry path="org.geonames.GeoNamesService"/>
-    <classEntry path="org.geonames.GeoNamesDataParser"/>
+    <classEntry path="org.geonames.GeoNamesResultParser"/>
     <classEntry path="org.geonames.PostalCodeSearchCriteria"/>
     <classEntry path="org.geonames.ToponymSearchCriteria"/>
     <classEntry path="org.geonames.codes.Language"/>
