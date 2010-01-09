@@ -10,6 +10,7 @@ package org.geonames.tests
 	import org.geonames.data.Intersection;
 	import org.geonames.data.Neighbourhood;
 	import org.geonames.data.PostalCode;
+	import org.geonames.data.PostalCodeCountryInfo;
 	import org.geonames.data.Toponym;
 	
 	public class GeoNamesResultParserTest
@@ -88,6 +89,31 @@ package org.geonames.tests
 				<city>New York City-Manhattan</city>
 				<name>Central Park</name>
 			</neighbourhood>;
+		
+		private static const POSTAL_CODE:XML = 
+			<code>
+				<postalcode>8750</postalcode>
+				<name>Klöntal</name>
+				<countryCode>CH</countryCode>
+				<lat>47.0209991250926</lat>
+				<lng>8.97896272642767</lng>
+				<adminCode1>GL</adminCode1>
+				<adminName1>Glarus</adminName1>
+				<adminCode2>800</adminCode2>
+				<adminName2>Glarus</adminName2>
+				<adminCode3>1609</adminCode3>
+				<adminName3>Glarus</adminName3>
+				<distance>2.827649162427546</distance>
+			</code>;
+		
+		private static const POSTAL_CODE_COUNTRY_INFO:XML = 
+			<country>
+				<countryCode>AD</countryCode>
+				<countryName>Andorra</countryName>
+				<numPostalCodes>7</numPostalCodes>
+				<minPostalCode>AD100</minPostalCode>
+				<maxPostalCode>AD700</maxPostalCode>
+			</country>;
 		
 		private static const TOPONYM:XML = 
 			<geoname>
@@ -215,22 +241,6 @@ package org.geonames.tests
 			Assert.assertEquals("Central Park", neighbourhood.name);
 		}
 		
-		private static const POSTAL_CODE:XML = 
-			<code>
-				<postalcode>8750</postalcode>
-				<name>Klöntal</name>
-				<countryCode>CH</countryCode>
-				<lat>47.0209991250926</lat>
-				<lng>8.97896272642767</lng>
-				<adminCode1>GL</adminCode1>
-				<adminName1>Glarus</adminName1>
-				<adminCode2>800</adminCode2>
-				<adminName2>Glarus</adminName2>
-				<adminCode3>1609</adminCode3>
-				<adminName3>Glarus</adminName3>
-				<distance>2.827649162427546</distance>
-			</code>;
-		
 		[Test]
 		public function testParsePostalCode():void
 		{
@@ -247,6 +257,17 @@ package org.geonames.tests
 			Assert.assertEquals("1609", code.adminCode3);
 			Assert.assertEquals("Glarus", code.adminName3);
 			Assert.assertEquals(2.827649162427546, code.distance);
+		}
+		
+		[Test]
+		public function testParsePostalCodeCountryInfo():void
+		{
+			var country:PostalCodeCountryInfo = GeoNamesResultParser.parsePostalCodeCountryInfo(POSTAL_CODE_COUNTRY_INFO);
+			Assert.assertEquals("AD", country.countryCode);
+			Assert.assertEquals("Andorra", country.countryName);
+			Assert.assertEquals(7, country.numPostalCodes);
+			Assert.assertEquals("AD100", country.minPostalCode);
+			Assert.assertEquals("AD700", country.maxPostalCode);
 		}
 		
 		[Test]
