@@ -149,7 +149,7 @@ package org.geonames
 			segment.line = node.line;
 			segment.distance = node.distance;
 			segment.mtfcc = node.mtfcc;
-			segment.name = node.name;
+			segment.placeName = node.name;
 			segment.fraddl = node.fraddl;
 			segment.fraddr = node.fraddr;
 			segment.toaddl = node.toaddl;
