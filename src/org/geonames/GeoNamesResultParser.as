@@ -125,10 +125,16 @@ package org.geonames
 			var postalCode:PostalCode = new PostalCode();
 			postalCode.adminCode1 = node.adminCode1;
 			postalCode.adminCode2 = node.adminCode2;
+			postalCode.adminCode3 = node.adminCode3;
 			postalCode.adminName1 = node.adminName1;
 			postalCode.adminName2 = node.adminName2;
-			postalCode.postalCode = node.postalCode;
+			postalCode.adminName3 = node.adminName3;
+			postalCode.postalCode = node.postalcode;
 			postalCode.placeName  = node.name;
+			postalCode.distance = node.distance;
+			postalCode.countryCode = node.countryCode;
+			postalCode.latitude = node.lat;
+			postalCode.longitude = node.lng;
 			return postalCode;
 		}
 		

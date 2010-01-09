@@ -15,9 +15,13 @@ package org.geonames.data
 		
 		public var adminCode2:String;
 		
+		public var adminCode3:String;
+		
 		public var adminName1:String;
 		
 		public var adminName2:String;
+		
+		public var adminName3:String;
 		
 		public var countryCode:String;
 		

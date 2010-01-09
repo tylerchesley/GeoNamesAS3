@@ -237,7 +237,16 @@ package org.geonames.tests
 			var code:PostalCode = GeoNamesResultParser.parsePostalCode(POSTAL_CODE);
 			Assert.assertEquals("8750", code.postalCode);
 			Assert.assertEquals("Klöntal", code.placeName);
-			Assert.assertEquals("CH", code);
+			Assert.assertEquals("CH", code.countryCode);
+			Assert.assertEquals(47.0209991250926, code.latitude);
+			Assert.assertEquals(8.97896272642767, code.longitude);
+			Assert.assertEquals("GL", code.adminCode1);
+			Assert.assertEquals("Glarus", code.adminName1);
+			Assert.assertEquals("800", code.adminCode2);
+			Assert.assertEquals("Glarus", code.adminName2);
+			Assert.assertEquals("1609", code.adminCode3);
+			Assert.assertEquals("Glarus", code.adminName3);
+			Assert.assertEquals(2.827649162427546, code.distance);
 		}
 		
 		[Test]
