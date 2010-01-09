@@ -69,7 +69,7 @@ package org.geonames
 	 * @author Tyler Chesley
 	 * 
 	 */	
-	public class GeoNames extends URLLoaderBase
+	public class GeoNamesService extends URLLoaderBase
 	{
 		
 	//------------------------------------------------------------------------------
@@ -131,7 +131,7 @@ package org.geonames
 		/**
 		 * Constructor 
 		 */		
-		public function GeoNames():void
+		public function GeoNamesService():void
 		{
 			super();
 		}

@@ -2,7 +2,7 @@ package org.geonames.tests
 {
 	import org.flexunit.Assert;
 	import org.flexunit.async.Async;
-	import org.geonames.GeoNames;
+	import org.geonames.GeoNamesService;
 	import org.geonames.data.Address;
 	import org.geonames.data.Country;
 	import org.geonames.data.CountrySubdivision;
@@ -21,12 +21,12 @@ package org.geonames.tests
 	public class GeoNamesTest
 	{
 		
-		private static var geonames:GeoNames = new GeoNames();
+		private static var geonames:GeoNamesService = new GeoNamesService();
 		
 		private static const TIMEOUT:int = 1000000;
 		
 		// Reference declaration for class to test
-		private var classToTestRef : org.geonames.GeoNames;
+		private var classToTestRef : org.geonames.GeoNamesService;
 		
 		public function GeoNamesTest()
 		{
