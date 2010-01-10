@@ -14,6 +14,7 @@ package org.geonames.tests
 	import org.geonames.data.StreetSegment;
 	import org.geonames.data.Toponym;
 	import org.geonames.data.WeatherObservation;
+	import org.geonames.data.WikipediaEntry;
 	
 	public class GeoNamesResultParserTest
 	{
@@ -167,6 +168,47 @@ package org.geonames.tests
 				<numberOfChildren>5</numberOfChildren>
 			</geoname>;
 		
+		private static const WEATHER_OBSERVATION:XML = 
+			<observation>
+				<observation>
+				LESO 100500Z 21008KT 180V240 9999 3000S -SN SCT017 BKN030 01/M00 Q1016
+				</observation>
+				<observationTime>2010-01-10 05:00:00</observationTime>
+				<stationName>San Sebastian / Fuenterrabia</stationName>
+				<ICAO>LESO</ICAO>
+				<countryCode>ES</countryCode>
+				<elevation>8</elevation>
+				<lat>43.35</lat>
+				<lng>-1.8</lng>
+				<temperature>1</temperature>
+				<dewPoint>-0</dewPoint>
+				<humidity>93</humidity>
+				<clouds>scattered clouds</clouds>
+				<weatherCondition>light snow</weatherCondition>
+				<hectoPascAltimeter>1016.0</hectoPascAltimeter>
+				<windDirection>210.0</windDirection>
+				<windSpeed>08</windSpeed>
+			</observation>;
+		
+		private static const WIKIPEDIA_ENTRY:XML = 
+			<entry>
+				<lang>en</lang>
+				<title>Chongqing</title>
+				<summary>
+				Chongqing (; Postal map spelling: ''Chungking''; Wade-Giles: ''Ch'ung-ch'ing'') is the largest and most populous of the People's Republic of China's four provincial-level municipalities, and the only one in the less densely populated western half of China. Formerly (until 14 March 1997) a provincial city within Sichuan Province, the municipality of Chongqing has a registered population of (...)
+				</summary>
+				<feature>city</feature>
+				<countryCode>CN</countryCode>
+				<population>31823239</population>
+				<elevation>0</elevation>
+				<lat>29.55</lat>
+				<lng>106.5069</lng>
+				<wikipediaUrl>http://en.wikipedia.org/wiki/Chongqing</wikipediaUrl>
+				<thumbnailImg>
+				http://www.geonames.org/img/wikipedia/60000/thumb-59536-100.jpg
+				</thumbnailImg>
+			</entry>;
+		
 		// Reference declaration for class to test
 		private var classToTestRef : org.geonames.GeoNamesResultParser;
 		
@@ -311,50 +353,6 @@ package org.geonames.tests
 			Assert.assertEquals("US", segment.countryCode);
 		}
 		
-		private static const WEATHER_OBSERVATION:XML = 
-			<observation>
-				<observation>
-				LESO 100500Z 21008KT 180V240 9999 3000S -SN SCT017 BKN030 01/M00 Q1016
-				</observation>
-				<observationTime>2010-01-10 05:00:00</observationTime>
-				<stationName>San Sebastian / Fuenterrabia</stationName>
-				<ICAO>LESO</ICAO>
-				<countryCode>ES</countryCode>
-				<elevation>8</elevation>
-				<lat>43.35</lat>
-				<lng>-1.8</lng>
-				<temperature>1</temperature>
-				<dewPoint>-0</dewPoint>
-				<humidity>93</humidity>
-				<clouds>scattered clouds</clouds>
-				<weatherCondition>light snow</weatherCondition>
-				<hectoPascAltimeter>1016.0</hectoPascAltimeter>
-				<windDirection>210.0</windDirection>
-				<windSpeed>08</windSpeed>
-			</observation>;
-		
-		[Test]
-		public function testParseWeatherObservation():void
-		{
-			var observation:WeatherObservation = GeoNamesResultParser.parseWeatherObservation(WEATHER_OBSERVATION);
-			Assert.assertEquals("LESO 100500Z 21008KT 180V240 9999 3000S -SN SCT017 BKN030 01/M00 Q1016", observation.observation);
-			Assert.assertEquals("San Sebastian / Fuenterrabia", observation.stationName);
-			Assert.assertEquals(new Date("2010-01-10 05:00:00").toString(), observation.observationTime.toString());
-			Assert.assertEquals("LESO", observation.ICAO);
-			Assert.assertEquals("ES", observation.countryCode);
-			Assert.assertEquals(8, observation.elevation);
-			Assert.assertEquals(43.35, observation.latitude);
-			Assert.assertEquals(-1.8, observation.longitude);
-			Assert.assertEquals(1, observation.temperature);
-			Assert.assertEquals(-0, observation.dewPoint);
-			Assert.assertEquals(93, observation.humidity);
-			Assert.assertEquals("scattered clouds", observation.clouds);
-			Assert.assertEquals("light snow", observation.weatherCondition);
-			Assert.assertEquals(1016.0, observation.hectoPascAltimeter);
-			Assert.assertEquals(210.0, observation.windDirection);
-			Assert.assertEquals(8, observation.windSpeed);
-		}
-		
 		[Test]
 		public function testParseToponym():void
 		{
@@ -382,6 +380,45 @@ package org.geonames.tests
 			Assert.assertEquals(1.0, toponym.timezone.gmtOffset);
 			Assert.assertEquals("Europe/Rome", toponym.timezone.timezone);
 			Assert.assertEquals("Lazio", toponym.alternateNamesByLanguage["es"]);
+		}
+		
+		[Test]
+		public function testParseWeatherObservation():void
+		{
+			var observation:WeatherObservation = GeoNamesResultParser.parseWeatherObservation(WEATHER_OBSERVATION);
+			Assert.assertEquals("LESO 100500Z 21008KT 180V240 9999 3000S -SN SCT017 BKN030 01/M00 Q1016", observation.observation);
+			Assert.assertEquals("San Sebastian / Fuenterrabia", observation.stationName);
+			Assert.assertEquals(new Date("2010-01-10 05:00:00").toString(), observation.observationTime.toString());
+			Assert.assertEquals("LESO", observation.ICAO);
+			Assert.assertEquals("ES", observation.countryCode);
+			Assert.assertEquals(8, observation.elevation);
+			Assert.assertEquals(43.35, observation.latitude);
+			Assert.assertEquals(-1.8, observation.longitude);
+			Assert.assertEquals(1, observation.temperature);
+			Assert.assertEquals(-0, observation.dewPoint);
+			Assert.assertEquals(93, observation.humidity);
+			Assert.assertEquals("scattered clouds", observation.clouds);
+			Assert.assertEquals("light snow", observation.weatherCondition);
+			Assert.assertEquals(1016.0, observation.hectoPascAltimeter);
+			Assert.assertEquals(210.0, observation.windDirection);
+			Assert.assertEquals(8, observation.windSpeed);
+		}
+		
+		[Test]
+		public function testParseWikipediaEntry():void
+		{
+			var entry:WikipediaEntry = GeoNamesResultParser.parseWikipediaEntry(WIKIPEDIA_ENTRY);
+			Assert.assertEquals("en", entry.language);
+			Assert.assertEquals("Chongqing", entry.title);
+			Assert.assertEquals("Chongqing (; Postal map spelling: ''Chungking''; Wade-Giles: ''Ch'ung-ch'ing'') is the largest and most populous of the People's Republic of China's four provincial-level municipalities, and the only one in the less densely populated western half of China. Formerly (until 14 March 1997) a provincial city within Sichuan Province, the municipality of Chongqing has a registered population of (...)", entry.summary);
+			Assert.assertEquals("city", entry.feature);
+			Assert.assertEquals("CN", entry.countryCode);
+			Assert.assertEquals(31823239, entry.population);
+			Assert.assertEquals(0, entry.elevation);
+			Assert.assertEquals(29.55, entry.latitude);
+			Assert.assertEquals(106.5069, entry.longitude);
+			Assert.assertEquals("http://en.wikipedia.org/wiki/Chongqing", entry.wikipediaUrl);
+			Assert.assertEquals("http://www.geonames.org/img/wikipedia/60000/thumb-59536-100.jpg", entry.thumbnailImg);
 		}
 		
 	}

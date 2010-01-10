@@ -21,6 +21,8 @@ package org.geonames.data
 	//	Properties
 	//------------------------------------------------------------------------------
 		
+		public var countryCode:String;
+		
 		/**
 		 * 
 		 */		

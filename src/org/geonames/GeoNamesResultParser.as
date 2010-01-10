@@ -240,18 +240,19 @@ package org.geonames
 		
 		public static function parseWikipediaEntry(node:XML):WikipediaEntry
 		{
-			var article:WikipediaEntry = new WikipediaEntry();
-			article.language = node.lang;
-			article.elevation = node.altitude;
-			article.title = node.title;
-			article.summary = node.summary;
-			article.feature = node.feature;
-			article.wikipediaUrl = node.wikipediaUrl;
-			article.thumbnailImg = node.thumbnailImg;
-			article.latitude = node.lat;
-			article.longitude = node.lng;
-			article.population = node.population;
-			return article;
+			var entry:WikipediaEntry = new WikipediaEntry();
+			entry.countryCode = node.countryCode;
+			entry.language = node.lang;
+			entry.elevation = node.altitude;
+			entry.title = node.title;
+			entry.summary = node.summary;
+			entry.feature = node.feature;
+			entry.wikipediaUrl = node.wikipediaUrl;
+			entry.thumbnailImg = node.thumbnailImg;
+			entry.latitude = node.lat;
+			entry.longitude = node.lng;
+			entry.population = node.population;
+			return entry;
 		}
 		
 		public static function parsePostalCodeSearchResult(data:XML):PostalCodeSearchResult
