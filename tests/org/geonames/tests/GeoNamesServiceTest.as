@@ -58,16 +58,16 @@ package org.geonames.tests
 		{
 			var result:ToponymSearchResult = event.data as ToponymSearchResult;
 			var toponym:Toponym = result.toponyms[0];
-			Assert.assertEquals(result.total, 20);
-			Assert.assertEquals(toponym.name, "Abruzzo");
-			Assert.assertEquals(toponym.latitude, 42.25);
-			Assert.assertEquals(toponym.longitude, 13.75);
-			Assert.assertEquals(toponym.geoNameId, 3183560);
-			Assert.assertEquals(toponym.countryCode, "IT");
-			Assert.assertEquals(toponym.countryName, "Italy");
-			Assert.assertEquals(toponym.featureClass, "A");
-			Assert.assertEquals(toponym.featureCode, "ADM1");
-			Assert.assertEquals(toponym.numberOfChildren, 4);
+			Assert.assertEquals(20, result.total);
+			Assert.assertEquals("Abruzzo", toponym.name);
+			Assert.assertEquals(42.25, toponym.latitude);
+			Assert.assertEquals(13.75, toponym.longitude);
+			Assert.assertEquals(3183560, toponym.geoNameId);
+			Assert.assertEquals("IT", toponym.countryCode);
+			Assert.assertEquals("Italy", toponym.countryName);
+			Assert.assertEquals("A", toponym.featureClass);
+			Assert.assertEquals("ADM1", toponym.featureCode);
+			Assert.assertEquals(4, toponym.numberOfChildren);
 		}
 		
 		[Test(async)]
@@ -91,14 +91,14 @@ package org.geonames.tests
 		private function citiesHandler(event:GeoNamesEvent, params:*):void
 		{
 			var city:Toponym = event.data[0];
-			Assert.assertEquals(city.name, "Mexico City");
-			Assert.assertEquals(city.latitude, 19.4341667);
-			Assert.assertEquals(city.longitude, -99.1386111);
-			Assert.assertEquals(city.geoNameId, 3530597);
-			Assert.assertEquals(city.countryCode, "MX");
-			Assert.assertEquals(city.countryName, "Mexico");
-			Assert.assertEquals(city.featureClass, "P");
-			Assert.assertEquals(city.featureCode, "PPLC");
+			Assert.assertEquals("Mexico City", city.name);
+			Assert.assertEquals(19.4341667, city.latitude);
+			Assert.assertEquals(-99.1386111, city.longitude);
+			Assert.assertEquals(3530597, city.geoNameId);
+			Assert.assertEquals("MX", city.countryCode);
+			Assert.assertEquals("Mexico", city.countryName);
+			Assert.assertEquals("P", city.featureClass);
+			Assert.assertEquals("PPLC", city.featureCode);
 		}
 		
 		[Test(async)]
@@ -111,7 +111,7 @@ package org.geonames.tests
 		
 		private function countryCodeHandler(event:GeoNamesEvent, params:*):void
 		{
-			Assert.assertEquals(event.data, "AT");
+			Assert.assertEquals("AT", event.data);
 		}
 		
 		[Test(async)]
@@ -143,22 +143,22 @@ package org.geonames.tests
 		private function countryInfoHandler(event:GeoNamesEvent, params:*):void
 		{
 			var country:Country = event.data[0];
-			Assert.assertEquals(country.countryCode, "AD");
-			Assert.assertEquals(country.countryName, "Andorra");
-			Assert.assertEquals(country.isoNumeric, 20);
-			Assert.assertEquals(country.isoAlpha3, "AND");
-			Assert.assertEquals(country.fipsCode, "AN");
-			Assert.assertEquals(country.continent, "EU");
-			Assert.assertEquals(country.capital, "Andorra la Vella");
-			Assert.assertEquals(country.areaInSqKm, 468.0);
-			Assert.assertEquals(country.population, 72000);
-			Assert.assertEquals(country.currencyCode, "EUR");
-			Assert.assertEquals(country.languages, "ca,fr-AD,pt");
-			Assert.assertEquals(country.geonameId, 3041565);
-			Assert.assertEquals(country.bBoxWest, 1.42211079597473);
-			Assert.assertEquals(country.bBoxNorth, 42.6586990356445);
-			Assert.assertEquals(country.bBoxEast, 1.78038918972015);
-			Assert.assertEquals(country.bBoxSouth, 42.4350738525391);
+			Assert.assertEquals("AD", country.countryCode);
+			Assert.assertEquals("Andorra", country.countryName);
+			Assert.assertEquals(20, country.isoNumeric);
+			Assert.assertEquals("AND", country.isoAlpha3);
+			Assert.assertEquals("AN", country.fipsCode);
+			Assert.assertEquals("EU", country.continent);
+			Assert.assertEquals("Andorra la Vella", country.capital);
+			Assert.assertEquals(468.0, country.areaInSqKm);
+			Assert.assertEquals(72000, country.population);
+			Assert.assertEquals("EUR", country.currencyCode);
+			Assert.assertEquals("ca,fr-AD,pt", country.languages);
+			Assert.assertEquals(3041565, country.geonameId);
+			Assert.assertEquals(1.42211079597473, country.bBoxWest);
+			Assert.assertEquals(42.6586990356445, country.bBoxNorth);
+			Assert.assertEquals(1.78038918972015, country.bBoxEast);
+			Assert.assertEquals(42.4350738525391, country.bBoxSouth);
 		}
 		
 		[Test(async)]
@@ -183,13 +183,13 @@ package org.geonames.tests
 		{
 			var subdivisions:Array = event.data as Array;
 			var subdivision:CountrySubdivision = subdivisions[0];
-			Assert.assertEquals(subdivisions.length, 5);
-			Assert.assertEquals(subdivision.countryCode, "AT");
-			Assert.assertEquals(subdivision.countryName, "Austria");
-			Assert.assertEquals(subdivision.adminCode1, 07);
-			Assert.assertEquals(subdivision.adminName1, "Tyrol");
-			Assert.assertEquals(subdivision.distance, 0.0);
-			Assert.assertEquals(subdivision.codes.length, 2);
+			Assert.assertEquals(5, subdivisions.length);
+			Assert.assertEquals("AT", subdivision.countryCode);
+			Assert.assertEquals("Austria", subdivision.countryName);
+			Assert.assertEquals(07, subdivision.adminCode1);
+			Assert.assertEquals("Tyrol", subdivision.adminName1);
+			Assert.assertEquals(0.0, subdivision.distance);
+			Assert.assertEquals(2, subdivision.codes.length);
 		}
 		
 		[Test(async)]
@@ -216,16 +216,16 @@ package org.geonames.tests
 		{
 			var toponyms:Array = event.data as Array;
 			var toponym:Toponym = toponyms[0];
-			Assert.assertEquals(toponyms.length, 1);
-			Assert.assertEquals(toponym.name, "Atzmännig");
-			Assert.assertEquals(toponym.latitude, 47.287633);
-			Assert.assertEquals(toponym.longitude, 8.988454);
-			Assert.assertEquals(toponym.geoNameId, 6559633);
-			Assert.assertEquals(toponym.countryCode, "CH");
-			Assert.assertEquals(toponym.countryName, "Switzerland");
-			Assert.assertEquals(toponym.featureClass, "P");
-			Assert.assertEquals(toponym.featureCode, "PPL");
-			Assert.assertEquals(toponym.distance, 1.6276);
+			Assert.assertEquals(1, toponyms.length);
+			Assert.assertEquals("Atzmännig", toponym.name);
+			Assert.assertEquals(47.287633, toponym.latitude);
+			Assert.assertEquals(8.988454, toponym.longitude);
+			Assert.assertEquals(6559633, toponym.geoNameId);
+			Assert.assertEquals("CH", toponym.countryCode);
+			Assert.assertEquals("Switzerland", toponym.countryName);
+			Assert.assertEquals("P", toponym.featureClass);
+			Assert.assertEquals("PPL", toponym.featureCode);
+			Assert.assertEquals(1.6276, toponym.distance);
 		}
 		
 		[Test(async)]
@@ -292,11 +292,11 @@ package org.geonames.tests
 		private function findNearbyStreetsHandler(event:GeoNamesEvent, params:*):void
 		{
 			var segment:StreetSegment = event.data[0];
-			Assert.assertEquals(segment.placeName, "Roble Ave");
-			Assert.assertEquals(segment.fraddl, 601);
-			Assert.assertEquals(segment.fraddr, 600);
-			Assert.assertEquals(segment.toaddl, 735);
-			Assert.assertEquals(segment.toaddr, 698);
+			Assert.assertEquals("Roble Ave", segment.placeName);
+			Assert.assertEquals(601, segment.fraddl);
+			Assert.assertEquals(600, segment.fraddr);
+			Assert.assertEquals(735, segment.toaddl);
+			Assert.assertEquals(698, segment.toaddr);
 		}
 		
 		[Test(async)]
@@ -362,16 +362,16 @@ package org.geonames.tests
 		private function findNearbyWikipediaHandler(event:GeoNamesEvent, params:*):void
 		{
 			var entry:WikipediaEntry = event.data[0];
-			Assert.assertEquals(entry.language, "en");
-			Assert.assertEquals(entry.title, "Glärnisch");
+			Assert.assertEquals("en", entry.language);
+			Assert.assertEquals("Glärnisch", entry.title);
 			Assert.assertNotNull(entry.summary);
-			Assert.assertEquals(entry.feature, "mountain");
-			Assert.assertEquals(entry.population, 0);
-			Assert.assertEquals(entry.elevation, 0);
-			Assert.assertEquals(entry.latitude, 46.9986);
-			Assert.assertEquals(entry.longitude, 8.9986);
-			Assert.assertEquals(entry.wikipediaUrl, "http://en.wikipedia.org/wiki/Gl%C3%A4rnisch");
-			Assert.assertEquals(entry.thumbnailImg, "");
+			Assert.assertEquals("mountain", entry.feature);
+			Assert.assertEquals(0, entry.population);
+			Assert.assertEquals(0, entry.elevation);
+			Assert.assertEquals(46.9986, entry.latitude);
+			Assert.assertEquals(8.9986, entry.longitude);
+			Assert.assertEquals("http://en.wikipedia.org/wiki/Gl%C3%A4rnisch", entry.wikipediaUrl);
+			Assert.assertEquals("", entry.thumbnailImg);
 		}
 		
 		[Test(async)]
@@ -400,18 +400,18 @@ package org.geonames.tests
 		private function findNearestAddressHandler(event:GeoNamesEvent, params:*):void
 		{
 			var address:Address = event.data as Address;
-			Assert.assertEquals(address.street, "Roble Ave");
-			Assert.assertEquals(address.streetNumber, 671);
-			Assert.assertEquals(address.latitude, 37.45126961535734);
-			Assert.assertEquals(address.longitude, -122.1803227963682);
-			Assert.assertEquals(address.distance, 0.04);
-			Assert.assertEquals(address.postalCode, 94025);
-			Assert.assertEquals(address.placeName, "Menlo Park");
-			Assert.assertEquals(address.adminCode1, "CA");
-			Assert.assertEquals(address.adminName1, "California");
-			Assert.assertEquals(address.adminCode2, "081");
-			Assert.assertEquals(address.adminName2, "San Mateo");
-			Assert.assertEquals(address.countryCode, "US");
+			Assert.assertEquals("Roble Ave", address.street);
+			Assert.assertEquals(671, address.streetNumber);
+			Assert.assertEquals(37.45126961535734, address.latitude);
+			Assert.assertEquals(-122.1803227963682, address.longitude);
+			Assert.assertEquals(0.04, address.distance);
+			Assert.assertEquals(94025, address.postalCode);
+			Assert.assertEquals("Menlo Park", address.placeName);
+			Assert.assertEquals("CA", address.adminCode1);
+			Assert.assertEquals("California", address.adminName1);
+			Assert.assertEquals("081", address.adminCode2);
+			Assert.assertEquals("San Mateo", address.adminName2);
+			Assert.assertEquals("US", address.countryCode);
 		}
 		
 		[Test(async)]
@@ -439,17 +439,17 @@ package org.geonames.tests
 		private function findNearestIntersectionHandler(event:GeoNamesEvent, params:*):void
 		{
 			var intersection:Intersection = event.data as Intersection;
-			Assert.assertEquals(intersection.street, "Roble Ave");
-			Assert.assertEquals(intersection.street2, "Curtis St");
-			Assert.assertEquals(intersection.latitude, 37.450649);
-			Assert.assertEquals(intersection.longitude, -122.180842);
-			Assert.assertEquals(intersection.distance, 0.08);
-			Assert.assertEquals(intersection.postalCode, 94025);
-			Assert.assertEquals(intersection.placeName, "Menlo Park");
-			Assert.assertEquals(intersection.adminCode1, "CA");
-			Assert.assertEquals(intersection.adminName1, "California");
-			Assert.assertEquals(intersection.adminName2, "San Mateo");
-			Assert.assertEquals(intersection.countryCode, "US");
+			Assert.assertEquals("Roble Ave", intersection.street);
+			Assert.assertEquals("Curtis St", intersection.street2);
+			Assert.assertEquals(37.450649, intersection.latitude);
+			Assert.assertEquals(-122.180842, intersection.longitude);
+			Assert.assertEquals(0.08, intersection.distance);
+			Assert.assertEquals(94025, intersection.postalCode);
+			Assert.assertEquals("Menlo Park", intersection.placeName);
+			Assert.assertEquals("CA", intersection.adminCode1);
+			Assert.assertEquals("California", intersection.adminName1);
+			Assert.assertEquals("San Mateo", intersection.adminName2);
+			Assert.assertEquals("US", intersection.countryCode);
 		}
 		
 		[Test(async)]
@@ -486,13 +486,13 @@ package org.geonames.tests
 		private function getToponymHandler(event:GeoNamesEvent, params:*):void
 		{
 			var toponym:Toponym = event.data as Toponym;
-			Assert.assertEquals(toponym.name, "Earth");
-			Assert.assertEquals(toponym.latitude, 0);
-			Assert.assertEquals(toponym.longitude, 0);
-			Assert.assertEquals(toponym.geoNameId, 6295630);
-			Assert.assertEquals(toponym.featureClass, "L");
-			Assert.assertEquals(toponym.adminCode1, 20);
-			Assert.assertEquals(toponym.adminName1, "Opština Priština");
+			Assert.assertEquals("Earth", toponym.name);
+			Assert.assertEquals(0, toponym.latitude);
+			Assert.assertEquals(0, toponym.longitude);
+			Assert.assertEquals(6295630, toponym.geoNameId);
+			Assert.assertEquals("L", toponym.featureClass);
+			Assert.assertEquals(20, toponym.adminCode1);
+			Assert.assertEquals("Opština Priština", toponym.adminName1);
 		}
 		
 		[Test(async)]
@@ -518,9 +518,9 @@ package org.geonames.tests
 		{
 			var result:ToponymSearchResult = event.data as ToponymSearchResult;
 			var toponym:Toponym = result.toponyms[0];
-			Assert.assertEquals(toponym.name, "Earth");
-			Assert.assertEquals(toponym.latitude, 0);
-			Assert.assertEquals(toponym.longitude, 0);
+			Assert.assertEquals("Earth", toponym.name);
+			Assert.assertEquals(0, toponym.latitude);
+			Assert.assertEquals(0, toponym.longitude);
 			Assert.assertEquals("L", toponym.featureClass);
 		}
 		
@@ -546,14 +546,14 @@ package org.geonames.tests
 		private function neighbourhoodHandler(event:GeoNamesEvent, params:*):void
 		{
 			var neighbourhood:Neighbourhood = event.data as Neighbourhood;
-			Assert.assertEquals(neighbourhood.countryCode, "US");
-			Assert.assertEquals(neighbourhood.countryName, "United States");
-			Assert.assertEquals(neighbourhood.adminCode1, "NY");
-			Assert.assertEquals(neighbourhood.adminName1, "New York");
-			Assert.assertEquals(neighbourhood.adminCode2, "061");
-			Assert.assertEquals(neighbourhood.adminName2, "New York County");
-			Assert.assertEquals(neighbourhood.city, "New York City-Manhattan");
-			Assert.assertEquals(neighbourhood.name, "Central Park");
+			Assert.assertEquals("US", neighbourhood.countryCode);
+			Assert.assertEquals("United States", neighbourhood.countryName);
+			Assert.assertEquals("NY", neighbourhood.adminCode1);
+			Assert.assertEquals("New York", neighbourhood.adminName1);
+			Assert.assertEquals("061", neighbourhood.adminCode2);
+			Assert.assertEquals("New York County", neighbourhood.adminName2);
+			Assert.assertEquals("New York City-Manhattan", neighbourhood.city);
+			Assert.assertEquals("Central Park", neighbourhood.name);
 		}
 		
 		[Test(async)]
@@ -579,14 +579,14 @@ package org.geonames.tests
 		{
 			var result:ToponymSearchResult = event.data as ToponymSearchResult;
 			var toponym:Toponym = result.toponyms[0];
-			Assert.assertEquals(result.toponyms.length, 5);
-			Assert.assertEquals(toponym.name, "Austria");
-			Assert.assertEquals(toponym.latitude, 47.3333333);
-			Assert.assertEquals(toponym.longitude, 13.3333333);
-			Assert.assertEquals(toponym.countryCode, "AT");
-			Assert.assertEquals(toponym.countryName, "Austria");
-			Assert.assertEquals(toponym.featureClass, "A");
-			Assert.assertEquals(toponym.featureCode, "PCLI");
+			Assert.assertEquals(5, result.toponyms.length);
+			Assert.assertEquals("Austria", toponym.name);
+			Assert.assertEquals(47.3333333, toponym.latitude);
+			Assert.assertEquals(13.3333333, toponym.longitude);
+			Assert.assertEquals("AT", toponym.countryCode);
+			Assert.assertEquals("Austria", toponym.countryName);
+			Assert.assertEquals("A", toponym.featureClass);
+			Assert.assertEquals("PCLI", toponym.featureCode);
 		}
 		
 		[Test(async)]
@@ -604,7 +604,7 @@ package org.geonames.tests
 		private function oceanHandler(event:GeoNamesEvent, params:*):void
 		{
 			var ocean:Ocean = event.data as Ocean;
-			Assert.assertEquals(ocean.name, "North Atlantic Ocean");
+			Assert.assertEquals("North Atlantic Ocean", ocean.name);
 		}
 		
 		[Test(async)]
@@ -626,11 +626,11 @@ package org.geonames.tests
 		private function postalCodeCountryInfoHandler(event:GeoNamesEvent, params:*):void
 		{
 			var country:PostalCodeCountryInfo = event.data[0] as PostalCodeCountryInfo;
-			Assert.assertEquals(country.countryCode, "AD");
-			Assert.assertEquals(country.countryName, "Andorra");
-			Assert.assertEquals(country.numPostalCodes, 7);
-			Assert.assertEquals(country.minPostalCode, "AD100");
-			Assert.assertEquals(country.maxPostalCode, "AD700");
+			Assert.assertEquals("AD", country.countryCode);
+			Assert.assertEquals("Andorra", country.countryName);
+			Assert.assertEquals(7, country.numPostalCodes);
+			Assert.assertEquals("AD100", country.minPostalCode);
+			Assert.assertEquals("AD700", country.maxPostalCode);
 		}
 		
 		[Test(async)]
@@ -668,14 +668,14 @@ package org.geonames.tests
 		{
 			var result:ToponymSearchResult = event.data as ToponymSearchResult;
 			var toponym:Toponym = result.toponyms[0];
-			Assert.assertEquals(result.total, 48);
-			Assert.assertEquals(toponym.name, "Albania");
-			Assert.assertEquals(toponym.latitude, 41.0);
-			Assert.assertEquals(toponym.geoNameId, 783754);
-			Assert.assertEquals(toponym.countryCode, "AL");
-			Assert.assertEquals(toponym.countryName, "Albania");
-			Assert.assertEquals(toponym.featureClass, "A");
-			Assert.assertEquals(toponym.featureCode, "PCLI");
+			Assert.assertEquals(48, result.total);
+			Assert.assertEquals("Albania", toponym.name);
+			Assert.assertEquals(41.0, toponym.latitude);
+			Assert.assertEquals(783754, toponym.geoNameId);
+			Assert.assertEquals("AL", toponym.countryCode);
+			Assert.assertEquals("Albania", toponym.countryName);
+			Assert.assertEquals("A", toponym.featureClass);
+			Assert.assertEquals("PCLI", toponym.featureCode);
 		}
 		
 		[Test(async)]
@@ -701,14 +701,14 @@ package org.geonames.tests
 		private function timezoneHandler(event:GeoNamesEvent, params:*):void
 		{
 			var timezone:Timezone = event.data as Timezone;
-			Assert.assertEquals(timezone.countryCode, "AT");
-			Assert.assertEquals(timezone.countryName, "Austria");
-			Assert.assertEquals(timezone.latitude, 47.01);
-			Assert.assertEquals(timezone.longitude, 10.2);
-			Assert.assertEquals(timezone.timezone, "Europe/Vienna");
-			Assert.assertEquals(timezone.dstOffset, 2.0);
-			Assert.assertEquals(timezone.gmtOffset, 1.0);
-			Assert.assertEquals(timezone.rawOffset, 1.0);
+			Assert.assertEquals("AT", timezone.countryCode);
+			Assert.assertEquals("Austria", timezone.countryName);
+			Assert.assertEquals(47.01, timezone.latitude);
+			Assert.assertEquals(10.2, timezone.longitude);
+			Assert.assertEquals("Europe/Vienna", timezone.timezone);
+			Assert.assertEquals(2.0, timezone.dstOffset);
+			Assert.assertEquals(1.0, timezone.gmtOffset);
+			Assert.assertEquals(1.0, timezone.rawOffset);
 		}
 		
 		[Test(async)]
@@ -725,8 +725,8 @@ package org.geonames.tests
 			var entries:Array = event.data as Array;
 			var first:WikipediaEntry = entries[0];
 			var last:WikipediaEntry = entries[entries.length - 1];
-			Assert.assertEquals(first.title, "Chongqing");
-			Assert.assertEquals(last.title, "India");
+			Assert.assertEquals("Chongqing", first.title);
+			Assert.assertEquals("India", last.title);
 		}
 		
 		[Test(async)]
@@ -744,9 +744,9 @@ package org.geonames.tests
 			var first:WikipediaEntry = entries[0];
 			var last:WikipediaEntry = entries[entries.length - 1];
 			var middle:WikipediaEntry = entries[4];
-			Assert.assertEquals(first.title, "London");
-			Assert.assertEquals(last.title, "London Arch");
-			Assert.assertEquals(middle.title, "London Borough of Lewisham");
+			Assert.assertEquals("London", first.title);
+			Assert.assertEquals("London Arch", last.title);
+			Assert.assertEquals("London Borough of Lewisham", middle.title);
 		}
 		
 	}
