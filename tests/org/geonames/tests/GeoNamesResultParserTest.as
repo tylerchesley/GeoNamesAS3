@@ -9,6 +9,7 @@ package org.geonames.tests
 	import org.geonames.data.CountrySubdivision;
 	import org.geonames.data.Intersection;
 	import org.geonames.data.Neighbourhood;
+	import org.geonames.data.Ocean;
 	import org.geonames.data.PostalCode;
 	import org.geonames.data.PostalCodeCountryInfo;
 	import org.geonames.data.StreetSegment;
@@ -94,6 +95,11 @@ package org.geonames.tests
 				<name>Central Park</name>
 			</neighbourhood>;
 		
+		private static const OCEAN:XML = 
+			<ocean>
+				<name>North Atlantic Ocean</name>
+			</ocean>;
+		
 		private static const POSTAL_CODE:XML = 
 			<code>
 				<postalcode>8750</postalcode>
@@ -137,6 +143,19 @@ package org.geonames.tests
 				<adminName1>California</adminName1>
 				<countryCode>US</countryCode>
 			</streetSegment>;
+		
+		private static const TIMEZONE:XML = 
+			<timezone>
+				<countryCode>AT</countryCode>
+				<countryName>Austria</countryName>
+				<lat>47.01</lat>
+				<lng>10.2</lng>
+				<timezoneId>Europe/Vienna</timezoneId>
+				<dstOffset>2.0</dstOffset>
+				<gmtOffset>1.0</gmtOffset>
+				<rawOffset>1.0</rawOffset>
+				<time>2010-01-10 07:00</time>
+			</timezone>;
 		
 		private static const TOPONYM:XML = 
 			<geoname>
@@ -306,6 +325,13 @@ package org.geonames.tests
 		}
 		
 		[Test]
+		public function testParseOcean():void
+		{
+			var ocean:Ocean = GeoNamesResultParser.parseOcean(OCEAN);
+			Assert.assertEquals("North Atlantic Ocean", ocean.name);
+		}
+		
+		[Test]
 		public function testParsePostalCode():void
 		{
 			var code:PostalCode = GeoNamesResultParser.parsePostalCode(POSTAL_CODE);
@@ -353,19 +379,6 @@ package org.geonames.tests
 			Assert.assertEquals("California", segment.adminName1);
 			Assert.assertEquals("US", segment.countryCode);
 		}
-		
-		private static const TIMEZONE:XML = 
-			<timezone>
-				<countryCode>AT</countryCode>
-				<countryName>Austria</countryName>
-				<lat>47.01</lat>
-				<lng>10.2</lng>
-				<timezoneId>Europe/Vienna</timezoneId>
-				<dstOffset>2.0</dstOffset>
-				<gmtOffset>1.0</gmtOffset>
-				<rawOffset>1.0</rawOffset>
-				<time>2010-01-10 07:00</time>
-			</timezone>;
 		
 		[Test]
 		public function testTimezone():void
