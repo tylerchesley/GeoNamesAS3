@@ -2,12 +2,8 @@ package org.geonames.tests
 {
 	import org.flexunit.Assert;
 	import org.flexunit.async.Async;
-<<<<<<< HEAD:src/org/geonames/tests/GeoNamesTest.as
-	import org.geonames.GeoNames;
-	import org.geonames.criteria.FindNearbyPostalCodesCriteria;
-=======
 	import org.geonames.GeoNamesService;
->>>>>>> f40610d4d1d9f96939af096ecc8328fe6b68f2e4:tests/org/geonames/tests/GeoNamesServiceTest.as
+	import org.geonames.criteria.FindNearbyPostalCodesCriteria;
 	import org.geonames.data.Address;
 	import org.geonames.data.Country;
 	import org.geonames.data.CountrySubdivision;
@@ -262,7 +258,7 @@ package org.geonames.tests
 		{
 			var code:PostalCode = event.data[0] as PostalCode;
 			Assert.assertEquals(8750, code.postalCode);
-			Assert.assertEquals("Klöntal", code.placeName);
+			Assert.assertEquals("Klöntal", code.name);
 		}
 		
 		[Test(async)]
@@ -296,7 +292,7 @@ package org.geonames.tests
 		private function findNearbyStreetsHandler(event:GeoNamesEvent, params:*):void
 		{
 			var segment:StreetSegment = event.data[0];
-			Assert.assertEquals(segment.name, "Roble Ave");
+			Assert.assertEquals(segment.placeName, "Roble Ave");
 			Assert.assertEquals(segment.fraddl, 601);
 			Assert.assertEquals(segment.fraddr, 600);
 			Assert.assertEquals(segment.toaddl, 735);

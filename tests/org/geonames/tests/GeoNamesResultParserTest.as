@@ -11,6 +11,7 @@ package org.geonames.tests
 	import org.geonames.data.Neighbourhood;
 	import org.geonames.data.PostalCode;
 	import org.geonames.data.PostalCodeCountryInfo;
+	import org.geonames.data.StreetSegment;
 	import org.geonames.data.Toponym;
 	
 	public class GeoNamesResultParserTest
@@ -114,6 +115,25 @@ package org.geonames.tests
 				<minPostalCode>AD100</minPostalCode>
 				<maxPostalCode>AD700</maxPostalCode>
 			</country>;
+		
+		private static const STREET_SEGMENT:XML = 
+			<streetSegment>
+				<line>-122.179753 37.451953,-122.17997 37.451692,-122.180624 37.450909,-122.180842 37.450649</line>
+				<distance>0.06</distance>
+				<mtfcc>S1400</mtfcc>
+				<name>Roble Ave</name>
+				<fraddl>601</fraddl>
+				<fraddr>600</fraddr>
+				<toaddl>735</toaddl>
+				<toaddr>698</toaddr>
+				<postalcode>94025</postalcode>
+				<placename>Menlo Park</placename>
+				<adminCode2>081</adminCode2>
+				<adminName2>San Mateo</adminName2>
+				<adminCode1>CA</adminCode1>
+				<adminName1>California</adminName1>
+				<countryCode>US</countryCode>
+			</streetSegment>;
 		
 		private static const TOPONYM:XML = 
 			<geoname>
@@ -246,7 +266,7 @@ package org.geonames.tests
 		{
 			var code:PostalCode = GeoNamesResultParser.parsePostalCode(POSTAL_CODE);
 			Assert.assertEquals("8750", code.postalCode);
-			Assert.assertEquals("Klöntal", code.placeName);
+			Assert.assertEquals("Klöntal", code.name);
 			Assert.assertEquals("CH", code.countryCode);
 			Assert.assertEquals(47.0209991250926, code.latitude);
 			Assert.assertEquals(8.97896272642767, code.longitude);
@@ -268,6 +288,26 @@ package org.geonames.tests
 			Assert.assertEquals(7, country.numPostalCodes);
 			Assert.assertEquals("AD100", country.minPostalCode);
 			Assert.assertEquals("AD700", country.maxPostalCode);
+		}
+		
+		[Test]
+		public function testParseStreetSegment():void
+		{
+			var segment:StreetSegment = GeoNamesResultParser.parseStreetSegment(STREET_SEGMENT);
+			Assert.assertEquals(0.06, segment.distance);
+			Assert.assertEquals("S1400", segment.mtfcc);
+			Assert.assertEquals("Menlo Park", segment.placeName);
+			Assert.assertEquals("601", segment.fraddl);
+			Assert.assertEquals("600", segment.fraddr);
+			Assert.assertEquals("735", segment.toaddl);
+			Assert.assertEquals("698", segment.toaddr);
+			Assert.assertEquals("94025", segment.postalCode);
+			Assert.assertEquals("Menlo Park", segment.placeName);
+			Assert.assertEquals("081", segment.adminCode2);
+			Assert.assertEquals("San Mateo", segment.adminName2);
+			Assert.assertEquals("CA", segment.adminCode1);
+			Assert.assertEquals("California", segment.adminName1);
+			Assert.assertEquals("US", segment.countryCode);
 		}
 		
 		[Test]

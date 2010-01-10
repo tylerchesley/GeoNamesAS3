@@ -57,6 +57,8 @@ package org.geonames.data
 		 * 
 		 */		
 		public var toaddr:String;
+		
+		public var placeName:String;
 	
 	}
 }

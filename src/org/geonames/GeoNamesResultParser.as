@@ -89,11 +89,7 @@ package org.geonames
 			subdivision.codes = codes;
 			return subdivision;
 		}
-<<<<<<< HEAD:src/org/geonames/GeoNamesDataParser.as
 		
-=======
-
->>>>>>> f40610d4d1d9f96939af096ecc8328fe6b68f2e4:src/org/geonames/GeoNamesResultParser.as
 		public static function parseIntersection(node:XML):Intersection
 		{
 			var intersection:Intersection = new Intersection();
@@ -135,7 +131,7 @@ package org.geonames
 			postalCode.adminName2 = node.adminName2;
 			postalCode.adminName3 = node.adminName3;
 			postalCode.postalCode = node.postalcode;
-			postalCode.placeName  = node.name;
+			postalCode.name  = node.name;
 			postalCode.distance = node.distance;
 			postalCode.countryCode = node.countryCode;
 			postalCode.latitude = node.lat;
@@ -160,7 +156,8 @@ package org.geonames
 			segment.line = node.line;
 			segment.distance = node.distance;
 			segment.mtfcc = node.mtfcc;
-			segment.placeName = node.name;
+			segment.name = node.name;
+			segment.placeName = node.placename;
 			segment.fraddl = node.fraddl;
 			segment.fraddr = node.fraddr;
 			segment.toaddl = node.toaddl;

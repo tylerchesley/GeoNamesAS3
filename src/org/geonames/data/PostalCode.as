@@ -31,7 +31,7 @@ package org.geonames.data
 		
 		public var longitude:Number;
 		
-		public var placeName:String;
+		public var name:String;
 		
 		public var postalCode:String;
 	

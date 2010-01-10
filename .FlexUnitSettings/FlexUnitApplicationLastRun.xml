@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testrun name="" >
-<testsuite  name="Default Test Suite" project="GeoNamesAS3">
+<testsuite  name="Default Test Suite" project="GeonamesAS3">
 <testsuite name="org.geonames.tests:GeoNamesResultParserTest" type="testcaseclass"/>
 </testsuite>
 </testrun>
