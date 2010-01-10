@@ -13,6 +13,7 @@ package org.geonames.tests
 	import org.geonames.data.PostalCodeCountryInfo;
 	import org.geonames.data.StreetSegment;
 	import org.geonames.data.Toponym;
+	import org.geonames.data.WeatherObservation;
 	
 	public class GeoNamesResultParserTest
 	{
@@ -308,6 +309,50 @@ package org.geonames.tests
 			Assert.assertEquals("CA", segment.adminCode1);
 			Assert.assertEquals("California", segment.adminName1);
 			Assert.assertEquals("US", segment.countryCode);
+		}
+		
+		private static const WEATHER_OBSERVATION:XML = 
+			<observation>
+				<observation>
+				LESO 100500Z 21008KT 180V240 9999 3000S -SN SCT017 BKN030 01/M00 Q1016
+				</observation>
+				<observationTime>2010-01-10 05:00:00</observationTime>
+				<stationName>San Sebastian / Fuenterrabia</stationName>
+				<ICAO>LESO</ICAO>
+				<countryCode>ES</countryCode>
+				<elevation>8</elevation>
+				<lat>43.35</lat>
+				<lng>-1.8</lng>
+				<temperature>1</temperature>
+				<dewPoint>-0</dewPoint>
+				<humidity>93</humidity>
+				<clouds>scattered clouds</clouds>
+				<weatherCondition>light snow</weatherCondition>
+				<hectoPascAltimeter>1016.0</hectoPascAltimeter>
+				<windDirection>210.0</windDirection>
+				<windSpeed>08</windSpeed>
+			</observation>;
+		
+		[Test]
+		public function testParseWeatherObservation():void
+		{
+			var observation:WeatherObservation = GeoNamesResultParser.parseWeatherObservation(WEATHER_OBSERVATION);
+			Assert.assertEquals("LESO 100500Z 21008KT 180V240 9999 3000S -SN SCT017 BKN030 01/M00 Q1016", observation.observation);
+			Assert.assertEquals("San Sebastian / Fuenterrabia", observation.stationName);
+			Assert.assertEquals(new Date("2010-01-10 05:00:00").toString(), observation.observationTime.toString());
+			Assert.assertEquals("LESO", observation.ICAO);
+			Assert.assertEquals("ES", observation.countryCode);
+			Assert.assertEquals(8, observation.elevation);
+			Assert.assertEquals(43.35, observation.latitude);
+			Assert.assertEquals(-1.8, observation.longitude);
+			Assert.assertEquals(1, observation.temperature);
+			Assert.assertEquals(-0, observation.dewPoint);
+			Assert.assertEquals(93, observation.humidity);
+			Assert.assertEquals("scattered clouds", observation.clouds);
+			Assert.assertEquals("light snow", observation.weatherCondition);
+			Assert.assertEquals(1016.0, observation.hectoPascAltimeter);
+			Assert.assertEquals(210.0, observation.windDirection);
+			Assert.assertEquals(8, observation.windSpeed);
 		}
 		
 		[Test]
