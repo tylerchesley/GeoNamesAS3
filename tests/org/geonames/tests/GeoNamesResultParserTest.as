@@ -12,6 +12,7 @@ package org.geonames.tests
 	import org.geonames.data.PostalCode;
 	import org.geonames.data.PostalCodeCountryInfo;
 	import org.geonames.data.StreetSegment;
+	import org.geonames.data.Timezone;
 	import org.geonames.data.Toponym;
 	import org.geonames.data.WeatherObservation;
 	import org.geonames.data.WikipediaEntry;
@@ -351,6 +352,33 @@ package org.geonames.tests
 			Assert.assertEquals("CA", segment.adminCode1);
 			Assert.assertEquals("California", segment.adminName1);
 			Assert.assertEquals("US", segment.countryCode);
+		}
+		
+		private static const TIMEZONE:XML = 
+			<timezone>
+				<countryCode>AT</countryCode>
+				<countryName>Austria</countryName>
+				<lat>47.01</lat>
+				<lng>10.2</lng>
+				<timezoneId>Europe/Vienna</timezoneId>
+				<dstOffset>2.0</dstOffset>
+				<gmtOffset>1.0</gmtOffset>
+				<rawOffset>1.0</rawOffset>
+				<time>2010-01-10 07:00</time>
+			</timezone>;
+		
+		[Test]
+		public function testTimezone():void
+		{
+			var timezone:Timezone = GeoNamesResultParser.parseTimezone(TIMEZONE);
+			Assert.assertEquals("AT", timezone.countryCode);
+			Assert.assertEquals("Austria", timezone.countryName);
+			Assert.assertEquals(47.01, timezone.latitude);
+			Assert.assertEquals(10.2, timezone.longitude);
+			Assert.assertEquals("Europe/Vienna", timezone.timezone);
+			Assert.assertEquals(2.0, timezone.dstOffset);
+			Assert.assertEquals(1.0, timezone.gmtOffset);
+			Assert.assertEquals(1.0, timezone.rawOffset);
 		}
 		
 		[Test]
