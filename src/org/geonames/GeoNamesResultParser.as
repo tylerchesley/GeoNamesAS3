@@ -383,6 +383,7 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.FIND_NEARBY_STREETS:
+				case GeoNamesEvent.FIND_NEARBY_STREETS_OSM:
 					result = parseRepeatedElements("streetSegment", parseStreetSegment, XML(data));
 					break;
 				

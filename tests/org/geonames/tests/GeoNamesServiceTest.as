@@ -284,33 +284,24 @@ package org.geonames.tests
 			geonames.findNearbyStreets(37.451, -122.18);
 		}
 		
-		/*<streetSegment>
-			<line>
-			-122.179753 37.451953,-122.17997 37.451692,-122.180624 37.450909,-122.180842 37.450649
-			</line>
-			<distance>0.06</distance>
-			<mtfcc>S1400</mtfcc>
-			<name>Roble Ave</name>
-			<fraddl>601</fraddl>
-			<fraddr>600</fraddr>
-			<toaddl>735</toaddl>
-			<toaddr>698</toaddr>
-			<postalcode>94025</postalcode>
-			<placename>Menlo Park</placename>
-			<adminCode2>081</adminCode2>
-			<adminName2>San Mateo</adminName2>
-			<adminCode1>CA</adminCode1>
-			<adminName1>California</adminName1>
-			<countryCode>US</countryCode>
-		</streetSegment>*/
+		[Test(async)]
+		// http://ws.geonames.org/findNearbyStreetsOSM?lat=37.451&lng=-122.18
+		public function testFindNearbyStreetsOSM():void
+		{
+			Async.handleEvent(this, geonames, GeoNamesEvent.FIND_NEARBY_STREETS_OSM, 
+				findNearbyStreetsHandler, TIMEOUT);
+			geonames.findNearbyStreetsOSM(37.451, -122.18);
+		}
+		
 		private function findNearbyStreetsHandler(event:GeoNamesEvent, params:*):void
 		{
-			var segment:StreetSegment = event.data[0];
-			Assert.assertEquals("Roble Ave", segment.placeName);
-			Assert.assertEquals(601, segment.fraddl);
-			Assert.assertEquals(600, segment.fraddr);
-			Assert.assertEquals(735, segment.toaddl);
-			Assert.assertEquals(698, segment.toaddr);
+			var segments:Array = event.data as Array;
+			Assert.assertTrue(segments.length > 0);
+			for (var i:int = 0; i < segments.length; i++)
+			{
+				var item:Object = segments[i];
+				Assert.assertTrue(item is StreetSegment);
+			}
 		}
 		
 		[Test(async)]

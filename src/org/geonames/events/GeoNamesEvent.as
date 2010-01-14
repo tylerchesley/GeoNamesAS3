@@ -30,6 +30,8 @@ package org.geonames.events
 		
 		public static const FIND_NEARBY_STREETS:String = "findNearbyStreets";
 		
+		public static const FIND_NEARBY_STREETS_OSM:String = "findNearbyStreetsOSM";
+		
 		public static const FIND_NEARBY_WEARTHER:String = "findNearbyWeather?";
 		
 		public static const FIND_NEARBY_WIKIPEDIA:String = "findNearbyWikipedia";

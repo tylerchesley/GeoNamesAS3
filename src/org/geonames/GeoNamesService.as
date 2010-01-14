@@ -37,6 +37,8 @@ package org.geonames
 	
 	[Event(name="findNearbyStreets", type="org.geonames.events.GeoNamesEvent")]
 	
+	[Event(name="findNearbyStreetsOSM", type="org.geonames.events.GeoNamesEvent")]
+	
 	[Event(name="findNearbyWeather", type="org.geonames.events.GeoNamesEvent")]
 	
 	[Event(name="findNearbyWikipedia", type="org.geonames.events.GeoNamesEvent")]
@@ -102,6 +104,8 @@ package org.geonames
 		private static const FIND_NEARBY_POSTAL_CODES_URL:String = "/findNearbyPostalCodes?";
 		
 		private static const FIND_NEARBY_STREETS_URL:String = "/findNearbyStreets?";
+		
+		private static const FIND_NEARBY_STREETS_OSM_URL:String = "/findNearbyStreetsOSM?";
 		
 		private static const FIND_NEARBY_WEATHER_URL:String = "/findNearByWeather?";
 		
@@ -420,6 +424,15 @@ package org.geonames
 			params.lng = longitude;
 			invokeMethod(FIND_NEARBY_STREETS_URL, 
 						 GeoNamesEvent.FIND_NEARBY_STREETS, params);
+		}
+		
+		public function findNearbyStreetsOSM(latitude:Number, longitude:Number):void
+		{
+			var params:URLVariables = new URLVariables();
+			params.lat = latitude;
+			params.lng = longitude;
+			invokeMethod(FIND_NEARBY_STREETS_OSM_URL, 
+						 GeoNamesEvent.FIND_NEARBY_STREETS_OSM, params);
 		}
 		
 		/**
