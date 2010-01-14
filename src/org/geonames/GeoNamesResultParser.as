@@ -12,11 +12,11 @@ package org.geonames
 	import org.geonames.data.Ocean;
 	import org.geonames.data.PostalCode;
 	import org.geonames.data.PostalCodeCountryInfo;
-	import org.geonames.data.PostalCodeSearchResult;
+	import org.geonames.data.PostalCodeResult;
 	import org.geonames.data.StreetSegment;
 	import org.geonames.data.Timezone;
 	import org.geonames.data.Toponym;
-	import org.geonames.data.ToponymSearchResult;
+	import org.geonames.data.ToponymResult;
 	import org.geonames.data.WeatherObservation;
 	import org.geonames.data.WikipediaEntry;
 	import org.geonames.events.GeoNamesEvent;
@@ -255,9 +255,9 @@ package org.geonames
 			return entry;
 		}
 		
-		public static function parsePostalCodeSearchResult(data:XML):PostalCodeSearchResult
+		public static function parsePostalCodeResult(data:XML):PostalCodeResult
 		{
-			var result:PostalCodeSearchResult = new PostalCodeSearchResult();
+			var result:PostalCodeResult = new PostalCodeResult();
 			result.total = data.totalResultsCount;
 			var postalCodes:Array = [];
 			var postalCode:PostalCode;
@@ -297,9 +297,9 @@ package org.geonames
 		 * @return 
 		 * 
 		 */		
-		public static function parseToponymSearchResult(data:XML):ToponymSearchResult
+		public static function parseToponymResult(data:XML):ToponymResult
 		{
-			var result:ToponymSearchResult = new ToponymSearchResult();
+			var result:ToponymResult = new ToponymResult();
 			var style:String = data.@style;
 			result.style = style;
 			result.total = data.totalResultsCount;
@@ -358,7 +358,7 @@ package org.geonames
 				case GeoNamesEvent.NEIGHBOURS:
 				case GeoNamesEvent.SEARCH:
 				case GeoNamesEvent.SIBLINGS:
-					result = parseToponymSearchResult(XML(data));
+					result = parseToponymResult(XML(data));
 					break;
 				
 				case GeoNamesEvent.CITIES:
@@ -425,7 +425,7 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.POSTAL_CODE_SEARCH:
-					result = parsePostalCodeSearchResult(XML(data));
+					result = parsePostalCodeResult(XML(data));
 					break;
 				
 				case GeoNamesEvent.TIMEZONE:

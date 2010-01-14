@@ -16,11 +16,11 @@ package org.geonames.tests
 	import org.geonames.data.Ocean;
 	import org.geonames.data.PostalCode;
 	import org.geonames.data.PostalCodeCountryInfo;
-	import org.geonames.data.PostalCodeSearchResult;
+	import org.geonames.data.PostalCodeResult;
 	import org.geonames.data.StreetSegment;
 	import org.geonames.data.Timezone;
 	import org.geonames.data.Toponym;
-	import org.geonames.data.ToponymSearchResult;
+	import org.geonames.data.ToponymResult;
 	import org.geonames.data.WeatherObservation;
 	import org.geonames.data.WikipediaEntry;
 	import org.geonames.events.GeoNamesEvent;
@@ -74,7 +74,7 @@ package org.geonames.tests
 		</geoname>*/
 		private function childrenHandler(event:GeoNamesEvent, params:*):void
 		{
-			var result:ToponymSearchResult = event.data as ToponymSearchResult;
+			var result:ToponymResult = event.data as ToponymResult;
 			var toponym:Toponym = result.toponyms[0];
 			Assert.assertEquals(20, result.total);
 			Assert.assertEquals("Abruzzo", toponym.name);
@@ -564,7 +564,7 @@ package org.geonames.tests
 		</geoname>*/
 		private function hierarchyHandler(event:GeoNamesEvent, params:*):void
 		{
-			var result:ToponymSearchResult = event.data as ToponymSearchResult;
+			var result:ToponymResult = event.data as ToponymResult;
 			var toponym:Toponym = result.toponyms[0];
 			Assert.assertEquals("Earth", toponym.name);
 			Assert.assertEquals(0, toponym.latitude);
@@ -625,7 +625,7 @@ package org.geonames.tests
 		</geoname>*/
 		private function neighboursHandler(event:GeoNamesEvent, params:*):void
 		{
-			var result:ToponymSearchResult = event.data as ToponymSearchResult;
+			var result:ToponymResult = event.data as ToponymResult;
 			var toponym:Toponym = result.toponyms[0];
 			Assert.assertEquals(5, result.toponyms.length);
 			Assert.assertEquals("Austria", toponym.name);
@@ -693,7 +693,7 @@ package org.geonames.tests
 		
 		private function postalCodeSearchHandler(event:GeoNamesEvent, params:*):void
 		{
-			var result:PostalCodeSearchResult = event.data as PostalCodeSearchResult;
+			var result:PostalCodeResult = event.data as PostalCodeResult;
 			Assert.assertEquals(10, result.total);
 		}
 		
@@ -710,7 +710,7 @@ package org.geonames.tests
 		
 		private function searchHandler(event:GeoNamesEvent, params:*):void
 		{
-			var result:ToponymSearchResult = event.data as ToponymSearchResult;
+			var result:ToponymResult = event.data as ToponymResult;
 			Assert.assertEquals(6938, result.total);
 			Assert.assertEquals(Style.LONG, result.style);
 			Assert.assertTrue(result.toponyms.length > 0);
@@ -727,7 +727,7 @@ package org.geonames.tests
 		
 		private function siblingsHandler(event:GeoNamesEvent, params:*):void
 		{
-			var result:ToponymSearchResult = event.data as ToponymSearchResult;
+			var result:ToponymResult = event.data as ToponymResult;
 			var toponym:Toponym = result.toponyms[0];
 			Assert.assertEquals(49, result.total);
 			Assert.assertTrue(result.toponyms.length > 0);

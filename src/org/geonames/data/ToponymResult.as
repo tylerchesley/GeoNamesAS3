@@ -6,9 +6,9 @@ package org.geonames.data
 	 * @author tchesley
 	 * 
 	 */	
-	public class ToponymSearchResult
+	public class ToponymResult
 	{
-		public function ToponymSearchResult()
+		public function ToponymResult()
 		{
 		}
 	

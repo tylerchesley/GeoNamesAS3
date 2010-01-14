@@ -1,8 +1,8 @@
 package org.geonames.data
 {
-	public class PostalCodeSearchResult
+	public class PostalCodeResult
 	{
-		public function PostalCodeSearchResult()
+		public function PostalCodeResult()
 		{
 		}
 	

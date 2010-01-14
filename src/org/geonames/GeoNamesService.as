@@ -21,8 +21,32 @@ package org.geonames
 	//	Events
 	//--------------------------------------
 	
+	/**
+	 * Event broadcast when the elevation has been retrieved from GeoNames servers 
+	 * in response to <code>astergdem</code> being called.
+	 * 
+	 * <p>The event will contain a number representing the elevation in the 
+	 * <code>data</code> property</p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #astergdem()
+	 */	
 	[Event(name="astergdem", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the children have been retrieved from GeoNames servers 
+	 * in response to <code>children</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * <ul>
+	 * <li><code>ToponymSearchResult
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #astergdem()
+	 */
 	[Event(name="children", type="org.geonames.events.GeoNamesEvent")]
 	
 	[Event(name="cities", type="org.geonames.events.GeoNamesEvent")]
