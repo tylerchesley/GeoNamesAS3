@@ -4,7 +4,6 @@ package org.geonames.tests
 	import org.flexunit.async.Async;
 	import org.geonames.GeoNamesService;
 	import org.geonames.criteria.FindNearbyPostalCodesCriteria;
-	import org.geonames.criteria.PostalCodeSearchCriteria;
 	import org.geonames.data.Address;
 	import org.geonames.data.Country;
 	import org.geonames.data.CountrySubdivision;
@@ -508,6 +507,19 @@ package org.geonames.tests
 			Assert.assertEquals("L", toponym.featureClass);
 			Assert.assertEquals(20, toponym.adminCode1);
 			Assert.assertEquals("Opština Priština", toponym.adminName1);
+		}
+		
+		[Test(async)]
+		// http://ws.geonames.org/gtopo30?lat=47.01&lng=10.2
+		public function testGtopo30():void
+		{
+			Async.handleEvent(this, geonames, GeoNamesEvent.GTOPO30, gtopo30Handler, TIMEOUT);
+			geonames.gtopo30(47.01, 10.2);
+		}
+		
+		private function gtopo30Handler(event:GeoNamesEvent, params:*):void
+		{
+			Assert.assertEquals(2632, event.data);
 		}
 		
 		[Test(async)]

@@ -19,6 +19,8 @@ package org.geonames
 	//	Events
 	//--------------------------------------
 	
+	[Event(name="astergdem", type="org.geonames.events.GeoNamesEvent")]
+	
 	[Event(name="children", type="org.geonames.events.GeoNamesEvent")]
 	
 	[Event(name="cities", type="org.geonames.events.GeoNamesEvent")]
@@ -44,6 +46,8 @@ package org.geonames
 	[Event(name="findNearestIntersection", type="org.geonames.events.GeoNamesEvent")]
 	
 	[Event(name="getToponym", type="org.geonames.events.GeoNamesEvent")]
+	
+	[Event(name="gtopo30", type="org.geonames.events.GeoNamesEvent")]
 	
 	[Event(name="hierarchy", type="org.geonames.events.GeoNamesEvent")]
 	
@@ -108,6 +112,8 @@ package org.geonames
 		private static const FIND_NEAREST_INTERSECTION_URL:String = "/findNearestIntersection?";
 		
 		private static const GET_TOPONYM_URL:String = "/get?";
+		
+		private static const GTOPO30_URL:String = "/gtopo30?";
 		
 		private static const HIERARCHY_URL:String = "/hierarchy?";
 		
@@ -502,6 +508,14 @@ package org.geonames
 			params.style = style ? style : defaultStyle;
 			params.language = language ? language : defaultLanguage;
 			invokeMethod(GET_TOPONYM_URL, GeoNamesEvent.GET_TOPONYM, params);
+		}
+		
+		public function gtopo30(latitude:Number, longitude:Number):void
+		{
+			var params:URLVariables = new URLVariables();
+			params.lat = latitude;
+			params.lng = longitude;
+			invokeMethod(GTOPO30_URL, GeoNamesEvent.GTOPO30, params);
 		}
 		
 		/**

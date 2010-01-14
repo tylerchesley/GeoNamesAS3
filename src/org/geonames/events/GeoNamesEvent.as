@@ -40,6 +40,8 @@ package org.geonames.events
 		
 		public static const GET_TOPONYM:String = "getToponym";
 		
+		public static const GTOPO30:String = "gtopo30";
+		
 		public static const HIERARCHY:String = "hierarchy";
 		
 		public static const NEIGHBOURHOOD:String = "neighbourhood";

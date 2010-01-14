@@ -349,6 +349,7 @@ package org.geonames
 			switch(type) 
 			{
 				case GeoNamesEvent.ASTERGDEM:
+				case GeoNamesEvent.GTOPO30:
 					return Number(data);
 					break;
 				
