@@ -342,6 +342,10 @@ package org.geonames
 		{
 			var result:Object;
 			
+			// Check for any exceptions
+			if (checkException(XML(data)))
+				return parseException(XML(data));
+			
 			switch(type) 
 			{
 				case GeoNamesEvent.CHILDREN:

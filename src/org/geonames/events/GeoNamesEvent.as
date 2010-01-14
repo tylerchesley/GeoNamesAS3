@@ -60,7 +60,7 @@ package org.geonames.events
 		
 		public static const WIKIPEDIA_SEARCH:String = "wikipediaSearch";
 		
-		public static const GEONAMES_ERROR:String = "geonamesError";
+		public static const GEONAMES_EXCEPTION:String = "geonamesException";
 		
 		public function GeoNamesEvent(type:String, bubbles:Boolean=false, cancelable:Boolean=false)
 		{

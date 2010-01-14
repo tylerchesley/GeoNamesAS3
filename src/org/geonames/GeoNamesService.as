@@ -12,6 +12,7 @@ package org.geonames
 	import org.geonames.criteria.FindNearbyPostalCodesCriteria;
 	import org.geonames.criteria.PostalCodeSearchCriteria;
 	import org.geonames.criteria.ToponymSearchCriteria;
+	import org.geonames.data.GeoNamesException;
 	import org.geonames.events.GeoNamesEvent;
 
 	//--------------------------------------
@@ -65,6 +66,8 @@ package org.geonames
 	[Event(name="wikipediaBoundingBox", type="org.geonames.events.GeoNamesEvent")]
 	
 	[Event(name="wikipediaSearch", type="org.geonames.events.GeoNamesEvent")]
+	
+	[Event(name="geonamesException", type="org.geonames.events.GeoNamesEvent")]
 	
 	/**
 	 * 
@@ -262,12 +265,6 @@ package org.geonames
 			loader.addEventListener(Event.COMPLETE, completeHandler);
 			request.data = params;
 			loader.load(request);
-		}
-		
-		protected function checkError(data:XML):Boolean
-		{
-			
-			return false;
 		}
 		
 		/**
@@ -675,8 +672,11 @@ package org.geonames
 		private function completeHandler(event:Event):void
 		{
 			var loader:DynamicURLLoader = event.target as DynamicURLLoader;
-			var resultEvent:GeoNamesEvent = new GeoNamesEvent(loader.eventType);
-			resultEvent.data = GeoNamesResultParser.parse(loader.eventType, loader.data);
+			var data:Object = GeoNamesResultParser.parse(loader.eventType, loader.data);
+			var type:String = data is GeoNamesException ? GeoNamesEvent.GEONAMES_EXCEPTION : 
+														  loader.eventType;
+			var resultEvent:GeoNamesEvent = new GeoNamesEvent(type);
+			resultEvent.data = data;
 			dispatchEvent(resultEvent);
 		}
 		
