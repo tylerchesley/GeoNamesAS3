@@ -29,6 +29,7 @@
     <classEntry path="org.geonames.utils.Distance"/>
     <classEntry path="org.geonames.tests.GeoNamesResultParserTest"/>
     <classEntry path="org.geonames.tests.GeoNamesServiceTest"/>
+    <classEntry path="org.geonames.criteria.FindNearbyCriteria"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

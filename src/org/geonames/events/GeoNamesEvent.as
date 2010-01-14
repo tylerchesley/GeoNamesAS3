@@ -24,6 +24,10 @@ package org.geonames.events
 		
 		public static const COUNTRY_SUBDIVISION:String = "countrySubdivision";
 		
+		public static const EXTENDED_FIND_NEARBY:String = "extendedFindBy";
+		
+		public static const FIND_NEARBY:String = "findNearby";
+		
 		public static const FIND_NEARBY_PLACE_NAME:String = "findNearbyPlaceName";
 		
 		public static const FIND_NEARBY_POSTAL_CODES:String = "findNearbyPostalCodes";

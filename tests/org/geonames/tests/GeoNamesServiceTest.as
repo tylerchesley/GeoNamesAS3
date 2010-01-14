@@ -3,6 +3,7 @@ package org.geonames.tests
 	import org.flexunit.Assert;
 	import org.flexunit.async.Async;
 	import org.geonames.GeoNamesService;
+	import org.geonames.criteria.FindNearbyCriteria;
 	import org.geonames.criteria.FindNearbyPostalCodesCriteria;
 	import org.geonames.data.Address;
 	import org.geonames.data.Country;
@@ -204,6 +205,45 @@ package org.geonames.tests
 			Assert.assertEquals("Tyrol", subdivision.adminName1);
 			Assert.assertEquals(0.0, subdivision.distance);
 			Assert.assertEquals(2, subdivision.codes.length);
+		}
+		
+		[Test(async)]
+		// http://ws.geonames.org/extendedFindNearby?lat=47.3&lng=9
+		public function testExtendedFindNearby():void
+		{
+			Async.handleEvent(this, geonames, GeoNamesEvent.EXTENDED_FIND_NEARBY, extendedFindNearbyHandler, TIMEOUT);
+			geonames.extendedFindNearby(47.3, 9);
+		}
+		
+		private function extendedFindNearbyHandler(event:GeoNamesEvent, params:*):void
+		{
+			var results:Array = event.data as Array;
+			Assert.assertTrue(results.length > 0);
+			for (var i:int = 0; i < results.length; i++)
+			{
+				var item:Object = results[i];
+				Assert.assertTrue(item is Toponym);
+			}
+		}
+		
+		[Test(async)]
+		// http://ws.geonames.org/findNearby?lat=47.3&lng=9
+		public function testFindNearby():void
+		{
+			Async.handleEvent(this, geonames, GeoNamesEvent.FIND_NEARBY, findNearbyHandler, TIMEOUT);
+			var criteria:FindNearbyCriteria = new FindNearbyCriteria(47.3, 9);
+			geonames.findNearby(criteria);
+		}
+		
+		private function findNearbyHandler(event:GeoNamesEvent, params:*):void
+		{
+			var results:Array = event.data as Array;
+			Assert.assertTrue(results.length > 0);
+			for (var i:int = 0; i < results.length; i++)
+			{
+				var item:Object = results[i];
+				Assert.assertTrue(item is Toponym);
+			}
 		}
 		
 		[Test(async)]

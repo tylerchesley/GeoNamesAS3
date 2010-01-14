@@ -362,6 +362,8 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.CITIES:
+				case GeoNamesEvent.EXTENDED_FIND_NEARBY:
+				case GeoNamesEvent.FIND_NEARBY:
 				case GeoNamesEvent.FIND_NEARBY_PLACE_NAME:
 					result = parseRepeatedElements("geoname", parseToponym, XML(data));
 					break;

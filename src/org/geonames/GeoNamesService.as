@@ -6,9 +6,11 @@ package org.geonames
 	import flash.events.Event;
 	import flash.net.URLRequest;
 	import flash.net.URLVariables;
+	import flash.utils.describeType;
 	
 	import org.geonames.codes.Language;
 	import org.geonames.codes.Style;
+	import org.geonames.criteria.FindNearbyCriteria;
 	import org.geonames.criteria.FindNearbyPostalCodesCriteria;
 	import org.geonames.criteria.PostalCodeSearchCriteria;
 	import org.geonames.criteria.ToponymSearchCriteria;
@@ -30,6 +32,10 @@ package org.geonames
 	[Event(name="countryInfo", type="org.geonames.events.GeoNamesEvent")]
 	
 	[Event(name="countrySubdivision", type="org.geonames.events.GeoNamesEvent")]
+	
+	[Event(name="extendedFindNearby", type="org.geonames.events.GeoNamesEvent")]
+	
+	[Event(name="findNearby", type="org.geonames.events.GeoNamesEvent")]
 	
 	[Event(name="findNearbyPlaceName", type="org.geonames.events.GeoNamesEvent")]
 	
@@ -86,7 +92,38 @@ package org.geonames
 	{
 		
 	//------------------------------------------------------------------------------
-	//	Class Variables
+	//	Class Methods
+	//------------------------------------------------------------------------------
+		
+		/**
+		 * Method used to copy criteria values to a new params object 
+		 * without any properties that are null. This prevents errors 
+		 * from the geonames server for null values.
+		 *  
+		 * @param criteria
+		 * @return 
+		 * 
+		 */		
+		public static function criteriaToParams(criteria:Object):URLVariables
+		{
+			var params:URLVariables = new URLVariables();
+			var type:XML = describeType(criteria);
+			
+			for each (var param:XML in type..variable)
+			{
+				var name:String = param.@name;
+				var value:* = criteria[name];
+				if (value)
+				{
+					params[name] = value;
+				}
+			}
+			
+			return params;
+		}
+		
+	//------------------------------------------------------------------------------
+	//	Class Constants
 	//------------------------------------------------------------------------------
 		
 		private static const ASTERGDEM_URL:String = "/astergdem?"
@@ -100,6 +137,10 @@ package org.geonames
 		private static const COUNTRY_INFO_URL:String = "/countryInfo?";
 		
 		private static const COUNTRY_SUBDIVISION_URL:String = "/countrySubdivision?";
+		
+		private static const EXTENDED_FIND_NEARBY_URL:String = "/extendedFindNearby?";
+		
+		private static const FIND_NEARBY_URL:String = "/findNearby?";
 		
 		private static const FIND_NEARBY_PLACE_NAME_URL:String = "/findNearbyPlaceName?";
 		
@@ -382,6 +423,21 @@ package org.geonames
 			params.language = language ? language : defaultLanguage;
 			invokeMethod(COUNTRY_SUBDIVISION_URL, 
 						 GeoNamesEvent.COUNTRY_SUBDIVISION, params);
+		}
+		
+		public function extendedFindNearby(latitude:Number, longitude:Number):void
+		{
+			var params:URLVariables = new URLVariables();
+			params.lat = latitude;
+			params.lng = longitude;
+			invokeMethod(EXTENDED_FIND_NEARBY_URL, 
+				GeoNamesEvent.EXTENDED_FIND_NEARBY, params);
+		}
+		
+		public function findNearby(criteria:FindNearbyCriteria):void
+		{
+			var params:URLVariables = criteriaToParams(criteria);
+			invokeMethod(FIND_NEARBY_URL, GeoNamesEvent.FIND_NEARBY, params);
 		}
 		
 		/**
