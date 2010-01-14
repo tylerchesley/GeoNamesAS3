@@ -81,6 +81,8 @@ package org.geonames
 	//	Class Variables
 	//------------------------------------------------------------------------------
 		
+		private static const ASTERGDEM_URL:String = "/astergdem?"
+		
 		private static const CHILDREN_URL:String = "/children?";
 		
 		private static const CITIES_URL:String = "/cities?";
@@ -265,6 +267,14 @@ package org.geonames
 			loader.addEventListener(Event.COMPLETE, completeHandler);
 			request.data = params;
 			loader.load(request);
+		}
+		
+		public function astergdem(latitude:Number, longitude:Number):void
+		{
+			var params:URLVariables = new URLVariables();
+			params.lat = latitude;
+			params.lng = longitude;
+			invokeMethod(ASTERGDEM_URL, GeoNamesEvent.ASTERGDEM, params);
 		}
 		
 		/**

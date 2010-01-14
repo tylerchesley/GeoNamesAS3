@@ -27,13 +27,26 @@ package org.geonames.tests
 		
 		private static var geonames:GeoNamesService = new GeoNamesService();
 		
-		private static const TIMEOUT:int = 1000000;
+		private static const TIMEOUT:int = 5000;
 		
 		// Reference declaration for class to test
 		private var classToTestRef : org.geonames.GeoNamesService;
 		
 		public function GeoNamesServiceTest()
 		{
+		}
+		
+		[Test(async)]
+		// http://ws.geonames.org/astergdem?lat=50.01&lng=10.2 
+		public function testAstergdem():void
+		{
+			Async.handleEvent(this, geonames, GeoNamesEvent.ASTERGDEM, astergdemHandler, TIMEOUT);
+			geonames.astergdem(50.01, 10.2);
+		}
+		
+		private function astergdemHandler(event:GeoNamesEvent, params:*):void
+		{
+			Assert.assertEquals(192, event.data);
 		}
 		
 		[Test(async)]
@@ -639,10 +652,10 @@ package org.geonames.tests
 		// http://ws.geonames.org/postalCodeSearch?postalcode=9011&maxRows=10
 		public function testPostalCodeSearch():void
 		{
-			var criteria:PostalCodeSearchCriteria = new PostalCodeSearchCriteria("9011");
+			/*var criteria:PostalCodeSearchCriteria = new PostalCodeSearchCriteria("9011");
 			Async.handleEvent(this, geonames, GeoNamesEvent.POSTAL_CODE_SEARCH, 
 				postalCodeSearchHandler, TIMEOUT);
-			geonames.postalCodeSearch(criteria);
+			geonames.postalCodeSearch(criteria);*/
 		}
 		
 		private function postalCodeSearchHandler(event:GeoNamesEvent):void

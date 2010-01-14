@@ -348,6 +348,10 @@ package org.geonames
 			
 			switch(type) 
 			{
+				case GeoNamesEvent.ASTERGDEM:
+					return Number(data);
+					break;
+				
 				case GeoNamesEvent.CHILDREN:
 				case GeoNamesEvent.HIERARCHY:
 				case GeoNamesEvent.NEIGHBOURS:

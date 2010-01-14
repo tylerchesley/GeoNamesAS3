@@ -12,6 +12,8 @@ package org.geonames.events
 	public class GeoNamesEvent extends ServiceEvent
 	{
 		
+		public static const ASTERGDEM:String = "astergdem";
+		
 		public static const CHILDREN:String = "children";
 		
 		public static const CITIES:String = "cities";
