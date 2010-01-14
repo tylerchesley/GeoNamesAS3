@@ -26,7 +26,7 @@ package org.geonames.tests
 		
 		private static var geonames:GeoNamesService = new GeoNamesService();
 		
-		private static const TIMEOUT:int = 5000;
+		private static const TIMEOUT:int = 10000;
 		
 		// Reference declaration for class to test
 		private var classToTestRef : org.geonames.GeoNamesService;
@@ -428,33 +428,20 @@ package org.geonames.tests
 			geonames.findNearestIntersection(37.451, -122.18);
 		}
 		
-		/*<intersection>
-			<street1>Roble Ave</street1>
-			<street2>Curtis St</street2>
-			<lat>37.450649</lat>
-			<lng>-122.180842</lng>
-			<distance>0.08</distance>
-			<postalcode>94025</postalcode>
-			<placename>Menlo Park</placename>
-			<adminName2>San Mateo</adminName2>
-			<adminCode1>CA</adminCode1>
-			<adminName1>California</adminName1>
-			<countryCode>US</countryCode>
-		</intersection>*/
+		[Test(async)]
+		// http://ws.geonames.org/findNearestIntersectionOSM?lat=37.451&lng=-122.18
+		public function testFindNearestIntersectionOSM():void
+		{
+			Async.handleEvent(this, geonames, GeoNamesEvent.FIND_NEAREST_INTERSECTION_OSM, 
+				findNearestIntersectionHandler, TIMEOUT);
+			geonames.findNearestIntersectionOSM(37.451, -122.18);
+		}
+		
 		private function findNearestIntersectionHandler(event:GeoNamesEvent, params:*):void
 		{
 			var intersection:Intersection = event.data as Intersection;
-			Assert.assertEquals("Roble Ave", intersection.street);
-			Assert.assertEquals("Curtis St", intersection.street2);
-			Assert.assertEquals(37.450649, intersection.latitude);
-			Assert.assertEquals(-122.180842, intersection.longitude);
-			Assert.assertEquals(0.08, intersection.distance);
-			Assert.assertEquals(94025, intersection.postalCode);
-			Assert.assertEquals("Menlo Park", intersection.placeName);
-			Assert.assertEquals("CA", intersection.adminCode1);
-			Assert.assertEquals("California", intersection.adminName1);
-			Assert.assertEquals("San Mateo", intersection.adminName2);
-			Assert.assertEquals("US", intersection.countryCode);
+			Assert.assertNotNull(intersection.street);
+			Assert.assertNotNull(intersection.street2);
 		}
 		
 		[Test(async)]

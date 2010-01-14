@@ -402,6 +402,7 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.FIND_NEAREST_INTERSECTION:
+				case GeoNamesEvent.FIND_NEAREST_INTERSECTION_OSM:
 					result = parseIntersection(XML(data).intersection[0]);
 					break;
 				

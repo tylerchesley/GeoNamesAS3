@@ -47,6 +47,8 @@ package org.geonames
 	
 	[Event(name="findNearestIntersection", type="org.geonames.events.GeoNamesEvent")]
 	
+	[Event(name="findNearestIntersectionOSM", type="org.geonames.events.GeoNamesEvent")]
+	
 	[Event(name="getToponym", type="org.geonames.events.GeoNamesEvent")]
 	
 	[Event(name="gtopo30", type="org.geonames.events.GeoNamesEvent")]
@@ -114,6 +116,8 @@ package org.geonames
 		private static const FIND_NEAREST_ADDRESS_URL:String = "/findNearestAddress?";
 		
 		private static const FIND_NEAREST_INTERSECTION_URL:String = "/findNearestIntersection?";
+		
+		private static const FIND_NEAREST_INTERSECTION_OSM_URL:String = "/findNearestIntersectionOSM?";
 		
 		private static const GET_TOPONYM_URL:String = "/get?";
 		
@@ -495,15 +499,29 @@ package org.geonames
 		 * @param style
 		 * 
 		 */		
-		public function findNearestIntersection(latitude:Number, longitude:Number, 
-												style:String = null):void
+		public function findNearestIntersection(latitude:Number, longitude:Number):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
-			params.style = style ? style : defaultStyle;
 			invokeMethod(FIND_NEAREST_INTERSECTION_URL, 
 				GeoNamesEvent.FIND_NEAREST_INTERSECTION, params);
+		}
+		
+		/**
+		 * 
+		 * @param latitude
+		 * @param longitude
+		 * @param style
+		 * 
+		 */		
+		public function findNearestIntersectionOSM(latitude:Number, longitude:Number):void
+		{
+			var params:URLVariables = new URLVariables();
+			params.lat = latitude;
+			params.lng = longitude;
+			invokeMethod(FIND_NEAREST_INTERSECTION_OSM_URL, 
+				GeoNamesEvent.FIND_NEAREST_INTERSECTION_OSM, params);
 		}
 		
 		/**
