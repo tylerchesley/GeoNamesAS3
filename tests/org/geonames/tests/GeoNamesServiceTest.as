@@ -3,8 +3,11 @@ package org.geonames.tests
 	import org.flexunit.Assert;
 	import org.flexunit.async.Async;
 	import org.geonames.GeoNamesService;
+	import org.geonames.codes.Style;
 	import org.geonames.criteria.FindNearbyCriteria;
 	import org.geonames.criteria.FindNearbyPostalCodesCriteria;
+	import org.geonames.criteria.PostalCodeSearchCriteria;
+	import org.geonames.criteria.ToponymSearchCriteria;
 	import org.geonames.data.Address;
 	import org.geonames.data.Country;
 	import org.geonames.data.CountrySubdivision;
@@ -682,10 +685,10 @@ package org.geonames.tests
 		// http://ws.geonames.org/postalCodeSearch?postalcode=9011&maxRows=10
 		public function testPostalCodeSearch():void
 		{
-			/*var criteria:PostalCodeSearchCriteria = new PostalCodeSearchCriteria("9011");
+			var criteria:PostalCodeSearchCriteria = new PostalCodeSearchCriteria("9011");
 			Async.handleEvent(this, geonames, GeoNamesEvent.POSTAL_CODE_SEARCH, 
 				postalCodeSearchHandler, TIMEOUT);
-			geonames.postalCodeSearch(criteria);*/
+			geonames.postalCodeSearch(criteria);
 		}
 		
 		private function postalCodeSearchHandler(event:GeoNamesEvent):void
@@ -695,9 +698,22 @@ package org.geonames.tests
 		}
 		
 		[Test(async)]
+		// http://ws.geonames.org/search?q=london&maxRows=10&style=LONG&lang=es
 		public function testSearch():void
 		{
-			
+			var criteria:ToponymSearchCriteria = new ToponymSearchCriteria("london");
+			criteria.maxRows = 10;
+			criteria.style = Style.LONG;
+			Async.handleEvent(this, geonames, GeoNamesEvent.SEARCH, searchHandler, TIMEOUT);
+			geonames.search(criteria);
+		}
+		
+		private function searchHandler(event:GeoNamesEvent, params:*):void
+		{
+			var result:ToponymSearchResult = event.data as ToponymSearchResult;
+			Assert.assertEquals(6938, result.total);
+			Assert.assertEquals(Style.LONG, result.style);
+			Assert.assertTrue(result.toponyms.length > 0);
 		}
 		
 		[Test(async)]

@@ -467,8 +467,9 @@ package org.geonames
 		 */		
 		public function findNearbyPostalCodes(criteria:FindNearbyPostalCodesCriteria):void
 		{
+			var params:URLVariables = criteriaToParams(criteria);
 			invokeMethod(FIND_NEARBY_POSTAL_CODES_URL, 
-						 GeoNamesEvent.FIND_NEARBY_POSTAL_CODES, criteria);
+						 GeoNamesEvent.FIND_NEARBY_POSTAL_CODES, params);
 		}
 		
 		/**
@@ -685,7 +686,12 @@ package org.geonames
 		 */		
 		public function postalCodeSearch(criteria:PostalCodeSearchCriteria):void
 		{
-			invokeMethod(POSTAL_CODE_SEARCH_URL, GeoNamesEvent.POSTAL_CODE_SEARCH, criteria);
+			var params:URLVariables = criteriaToParams(criteria);
+			
+			if (!params.postalcode && !params.placename)
+					throw new Error("postalcode or placename is required.");
+			
+			invokeMethod(POSTAL_CODE_SEARCH_URL, GeoNamesEvent.POSTAL_CODE_SEARCH, params);
 		}
 		
 		/**
@@ -695,7 +701,12 @@ package org.geonames
 		 */		
 		public function search(criteria:ToponymSearchCriteria):void
 		{
-			invokeMethod(SEARCH_URL, GeoNamesEvent.SEARCH, criteria);
+			var params:URLVariables = criteriaToParams(criteria);
+			
+			if (!params.q && !params.name && !params.name_equals)
+				throw new Error("q, name or name_equals is required.");
+			
+			invokeMethod(SEARCH_URL, GeoNamesEvent.SEARCH, params);
 		}
 		
 		/**

@@ -2,12 +2,12 @@ package org.geonames.codes
 {
 	public class Style
 	{
-		public static const SHORT:String = 'short';
+		public static const SHORT:String = 'SHORT';
 		
-		public static const MEDIUM:String = 'medium';
+		public static const MEDIUM:String = 'MEDIUM';
 		
-		public static const LONG:String = 'long';
+		public static const LONG:String = 'LONG';
 		
-		public static const FULL:String = 'full';
+		public static const FULL:String = 'FULL';
 	}
 }
