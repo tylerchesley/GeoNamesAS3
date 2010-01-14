@@ -1,8 +1,5 @@
 package org.geonames.data
 {
-	
-
-	[Bindable]
 	public class Toponym
 	{
 		public function Toponym()

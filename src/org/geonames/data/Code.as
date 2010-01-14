@@ -1,6 +1,5 @@
 package org.geonames.data
 {
-	[Bindable]
 	public class Code
 	{
 		public function Code()

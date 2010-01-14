@@ -1,6 +1,5 @@
 package org.geonames.data
 {
-	[Bindable]
 	public class Intersection extends Address
 	{
 		public function Intersection()

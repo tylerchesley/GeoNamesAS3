@@ -6,12 +6,12 @@
 	<![CDATA[
 
 		import org.flexunit.runner.Request;
-		import org.geonames.tests.GeoNamesResultParserTest;
+		import org.geonames.tests.GeoNamesServiceTest;
 
 		public function currentRunTestSuite():Array
 		{
 			var testsToRun:Array = new Array();
-			testsToRun.push(org.geonames.tests.GeoNamesResultParserTest);
+			testsToRun.push(org.geonames.tests.GeoNamesServiceTest);
 			return testsToRun;
 		}
 		private function onCreationComplete():void

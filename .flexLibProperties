@@ -8,11 +8,10 @@
     <classEntry path="org.geonames.criteria.PostalCodeSearchCriteria"/>
     <classEntry path="org.geonames.criteria.ToponymSearchCriteria"/>
     <classEntry path="org.geonames.data.Address"/>
-    <classEntry path="org.geonames.data.Bounds"/>
     <classEntry path="org.geonames.data.Code"/>
     <classEntry path="org.geonames.data.Country"/>
     <classEntry path="org.geonames.data.CountrySubdivision"/>
-    <classEntry path="org.geonames.data.FreatureClass"/>
+    <classEntry path="org.geonames.codes.FreatureClass"/>
     <classEntry path="org.geonames.data.Intersection"/>
     <classEntry path="org.geonames.data.Neighbourhood"/>
     <classEntry path="org.geonames.data.Ocean"/>

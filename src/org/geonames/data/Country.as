@@ -1,6 +1,5 @@
 package org.geonames.data
 {
-	[Bindable]
 	/**
 	 * 
 	 * @author Tyler Chesley

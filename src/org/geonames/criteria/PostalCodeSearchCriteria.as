@@ -20,7 +20,7 @@ package org.geonames.criteria
 		 */		
 		public function PostalCodeSearchCriteria(postalcode:String = "", placename:String = "")
 		{
-			if (!postalcode || !placename)
+			if (!postalcode && !placename)
 				throw new Error("Either postalcode or placename is required.");
 			
 			this.postalcode = postalcode;

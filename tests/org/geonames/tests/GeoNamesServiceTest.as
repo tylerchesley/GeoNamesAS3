@@ -4,6 +4,7 @@ package org.geonames.tests
 	import org.flexunit.async.Async;
 	import org.geonames.GeoNamesService;
 	import org.geonames.criteria.FindNearbyPostalCodesCriteria;
+	import org.geonames.criteria.PostalCodeSearchCriteria;
 	import org.geonames.data.Address;
 	import org.geonames.data.Country;
 	import org.geonames.data.CountrySubdivision;
@@ -12,6 +13,7 @@ package org.geonames.tests
 	import org.geonames.data.Ocean;
 	import org.geonames.data.PostalCode;
 	import org.geonames.data.PostalCodeCountryInfo;
+	import org.geonames.data.PostalCodeSearchResult;
 	import org.geonames.data.StreetSegment;
 	import org.geonames.data.Timezone;
 	import org.geonames.data.Toponym;
@@ -634,9 +636,19 @@ package org.geonames.tests
 		}
 		
 		[Test(async)]
+		// http://ws.geonames.org/postalCodeSearch?postalcode=9011&maxRows=10
 		public function testPostalCodeSearch():void
 		{
-			
+			var criteria:PostalCodeSearchCriteria = new PostalCodeSearchCriteria("9011");
+			Async.handleEvent(this, geonames, GeoNamesEvent.POSTAL_CODE_SEARCH, 
+				postalCodeSearchHandler, TIMEOUT);
+			geonames.postalCodeSearch(criteria);
+		}
+		
+		private function postalCodeSearchHandler(event:GeoNamesEvent):void
+		{
+			var result:PostalCodeSearchResult = event.data as PostalCodeSearchResult;
+			Assert.assertEquals(10, result.total);
 		}
 		
 		[Test(async)]

@@ -1,6 +1,5 @@
 package org.geonames.data
 {
-	[Bindable]
 	public class PostalCodeSearchResult
 	{
 		public function PostalCodeSearchResult()

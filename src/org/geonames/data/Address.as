@@ -1,7 +1,5 @@
 package org.geonames.data
 {
-
-	[Bindable]
 	public class Address extends PostalCode
 	{
 		public function Address()

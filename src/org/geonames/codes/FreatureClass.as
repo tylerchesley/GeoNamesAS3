@@ -1,4 +1,4 @@
-package org.geonames.data
+package org.geonames.codes
 {
 	public class FreatureClass
 	{
