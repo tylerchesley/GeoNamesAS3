@@ -307,11 +307,7 @@ package org.geonames
 	//------------------------------------------------------------------------------
 		
 		/**
-		 * 
-		 * @param url
-		 * @param resultHandler
-		 * @param params
-		 * 
+		 * @private
 		 */		
 		protected function invokeMethod(url:String, eventType:String, 
 										params:Object = null):void
@@ -324,6 +320,22 @@ package org.geonames
 			loader.load(request);
 		}
 		
+		/**
+		 * Retrieves the elevation in meters according to aster gdem, 
+		 * ocean areas have been masked as "no data" and have been assigned 
+		 * a value of -9999.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>astergdem</code> 
+		 * when the elevation has been retrieved. The result event 
+		 * contains a number representing the elevation.</p>
+		 *  
+		 * @param latitude
+		 * @param longitude
+		 * 
+		 * @see #event:astergdem
+		 * @see http://www.geonames.org/export/web-services.html#astergdem
+		 * @see http://asterweb.jpl.nasa.gov/gdem.asp
+		 */		
 		public function astergdem(latitude:Number, longitude:Number):void
 		{
 			var params:URLVariables = new URLVariables();
@@ -333,34 +345,54 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the children for a given geonameId.
 		 * 
-		 * @param geonameId
-		 * @param style
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>children</code> 
+		 * when the children have been retrieved and parsed. The result event 
+		 * contains a <code>ToponymSearchResult</code> object.</p>
+		 * 
+		 * @param geonameId The geonameId of the parent.
+		 * @param maxRows The number of rows returned, default is 200.
+		 * @param style 
 		 * @param language
 		 * 
+		 * @see #event:children
+		 * @see org.geonames.data.ToponymSearchResult
+		 * @see http://www.geonames.org/export/place-hierarchy.html#children
 		 */		
-		public function children(geonameId:int, style:String = null, 
-								 language:String = null):void
+		public function children(geonameId:int, maxRows:Number = 200, 
+								 style:String = null, language:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.geonameId = geonameId;
+			params.maxRows = maxRows;
 			params.language = language ? language : defaultLanguage;
 			params.style = style ? style : defaultStyle;
 			invokeMethod(CHILDREN_URL, GeoNamesEvent.CHILDREN, params);
 		}
 		
 		/**
+		 * Retrieves a list of cities and placenames in the bounding box, ordered by 
+		 * relevancy (capital/population). Placenames close together are filterered 
+		 * out and only the larger name is included in the resulting list.
 		 * 
-		 * @param north
-		 * @param south
-		 * @param east
-		 * @param west
-		 * @param maxRows
-		 * @param language
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>cities</code> 
+		 * when the list of cities has been retrieved and parsed. The result event 
+		 * contains an <code>Array</code> of <code>Toponym</code> objects.</p>
 		 * 
+		 * @param north The northren coordinate of bounding box. 
+		 * @param south The southren coordinate of bounding box.
+		 * @param east The eastern coordinate of bounding box.
+		 * @param west The western coordinate of bounding box.
+		 * @param maxRows The maximal number of rows returned (default = 10).
+		 * @param language The language of placenames and wikipedia urls (default = en).
+		 * 
+		 * @see #event:cities
+		 * @see org.geonames.data.Toponym
+		 * @see http://www.geonames.org/export/JSON-webservices.html#citiesJSON
 		 */		
 		public function cities(north:Number, south:Number, east:Number, west:Number, 
-							   maxRows:Number = 10, language:String = null):void
+							   maxRows:Number = 10, language:String = Language.ENGLISH):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.north = north;
@@ -374,10 +406,18 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the iso country code for the given latitude/longitude.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>countryCode</code> 
+		 * when the country code has been retrieved. The result event 
+		 * contains a two character <code>String</code> representing the 
+		 * country code.</p>
 		 * 
 		 * @param latitude
 		 * @param longitude
 		 * 
+		 * @see #event:countryCode
+		 * @see http://www.geonames.org/export/JSON-webservices.html#countrycode
 		 */		
 		public function countryCode(latitude:Number, longitude:Number):void
 		{
@@ -388,10 +428,19 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the capital, population, area in square km, bounding box 
+		 * of mainland (excluding offshore islands).
 		 * 
-		 * @param country
-		 * @param language
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>countryInfo</code> 
+		 * when the country information has been retrieved and parsed. The result event 
+		 * contains an <code>Array</code> of <code>Country</code> objects.</p>
 		 * 
+		 * @param country The ISO 2 country code (default = all countries).
+		 * @param language ISO-639-1 language code (en,de,fr,it,es,...) (default = english).
+		 * 
+		 * @see #event:countryInfo
+		 * @see org.geonames.data.Country
+		 * @see http://www.geonames.org/export/JSON-webservices.html#countryinfo
 		 */		
 		public function countryInfo(country:String = null, 
 									language:String = null):void
@@ -403,13 +452,23 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the iso country code and the administrative subdivision of any given point. 
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>countrySubdivision</code> 
+		 * when the country subdivision information has been retrieved and parsed. The result event 
+		 * contains an <code>Array</code> of <code>CountrySubdivion</code> objects.</p>
+		 * 
+		 * <p>With the parameters 'radius' and 'maxRows' you get the closest subdivisions ordered by distance</p>
 		 * 
 		 * @param latitude
 		 * @param longitude
-		 * @param radius
+		 * @param radius A buffer in km for closest country in coastal areas.
 		 * @param maxRows
 		 * @param language
 		 * 
+		 * @see #event:countrySubdivision
+		 * @see org.geonames.data.CountrySubdivision
+		 * @see http://www.geonames.org/export/JSON-webservices.html#countrysubdivision
 		 */		
 		public function countrySubdivision(latitude:Number, longitude:Number, 
 										   radius:Number = 0, maxRows:Number = 10,
@@ -598,6 +657,20 @@ package org.geonames
 			invokeMethod(GET_TOPONYM_URL, GeoNamesEvent.GET_TOPONYM, params);
 		}
 		
+		/**
+		 * Retrieves the elevation in meters according to gtopo30, ocean areas have 
+		 * been masked as "no data" and have been assigned a value of -9999.
+		 * 
+		 * <p>GTOPO30 is a global digital elevation model (DEM) with a horizontal grid 
+		 * spacing of 30 arc seconds (approximately 1 kilometer). GTOPO30 was 
+		 * derived from several raster and vector sources of topographic information.</p>
+		 *  
+		 * @param latitude
+		 * @param longitude
+		 * 
+		 * @see #event:gtopo30
+		 * @see http://www.geonames.org/export/web-services.html#gtopo30
+		 */		
 		public function gtopo30(latitude:Number, longitude:Number):void
 		{
 			var params:URLVariables = new URLVariables();
