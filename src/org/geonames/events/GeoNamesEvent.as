@@ -46,7 +46,7 @@ package org.geonames.events
 		
 		public static const FIND_NEAREST_INTERSECTION_OSM:String = "findNearestIntersectionOSM";
 		
-		public static const GET_TOPONYM:String = "getToponym";
+		public static const GET_TOPONYM:String = "get";
 		
 		public static const GTOPO30:String = "gtopo30";
 		

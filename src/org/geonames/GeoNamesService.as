@@ -606,70 +606,6 @@ package org.geonames
 		}
 		
 	//------------------------------------------------------------------------------
-	//	Class Constants
-	//------------------------------------------------------------------------------
-		
-		private static const ASTERGDEM_URL:String = "/astergdem?"
-		
-		private static const CHILDREN_URL:String = "/children?";
-		
-		private static const CITIES_URL:String = "/cities?";
-		
-		private static const COUNTRY_CODE_URL:String = "/countryCode?";
-		
-		private static const COUNTRY_INFO_URL:String = "/countryInfo?";
-		
-		private static const COUNTRY_SUBDIVISION_URL:String = "/countrySubdivision?";
-		
-		private static const EXTENDED_FIND_NEARBY_URL:String = "/extendedFindNearby?";
-		
-		private static const FIND_NEARBY_URL:String = "/findNearby?";
-		
-		private static const FIND_NEARBY_PLACE_NAME_URL:String = "/findNearbyPlaceName?";
-		
-		private static const FIND_NEARBY_POSTAL_CODES_URL:String = "/findNearbyPostalCodes?";
-		
-		private static const FIND_NEARBY_STREETS_URL:String = "/findNearbyStreets?";
-		
-		private static const FIND_NEARBY_STREETS_OSM_URL:String = "/findNearbyStreetsOSM?";
-		
-		private static const FIND_NEARBY_WEATHER_URL:String = "/findNearByWeather?";
-		
-		private static const FIND_NEARBY_WIKIPEDIA_URL:String = "/findNearbyWikipedia?";
-		
-		private static const FIND_NEAREST_ADDRESS_URL:String = "/findNearestAddress?";
-		
-		private static const FIND_NEAREST_INTERSECTION_URL:String = "/findNearestIntersection?";
-		
-		private static const FIND_NEAREST_INTERSECTION_OSM_URL:String = "/findNearestIntersectionOSM?";
-		
-		private static const GET_TOPONYM_URL:String = "/get?";
-		
-		private static const GTOPO30_URL:String = "/gtopo30?";
-		
-		private static const HIERARCHY_URL:String = "/hierarchy?";
-		
-		private static const NEIGHBOURHOOD_URL:String = "/neighbourhood?";
-		
-		private static const NEIGHBOURS_URL:String = "/neighbours?";
-		
-		private static const OCEAN_URL:String = "/ocean?";
-		
-		private static const POSTAL_CODE_COUNTRY_INFO:String = "/postalCodeCountryInfo?";
-		
-		private static const POSTAL_CODE_SEARCH_URL:String = "/postalCodeSearch?";
-		
-		private static const SEARCH_URL:String = "/search?";
-		
-		private static const SIBLINGS_URL:String = "/siblings?";
-		
-		private static const TIMEZONE_URL:String = "/timezone?";
-		
-		private static const WIKIPEDIA_BOUNDING_BOX_URL:String = "/wikipediaBoundingBox?";
-		
-		private static const WIKIPEDIA_SEARCH_URL:String = "/wikipediaSearch?";
-		
-	//------------------------------------------------------------------------------
 	//	Constructor
 	//------------------------------------------------------------------------------
 		
@@ -792,11 +728,11 @@ package org.geonames
 		/**
 		 * @private
 		 */		
-		protected function invokeMethod(url:String, eventType:String, 
+		protected function invokeMethod(eventType:String, 
 										params:Object = null):void
 		{
 			var loader:DynamicURLLoader = getURLLoader();
-			var request:URLRequest = new URLRequest(geoNamesServer + url);
+			var request:URLRequest = new URLRequest(geoNamesServer +  "/" + eventType + "?");
 			loader.eventType = eventType;
 			loader.addEventListener(Event.COMPLETE, completeHandler);
 			request.data = params;
@@ -824,7 +760,7 @@ package org.geonames
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
-			invokeMethod(ASTERGDEM_URL, GeoNamesEvent.ASTERGDEM, params);
+			invokeMethod(GeoNamesEvent.ASTERGDEM, params);
 		}
 		
 		/**
@@ -851,7 +787,7 @@ package org.geonames
 			params.maxRows = maxRows;
 			params.language = language ? language : defaultLanguage;
 			params.style = style ? style : defaultStyle;
-			invokeMethod(CHILDREN_URL, GeoNamesEvent.CHILDREN, params);
+			invokeMethod(GeoNamesEvent.CHILDREN, params);
 		}
 		
 		/**
@@ -885,7 +821,7 @@ package org.geonames
 			params.maxRows = maxRows;
 			params.style = defaultStyle;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(CITIES_URL, GeoNamesEvent.CITIES, params);
+			invokeMethod(GeoNamesEvent.CITIES, params);
 		}
 		
 		/**
@@ -907,7 +843,7 @@ package org.geonames
 			var params:URLVariables = new URLVariables();
 			params.lat  = latitude;
 			params.lng = longitude;
-			invokeMethod(COUNTRY_CODE_URL, GeoNamesEvent.COUNTRY_CODE, params);
+			invokeMethod(GeoNamesEvent.COUNTRY_CODE, params);
 		}
 		
 		/**
@@ -931,7 +867,7 @@ package org.geonames
 			var params:URLVariables = new URLVariables();
 			params.country = country;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(COUNTRY_INFO_URL, GeoNamesEvent.COUNTRY_INFO, params);
+			invokeMethod(GeoNamesEvent.COUNTRY_INFO, params);
 		}
 		
 		/**
@@ -963,8 +899,7 @@ package org.geonames
 			params.radius = radius;
 			params.maxRows = maxRows;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(COUNTRY_SUBDIVISION_URL, 
-						 GeoNamesEvent.COUNTRY_SUBDIVISION, params);
+			invokeMethod(GeoNamesEvent.COUNTRY_SUBDIVISION, params);
 		}
 		
 		public function extendedFindNearby(latitude:Number, longitude:Number):void
@@ -972,14 +907,13 @@ package org.geonames
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
-			invokeMethod(EXTENDED_FIND_NEARBY_URL, 
-				GeoNamesEvent.EXTENDED_FIND_NEARBY, params);
+			invokeMethod(GeoNamesEvent.EXTENDED_FIND_NEARBY, params);
 		}
 		
 		public function findNearby(criteria:FindNearbyCriteria):void
 		{
 			var params:URLVariables = criteriaToParams(criteria);
-			invokeMethod(FIND_NEARBY_URL, GeoNamesEvent.FIND_NEARBY, params);
+			invokeMethod(GeoNamesEvent.FIND_NEARBY, params);
 		}
 		
 		/**
@@ -999,8 +933,7 @@ package org.geonames
 			params.lng = longitude;
 			params.style = style ? style : defaultStyle;
 			params.lang = language ? language : defaultLanguage;
-			invokeMethod(FIND_NEARBY_PLACE_NAME_URL, 
-						 GeoNamesEvent.FIND_NEARBY_PLACE_NAME, params);
+			invokeMethod(GeoNamesEvent.FIND_NEARBY_PLACE_NAME, params);
 		}
 		
 		/**
@@ -1010,8 +943,7 @@ package org.geonames
 		public function findNearbyPostalCodes(criteria:FindNearbyPostalCodesCriteria):void
 		{
 			var params:URLVariables = criteriaToParams(criteria);
-			invokeMethod(FIND_NEARBY_POSTAL_CODES_URL, 
-						 GeoNamesEvent.FIND_NEARBY_POSTAL_CODES, params);
+			invokeMethod(GeoNamesEvent.FIND_NEARBY_POSTAL_CODES, params);
 		}
 		
 		/**
@@ -1025,8 +957,7 @@ package org.geonames
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
-			invokeMethod(FIND_NEARBY_STREETS_URL, 
-						 GeoNamesEvent.FIND_NEARBY_STREETS, params);
+			invokeMethod(GeoNamesEvent.FIND_NEARBY_STREETS, params);
 		}
 		
 		public function findNearbyStreetsOSM(latitude:Number, longitude:Number):void
@@ -1034,8 +965,7 @@ package org.geonames
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
-			invokeMethod(FIND_NEARBY_STREETS_OSM_URL, 
-						 GeoNamesEvent.FIND_NEARBY_STREETS_OSM, params);
+			invokeMethod(GeoNamesEvent.FIND_NEARBY_STREETS_OSM, params);
 		}
 		
 		/**
@@ -1052,7 +982,7 @@ package org.geonames
 			params.lat = latitude;
 			params.lng = longitude;
 			params.style = style ? style : defaultStyle;
-			invokeMethod(FIND_NEARBY_WEATHER_URL, GeoNamesEvent.FIND_NEARBY_WEARTHER, params);
+			invokeMethod(GeoNamesEvent.FIND_NEARBY_WEARTHER, params);
 		}
 		
 		/**
@@ -1069,8 +999,7 @@ package org.geonames
 			params.lat = latitude;
 			params.lng = longitude;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(FIND_NEARBY_WIKIPEDIA_URL, 
-						 GeoNamesEvent.FIND_NEARBY_WIKIPEDIA, params);
+			invokeMethod(GeoNamesEvent.FIND_NEARBY_WIKIPEDIA, params);
 		}
 		
 		/**
@@ -1087,8 +1016,7 @@ package org.geonames
 			params.lat = latitude;
 			params.lng = longitude;
 			params.style = style ? style : defaultStyle;
-			invokeMethod(FIND_NEAREST_ADDRESS_URL, 
-						 GeoNamesEvent.FIND_NEAREST_ADDRESS, params);
+			invokeMethod(GeoNamesEvent.FIND_NEAREST_ADDRESS, params);
 		}
 		
 		/**
@@ -1103,8 +1031,7 @@ package org.geonames
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
-			invokeMethod(FIND_NEAREST_INTERSECTION_URL, 
-				GeoNamesEvent.FIND_NEAREST_INTERSECTION, params);
+			invokeMethod(GeoNamesEvent.FIND_NEAREST_INTERSECTION, params);
 		}
 		
 		/**
@@ -1119,8 +1046,7 @@ package org.geonames
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
-			invokeMethod(FIND_NEAREST_INTERSECTION_OSM_URL, 
-				GeoNamesEvent.FIND_NEAREST_INTERSECTION_OSM, params);
+			invokeMethod(GeoNamesEvent.FIND_NEAREST_INTERSECTION_OSM, params);
 		}
 		
 		/**
@@ -1137,7 +1063,7 @@ package org.geonames
 			params.geonameId = geonameId;
 			params.style = style ? style : defaultStyle;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(GET_TOPONYM_URL, GeoNamesEvent.GET_TOPONYM, params);
+			invokeMethod(GeoNamesEvent.GET_TOPONYM, params);
 		}
 		
 		/**
@@ -1159,7 +1085,7 @@ package org.geonames
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
-			invokeMethod(GTOPO30_URL, GeoNamesEvent.GTOPO30, params);
+			invokeMethod(GeoNamesEvent.GTOPO30, params);
 		}
 		
 		/**
@@ -1176,7 +1102,7 @@ package org.geonames
 			params.geonameId = geonameId;
 			params.style = style ? style : defaultStyle;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(HIERARCHY_URL, GeoNamesEvent.HIERARCHY, params);
+			invokeMethod(GeoNamesEvent.HIERARCHY, params);
 		}
 		
 		/**
@@ -1192,7 +1118,7 @@ package org.geonames
 			params.lat = latitude;
 			params.lng = longitude;
 			params.style = style ? style : defaultStyle;
-			invokeMethod(NEIGHBOURHOOD_URL, GeoNamesEvent.NEIGHBOURHOOD, params);
+			invokeMethod(GeoNamesEvent.NEIGHBOURHOOD, params);
 		}
 		
 		/**
@@ -1209,7 +1135,7 @@ package org.geonames
 			params.geonameId = geonameId;
 			params.style = style ? style : defaultStyle;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(NEIGHBOURS_URL, GeoNamesEvent.NEIGHBOURS, params);
+			invokeMethod(GeoNamesEvent.NEIGHBOURS, params);
 		}
 		
 		/**
@@ -1223,7 +1149,7 @@ package org.geonames
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
-			invokeMethod(OCEAN_URL, GeoNamesEvent.OCEAN, params);
+			invokeMethod(GeoNamesEvent.OCEAN, params);
 		}
 		
 		/**
@@ -1232,7 +1158,7 @@ package org.geonames
 		 */		
 		public function postalCodeCountryInfo():void
 		{
-			invokeMethod(POSTAL_CODE_COUNTRY_INFO, GeoNamesEvent.POSTAL_CODE_COUNTRY_INFO);
+			invokeMethod(GeoNamesEvent.POSTAL_CODE_COUNTRY_INFO);
 		}
 		
 		/**
@@ -1247,7 +1173,7 @@ package org.geonames
 			if (!params.postalcode && !params.placename)
 					throw new Error("postalcode or placename is required.");
 			
-			invokeMethod(POSTAL_CODE_SEARCH_URL, GeoNamesEvent.POSTAL_CODE_SEARCH, params);
+			invokeMethod(GeoNamesEvent.POSTAL_CODE_SEARCH, params);
 		}
 		
 		/**
@@ -1262,7 +1188,7 @@ package org.geonames
 			if (!params.q && !params.name && !params.name_equals)
 				throw new Error("q, name or name_equals is required.");
 			
-			invokeMethod(SEARCH_URL, GeoNamesEvent.SEARCH, params);
+			invokeMethod(GeoNamesEvent.SEARCH, params);
 		}
 		
 		/**
@@ -1279,7 +1205,7 @@ package org.geonames
 			params.geonameId = geonameId;
 			params.style = style ? style : defaultStyle;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(SIBLINGS_URL, GeoNamesEvent.SIBLINGS, params);
+			invokeMethod(GeoNamesEvent.SIBLINGS, params);
 		}
 		
 		/**
@@ -1293,7 +1219,7 @@ package org.geonames
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
-			invokeMethod(TIMEZONE_URL, GeoNamesEvent.TIMEZONE, params);
+			invokeMethod(GeoNamesEvent.TIMEZONE, params);
 		}
 		
 		/**
@@ -1318,8 +1244,7 @@ package org.geonames
 			params.west = west;
 			params.maxRows = maxRows;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(WIKIPEDIA_BOUNDING_BOX_URL, GeoNamesEvent.WIKIPEDIA_BOUNDING_BOX, 
-				params);
+			invokeMethod(GeoNamesEvent.WIKIPEDIA_BOUNDING_BOX, params);
 		}
 		
 		/**
@@ -1340,7 +1265,7 @@ package org.geonames
 				params.title = title;
 			params.maxRows = maxRows;
 			params.language = language ? language : defaultLanguage;
-			invokeMethod(WIKIPEDIA_SEARCH_URL, GeoNamesEvent.WIKIPEDIA_SEARCH, params);
+			invokeMethod(GeoNamesEvent.WIKIPEDIA_SEARCH, params);
 		}
 	
 	//------------------------------------------------------------------------------
