@@ -35,76 +35,535 @@ package org.geonames
 	[Event(name="astergdem", type="org.geonames.events.GeoNamesEvent")]
 	
 	/**
-	 * Event broadcast when the children have been retrieved from GeoNames servers 
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
 	 * in response to <code>children</code> being called.
 	 * 
 	 * <p>The event contains the following properties:
-	 * <ul>
-	 * <li><code>ToponymSearchResult
+	 * 	<ul>
+	 * 		<li><code>ToponymResult</code> object.</li>
+	 * 	</ul>
 	 * </p>
 	 * 
 	 * @eventType org.geonames.events.GeoNamesEvent
 	 * 
-	 * @see #astergdem()
+	 * @see #children()
+	 * @see org.geonames.data.ToponymResult
 	 */
 	[Event(name="children", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>cities</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Array</code> object - an array containing 
+	 * 			the <code>Toponym</code> objects retrieved from 
+	 * 			the geonames server.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #cities()
+	 * @see org.geonames.data.Toponym
+	 */
 	[Event(name="cities", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the country code has been retrieved from GeoNames servers 
+	 * in response to <code>countryCode</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>String</code> object - a string representing the ISO 
+	 * 			alpha 2 country code.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #countryCode()
+	 */
 	[Event(name="countryCode", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the country information has been retrieved from 
+	 * GeoNames servers in response to <code>countryInfo</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Array</code> object - an array containing 
+	 * 			the <code>Country/code> objects retrieved from 
+	 * 			the geonames server.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #countryInfo()
+	 * @see org.geonames.data.Country
+	 */
 	[Event(name="countryInfo", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the country subdivisons have been retrieved 
+	 * from GeoNames servers in response to <code>countrySubdivion</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Array</code> object - an array containing 
+	 * 			the <code>CountrySubdivision</code> objects retrieved from 
+	 * 			the geonames server.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #countrySubdivision()
+	 * @see org.geonames.data.CountrySubdivision
+	 */
 	[Event(name="countrySubdivision", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>extendedFindNearby</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Array</code> object - an array containing 
+	 * 			the <code>Toponym</code> objects retrieved from 
+	 * 			the geonames server.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #extendedFindNearby()
+	 * @see org.geonames.data.ToponymResult
+	 */
 	[Event(name="extendedFindNearby", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>findNearby</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Array</code> object - an array containing 
+	 * 			the <code>Toponym</code> objects retrieved from 
+	 * 			the geonames server.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #findNearby()
+	 * @see org.geonames.data.Toponym
+	 */
 	[Event(name="findNearby", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>findNearbyPlaceName</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Array</code> object - an array containing 
+	 * 			the <code>Toponym</code> objects retrieved from 
+	 * 			the geonames server.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #findNearbyPlaceName()
+	 * @see org.geonames.data.Toponym
+	 */
 	[Event(name="findNearbyPlaceName", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>findNearbyPostalCodes</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Array</code> object - an array containing 
+	 * 			the <code>PostalCode</code> objects retrieved from 
+	 * 			the geonames server.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #findNearbyPostalCodes()
+	 * @see org.geonames.data.PostalCode
+	 */
 	[Event(name="findNearbyPostalCodes", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>findNearbyStreets</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Array</code> object - an array containing 
+	 * 			the <code>StreetSegments</code> objects retrieved from 
+	 * 			the geonames server.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #findNearbyStreets()
+	 * @see org.geonames.data.StreetSegment
+	 */
 	[Event(name="findNearbyStreets", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>findNearbyStreetsOSM</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Array</code> object - an array containing 
+	 * 			the <code>StreetSegments</code> objects retrieved from 
+	 * 			the geonames server.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #findNearbyStreetsOSM()
+	 * @see org.geonames.data.StreetSegment
+	 */
 	[Event(name="findNearbyStreetsOSM", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>findNearbyWeather</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Array</code> object - an array containing 
+	 * 			the <code>WeatherObservation</code> objects retrieved from 
+	 * 			the geonames server.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #findNearbyWeather()
+	 * @see org.geonames.data.WeatherObservation
+	 */
 	[Event(name="findNearbyWeather", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>findNearbyWikipediar</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Array</code> object - an array containing 
+	 * 			<code>WikipediaEntry</code> objects.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #findNearbyWikipedia()
+	 * @see org.geonames.data.WeatherObservation
+	 */
 	[Event(name="findNearbyWikipedia", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>findNearestAddress</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Address</code> object - an object representing the 
+	 * 			nearest address found.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #findNearestAddress()
+	 * @see org.geonames.data.Address
+	 */
 	[Event(name="findNearestAddress", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>findNearestIntersection</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Intersection</code> object - an object representing the 
+	 * 			nearest intersection found.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #findNearestIntersection()
+	 * @see org.geonames.data.Intersection
+	 */
 	[Event(name="findNearestIntersection", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>findNearestIntersectionOSM</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Intersection</code> object - an object representing the 
+	 * 			nearest intersection found.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #findNearestIntersectionOSM()
+	 * @see org.geonames.data.Intersection
+	 */
 	[Event(name="findNearestIntersectionOSM", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>getToponym</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Toponym</code> object - an object representing the 
+	 * 			the geonames object with the given geonameId.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #getToponym()
+	 * @see org.geonames.data.Toponym
+	 */
 	[Event(name="getToponym", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the elevation has been retrieved from GeoNames servers 
+	 * in response to <code>gtopo30</code> being called.
+	 * 
+	 * <p>The event will contain a number representing the elevation in the 
+	 * <code>data</code> property</p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #gtopo30()
+	 */	
 	[Event(name="gtopo30", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>hierarchy</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>ToponymResult</code> object.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #children()
+	 * @see org.geonames.data.ToponymResult
+	 */
 	[Event(name="hierarchy", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>neighbourhood</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Neighbourhood</code> object.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #neighbourhood()
+	 * @see org.geonames.data.Neighbourhood
+	 */
 	[Event(name="neighbourhood", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>neighbours</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>ToponymResult</code> object.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #neighbours()
+	 * @see org.geonames.data.ToponymResult
+	 */
 	[Event(name="neighbours", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>Ocean</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Ocean</code> object.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #ocean()
+	 * @see org.geonames.data.Ocean
+	 */
 	[Event(name="ocean", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>postalCodeCountryInfo</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Array</code> object - an array containing 
+	 * 			<code>PostalCodeCountryInfo</code> objects.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #postalCodeCountryInfo()
+	 * @see org.geonames.data.PostalCodeCountryInfo
+	 */
 	[Event(name="postalCodeCountryInfo", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>postalCodeSearch</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>PostalCodeResult</code> object.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #postalCodeSearch()
+	 * @see org.geonames.data.PostalCodeResult
+	 */
 	[Event(name="postalCodeSearch", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>search</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>ToponymResult</code> object.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #search()
+	 * @see org.geonames.data.ToponymResult
+	 */
 	[Event(name="search", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>siblings</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>ToponymResult</code> object.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #siblings()
+	 * @see org.geonames.data.ToponymResult
+	 */
 	[Event(name="siblings", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>timezone</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Timezone</code> object.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #timezone()
+	 * @see org.geonames.data.Timezone
+	 */
 	[Event(name="timezone", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>wikipediaBoundingBox</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Array</code> object - an array containing 
+	 * 			<code>WikipediaEntry</code> objects.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #wikipediaBoundingBox()
+	 * @see org.geonames.data.WikipediaEntry
+	 */
 	[Event(name="wikipediaBoundingBox", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>wikipediaSearch</code> being called.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>Array</code> object - an array containing 
+	 * 			<code>WikipediaEntry</code> objects.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #wikipediaSearch()
+	 * @see org.geonames.data.WikipediaSearch
+	 */
 	[Event(name="wikipediaSearch", type="org.geonames.events.GeoNamesEvent")]
 	
+	/**
+	 * Event broadcast when an exception has occured on the GeoNames servers.
+	 * 
+	 * <p>The event contains the following properties:
+	 * 	<ul>
+	 * 		<li><code>GeoNamesException</code> object.</li>
+	 * 	</ul>
+	 * </p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see org.geonames.data.GeoNamesException
+	 */
 	[Event(name="geonamesException", type="org.geonames.events.GeoNamesEvent")]
 	
 	/**
@@ -373,7 +832,7 @@ package org.geonames
 		 * 
 		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>children</code> 
 		 * when the children have been retrieved and parsed. The result event 
-		 * contains a <code>ToponymSearchResult</code> object.</p>
+		 * contains a <code>ToponymResult</code> object.</p>
 		 * 
 		 * @param geonameId The geonameId of the parent.
 		 * @param maxRows The number of rows returned, default is 200.
@@ -381,7 +840,7 @@ package org.geonames
 		 * @param language
 		 * 
 		 * @see #event:children
-		 * @see org.geonames.data.ToponymSearchResult
+		 * @see org.geonames.data.ToponymResult
 		 * @see http://www.geonames.org/export/place-hierarchy.html#children
 		 */		
 		public function children(geonameId:int, maxRows:Number = 200, 
