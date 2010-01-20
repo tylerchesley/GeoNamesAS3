@@ -1051,23 +1051,24 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves a weather station with the most recent weather observation.
 		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearByWeatherXML</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains a <code>WeatherObservation</code> object.</p>
 		 * 
 		 * @param latitude
 		 * @param longitude
-		 * @param style
 		 * 
 		 * @see #event:findNearbyWeather
 		 * @see org.geonames.data.WeatherObservation
 		 * @see http://www.geonames.org/export/JSON-webservices.html#findNearByWeatherJSON
 		 */		
-		public function findNearbyWeather(latitude:Number, longitude:Number, 
-										  style:String = null):void
+		public function findNearbyWeather(latitude:Number, longitude:Number):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
-			params.style = style ? style : defaultStyle;
 			invokeMethod(GeoNamesEvent.FIND_NEARBY_WEARTHER, params);
 		}
 		
@@ -1106,19 +1107,16 @@ package org.geonames
 		 * 
 		 * @param latitude
 		 * @param longitude
-		 * @param style
 		 * 
 		 * @see #event:findNearestAddress
 		 * @see org.geonames.data.Address
 		 * @see http://www.geonames.org/maps/us-reverse-geocoder.html#findNearestAddress
 		 */		
-		public function findNearestAddress(latitude:Number, longitude:Number, 
-										   style:String = null):void
+		public function findNearestAddress(latitude:Number, longitude:Number):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
-			params.style = style ? style : defaultStyle;
 			invokeMethod(GeoNamesEvent.FIND_NEAREST_ADDRESS, params);
 		}
 		
@@ -1240,7 +1238,8 @@ package org.geonames
 		}
 		
 		/**
-		 * Retrieves the neighbourhood information for the given latitude/longitude. (U.S. Only)
+		 * Retrieves the neighbourhood information for the given latitude/longitude. 
+		 * Data provided by Zillow under cc-by-sa license. (U.S. Only)
 		 * 
 		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>neighbourhood</code> 
 		 * when the result has been retrieved and parsed. The result event 
@@ -1248,19 +1247,16 @@ package org.geonames
 		 * 
 		 * @param latitude
 		 * @param longitude
-		 * @param style
 		 * 
 		 * @see #event:neighbourhood
 		 * @see org.geonames.data.Neighbourhood
 		 * @see http://www.geonames.org/export/web-services.html#neighbourhood
 		 */		
-		public function neighbourhood(latitude:Number, longitude:Number, 
-									  style:String = null):void
+		public function neighbourhood(latitude:Number, longitude:Number):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
-			params.style = style ? style : defaultStyle;
 			invokeMethod(GeoNamesEvent.NEIGHBOURHOOD, params);
 		}
 		
