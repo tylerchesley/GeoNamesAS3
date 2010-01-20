@@ -346,7 +346,7 @@ package org.geonames
 	 * @see #getToponym()
 	 * @see org.geonames.data.Toponym
 	 */
-	[Event(name="getToponym", type="org.geonames.events.GeoNamesEvent")]
+	[Event(name="get", type="org.geonames.events.GeoNamesEvent")]
 	
 	/**
 	 * Event broadcast when the elevation has been retrieved from GeoNames servers 
@@ -635,9 +635,9 @@ package org.geonames
 		 * The default language to use for all methods that support a 
 		 * language parameter.
 		 * 
-		 * You can override the default language set here for any method that has a 
+		 * <p>You can override the default language set here for any method that has a 
 		 * language parameter by passing in a value to the method, otherwise the 
-		 * <code>defaultLanguage</code> property will be used.
+		 * <code>defaultLanguage</code> property will be used.</p>
 		 * 
 		 * @default "en"
 		 * 
@@ -732,7 +732,8 @@ package org.geonames
 										params:Object = null):void
 		{
 			var loader:DynamicURLLoader = getURLLoader();
-			var request:URLRequest = new URLRequest(geoNamesServer +  "/" + eventType + "?");
+			var url:String = geoNamesServer +  "/" + eventType + "?";
+			var request:URLRequest = new URLRequest(url);
 			loader.eventType = eventType;
 			loader.addEventListener(Event.COMPLETE, completeHandler);
 			request.data = params;
@@ -902,14 +903,51 @@ package org.geonames
 			invokeMethod(GeoNamesEvent.COUNTRY_SUBDIVISION, params);
 		}
 		
-		public function extendedFindNearby(latitude:Number, longitude:Number):void
+		/**
+		 * Retrieves the most detailed information for the given latitude/longitude.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>extendedFindNearby</code> 
+		 * when the result has been retrieved and parsed. In the U.S. it returns the 
+		 * address information. In other countries it returns the hierarchy service. 
+		 * On the oceans it returns the ocean name.</p>
+		 *  
+		 * @param latitude
+		 * @param longitude
+		 * @param style
+		 * @param language
+		 * 
+		 * @see #event:extendedFindNearby
+		 * @see org.geonames.data.Address
+		 * @see #ocean()
+		 * @see #hierarchy()
+		 * @see http://www.geonames.org/export/web-services.html#extendedFindNearby
+		 */			
+		public function extendedFindNearby(latitude:Number, longitude:Number, 
+										   style:String = "", 
+										   language:String = ""):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
 			params.lng = longitude;
+			params.style = style ? style : defaultStyle;
+			params.lang = language ? language : defaultLanguage;
 			invokeMethod(GeoNamesEvent.EXTENDED_FIND_NEARBY, params);
 		}
 		
+		/**
+		 * Retrieves the closest toponym for the given latitude/longitude and 
+		 * other criteria.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearby</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains an <code>Array</code> of <code>Toponym</code> objects.</p>
+		 *  
+		 * @param criteria
+		 * 
+		 * @see #event:findNearby
+		 * @see org.geonames.data.Toponym
+		 * @see http://www.geonames.org/export/web-services.html#findNearby
+		 */		
 		public function findNearby(criteria:FindNearbyCriteria):void
 		{
 			var params:URLVariables = criteriaToParams(criteria);
@@ -917,12 +955,20 @@ package org.geonames
 		}
 		
 		/**
+		 * 	Retrieves the closest populated place for the given latitude/longitued.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearbyPlaceName</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains an <code>Array</code> of <code>Toponym</code> objects.</p>
 		 * 
 		 * @param latitude
 		 * @param longitude
 		 * @param style
 		 * @param language
 		 * 
+		 * @see #event:findNearbyPlaceName
+		 * @see org.geonames.data.Toponym
+		 * @see http://www.geonames.org/export/web-services.html#findNearbyPlaceName
 		 */		
 		public function findNearbyPlaceName(latitude:Number, longitude:Number, 
 											style:String = null, 
@@ -937,8 +983,21 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves a list of postalcodes and places for the latitude/longitude.
 		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearbyPostalCodes</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains an <code>Array</code> of <code>PostalCode</code> objects.</p>
 		 * 
+		 * <p>This service comes in two flavors. You can either pass the 
+		 * latitude/longitude or a postalcode/placename.</p>
+		 * 
+		 * @param criteria
+		 * 
+		 * @see #event:findNearbyPostalCodes
+		 * @see org.geonames.data.PostalCode
+		 * @see org.geonames.criteria.FindNearbyPostalCodesCriteria
+		 * @see http://www.geonames.org/export/web-services.html#findNearbyPostalCodes
 		 */		
 		public function findNearbyPostalCodes(criteria:FindNearbyPostalCodesCriteria):void
 		{
@@ -947,10 +1006,19 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves a list of streets for the latitude/longitude. (U.S. Only)
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearbyStreets</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains an <code>Array</code> of <code>StreetSegments</code> objects.</p>
 		 * 
 		 * @param latitude
 		 * @param longitude
 		 * 
+		 * 
+		 * @see #event:findNearbyStreets
+		 * @see org.geonames.data.StreetSegment
+		 * @see http://www.geonames.org/maps/us-reverse-geocoder.html#findNearbyStreets
 		 */		
 		public function findNearbyStreets(latitude:Number, longitude:Number):void
 		{
@@ -960,6 +1028,20 @@ package org.geonames
 			invokeMethod(GeoNamesEvent.FIND_NEARBY_STREETS, params);
 		}
 		
+		/**
+		 * Retrieves a list of streets for the latitude/longitude.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearbyStreetsOSM</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains an <code>Array</code> of <code>StreetSegments</code> objects.</p>
+		 * 
+		 * @param latitude
+		 * @param longitude
+		 * 
+		 * @see #event:findNearbyStreetsOSM
+		 * @see org.geonames.data.StreetSegment
+		 * @see http://www.geonames.org/maps/osm-reverse-geocoder.html#findNearbyStreetsOSM
+		 */		
 		public function findNearbyStreetsOSM(latitude:Number, longitude:Number):void
 		{
 			var params:URLVariables = new URLVariables();
@@ -970,10 +1052,14 @@ package org.geonames
 		
 		/**
 		 * 
+		 * 
 		 * @param latitude
 		 * @param longitude
 		 * @param style
 		 * 
+		 * @see #event:findNearbyWeather
+		 * @see org.geonames.data.WeatherObservation
+		 * @see http://www.geonames.org/export/JSON-webservices.html#findNearByWeatherJSON
 		 */		
 		public function findNearbyWeather(latitude:Number, longitude:Number, 
 										  style:String = null):void
@@ -986,11 +1072,20 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves a list of wikipedia entries for the latitude/longitude.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearbyWikipedia</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains an <code>Array</code> of <code>WikipediaEntry</code> objects.</p>
 		 * 
 		 * @param latitude
 		 * @param longitude
 		 * @param language
 		 * 
+		 * 
+		 * @see #event:findNearbyWikipedia
+		 * @see org.geonames.data.WikipediaEntry
+		 * @see http://www.geonames.org/export/wikipedia-webservice.html#findNearbyWikipedia
 		 */		
 		public function findNearbyWikipedia(latitude:Number, longitude:Number, 
 											language:String = null):void
@@ -1003,11 +1098,19 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the nearest address for the given latitude/longitude. (U.S. Only)
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearestAddress</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains an <code>Address</code> object.</p>
 		 * 
 		 * @param latitude
 		 * @param longitude
 		 * @param style
 		 * 
+		 * @see #event:findNearestAddress
+		 * @see org.geonames.data.Address
+		 * @see http://www.geonames.org/maps/us-reverse-geocoder.html#findNearestAddress
 		 */		
 		public function findNearestAddress(latitude:Number, longitude:Number, 
 										   style:String = null):void
@@ -1020,11 +1123,18 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the nearest intersection for the given latitude/longitude. (U.S. Only)
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearestIntersection</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains an <code>Intersection/code> object.</p>
 		 * 
 		 * @param latitude
 		 * @param longitude
-		 * @param style
 		 * 
+		 * @see #event:findNearestIntersection
+		 * @see org.geonames.data.Intersection
+		 * @see http://www.geonames.org/maps/us-reverse-geocoder.html#findNearestIntersection
 		 */		
 		public function findNearestIntersection(latitude:Number, longitude:Number):void
 		{
@@ -1035,11 +1145,18 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the nearest intersection for the given latitude/longitude.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearestIntersectionOSM</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains an <code>Intersection/code> object.</p>
 		 * 
 		 * @param latitude
 		 * @param longitude
-		 * @param style
 		 * 
+		 * @see #event:findNearestIntersection
+		 * @see org.geonames.data.Intersection
+		 * @see http://www.geonames.org/maps/osm-reverse-geocoder.html#findNearestIntersectionOSM
 		 */		
 		public function findNearestIntersectionOSM(latitude:Number, longitude:Number):void
 		{
@@ -1050,11 +1167,19 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the toponym for the given geonameId.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>get</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains a <code>Toponym/code> object.</p>
 		 * 
 		 * @param geonameId
-		 * @param style
+		 * @param style The verbosity of the return result. If no style is specified the <code>defaultStyle</code>.
 		 * @param language
 		 * 
+		 * @see #event:get
+		 * @see org.geonames.data.Toponym
+		 * @see http://www.geonames.org/#
 		 */		
 		public function getToponym(geonameId:int, style:String = null, 
 								   language:String = null):void
@@ -1089,11 +1214,20 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves all toponyms higher up in the hierarchy of a the given 
+		 * <code>geonameId</code>.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>hierarchy</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains a <code>ToponymResult/code> object.</p>
 		 * 
 		 * @param geonameId
 		 * @param style
 		 * @param language
 		 * 
+		 * @see #event:hierarchy
+		 * @see org.geonames.data.ToponymResult
+		 * @see http://www.geonames.org/export/place-hierarchy.html#hierarchy
 		 */		
 		public function hierarchy(geonameId:int, style:String = null, 
 								  language:String = null):void
@@ -1106,13 +1240,22 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the neighbourhood information for the given latitude/longitude. (U.S. Only)
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>neighbourhood</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains a <code>Neighbourhood/code> object.</p>
 		 * 
 		 * @param latitude
 		 * @param longitude
 		 * @param style
 		 * 
+		 * @see #event:neighbourhood
+		 * @see org.geonames.data.Neighbourhood
+		 * @see http://www.geonames.org/export/web-services.html#neighbourhood
 		 */		
-		public function neighbourhood(latitude:Number, longitude:Number, style:String = null):void
+		public function neighbourhood(latitude:Number, longitude:Number, 
+									  style:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.lat = latitude;
@@ -1122,11 +1265,19 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the neighbour toponyms for the given <code>geonameId</code>.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>hierarchy</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains a <code>ToponymResult/code> object.</p>
 		 * 
 		 * @param geonameId
 		 * @param style
 		 * @param language
 		 * 
+		 * @see #event:neighbours
+		 * @see org.geonames.data.ToponymResult
+		 * @see http://www.geonames.org/export/place-hierarchy.html#neighbours
 		 */		
 		public function neighbours(geonameId:Number, style:String = null, 
 								  language:String = null):void
@@ -1139,10 +1290,18 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the ocean name for the given latitude/longitude.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>ocean</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains an <code>Ocean/code> object.</p>
 		 * 
 		 * @param latitude
 		 * @param longitude
 		 * 
+		 * @see #event:ocean
+		 * @see org.geonames.data.Ocean
+		 * @see http://www.geonames.org/export/web-services.html#ocean
 		 */		
 		public function ocean(latitude:Number, longitude:Number):void
 		{
@@ -1153,8 +1312,15 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the postal code information for which postal code geocoding is available.
 		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>postalCodeCountryInfo</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains an <code>Array</code> of <code>PostalCodeCountryInfo</code> objects.</p>
 		 * 
+		 * @see #event:postalCodeCountryInfo
+		 * @see org.geonames.data.PostalCodeCountryInfo
+		 * @see http://www.geonames.org/export/web-services.html#postalCodeCountryInfo
 		 */		
 		public function postalCodeCountryInfo():void
 		{
@@ -1162,9 +1328,23 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves a list of postal codes and places for the 
+		 * placename/postalcode query.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>postalCodeCountryInfo</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains an <code>Array</code> of <code>PostalCodeCountryInfo</code> objects.</p>
+		 * 
+		 * <p>For the US the first returned zip code is determined using zip code 
+		 * area shapes, the following zip codes are based on the centroid. For all 
+		 * other supported countries all returned postal codes are based on 
+		 * centroids.</p>
 		 * 
 		 * @param criteria
 		 * 
+		 * @see #event:postalCodeSearch
+		 * @see org.geonames.data.PostalCode
+		 * @see http://www.geonames.org/export/web-services.html#postalCodeSearch
 		 */		
 		public function postalCodeSearch(criteria:PostalCodeSearchCriteria):void
 		{
@@ -1177,9 +1357,18 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the toponyms found for the search criteria.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>search</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains an <code>Array</code> of <code>Toponym</code> objects.</p>
 		 * 
 		 * @param criteria
 		 * 
+		 * @see #event:search
+		 * @see org.geonames.data.Toponym
+		 * @see org.geonames.criteria.ToponymSearchCriteria
+		 * @see http://www.geonames.org/export/geonames-search.html
 		 */		
 		public function search(criteria:ToponymSearchCriteria):void
 		{
@@ -1192,11 +1381,19 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the siblings of the given <code>geonameId</code>.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>siblings</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains a <code>ToponymResult/code> object.</p>
 		 * 
 		 * @param geonameId
 		 * @param style
 		 * @param language
 		 * 
+		 * @see #event:siblings
+		 * @see org.geonames.data.ToponymResult
+		 * @see http://www.geonames.org/export/place-hierarchy.html#siblings
 		 */		
 		public function siblings(geonameId:int, style:String = null, 
 								 language:String = null):void
@@ -1209,10 +1406,18 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the timezone for the given latitude/longitude.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>timezone</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains a <code>Timezone/code> object.</p>
 		 * 
 		 * @param latitude
 		 * @param longitude
 		 * 
+		 * @see #event:timezone
+		 * @see org.geonames.data.Timezone
+		 * @see http://www.geonames.org/export/web-services.html#timezone
 		 */		
 		public function timezone(latitude:Number, longitude:Number):void
 		{
@@ -1223,6 +1428,11 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the wikipedia entries within the bounding box.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>wikipediaBoundingBox</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains an <code>Array</code> of <code>WikipediaEntry</code> objects.</p>
 		 * 
 		 * @param north
 		 * @param south
@@ -1231,6 +1441,9 @@ package org.geonames
 		 * @param maxRows
 		 * @param language
 		 * 
+		 * @see #event:wikipediaBoundingBox
+		 * @see org.geonames.data.WikipediaEntry
+		 * @see http://www.geonames.org/export/wikipedia-webservice.html#wikipediaBoundingBox
 		 */		
 		public function wikipediaBoundingBox(north:Number, south:Number, 
 											 east:Number, west:Number, 
@@ -1248,12 +1461,20 @@ package org.geonames
 		}
 		
 		/**
+		 * Retrieves the wikipedia entries found for the search criteria.
+		 * 
+		 * <p>Dispatches a <code>GeoNamesEvent</code> of type <code>wikipediaSearch</code> 
+		 * when the result has been retrieved and parsed. The result event 
+		 * contains an <code>Array</code> of <code>WikipediaEntry</code> objects.</p>
 		 * 
 		 * @param placeName
 		 * @param title
 		 * @param maxRows
 		 * @param language
 		 * 
+		 * @see #event:wikipediaSearch
+		 * @see org.geonames.data.WikipediaEntry
+		 * @see http://www.geonames.org/export/wikipedia-webservice.html#wikipediaSearch
 		 */		
 		public function wikipediaSearch(placeName:String, title:String = null, 
 										maxRows:Number = 10, 
@@ -1272,6 +1493,9 @@ package org.geonames
 	//	Event Handlers
 	//------------------------------------------------------------------------------
 		
+		/**
+		 * @private
+		 */		
 		private function completeHandler(event:Event):void
 		{
 			var loader:DynamicURLLoader = event.target as DynamicURLLoader;
