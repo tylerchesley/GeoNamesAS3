@@ -256,7 +256,7 @@ package org.geonames
 	 * @see #findNearbyWeather()
 	 * @see org.geonames.data.WeatherObservation
 	 */
-	[Event(name="findNearbyWeather", type="org.geonames.events.GeoNamesEvent")]
+	[Event(name="findNearByWeatherXML", type="org.geonames.events.GeoNamesEvent")]
 	
 	/**
 	 * Event broadcast when the results have been retrieved from GeoNames servers 

@@ -24,7 +24,7 @@ package org.geonames.events
 		
 		public static const COUNTRY_SUBDIVISION:String = "countrySubdivision";
 		
-		public static const EXTENDED_FIND_NEARBY:String = "extendedFindBy";
+		public static const EXTENDED_FIND_NEARBY:String = "extendedFindNearby";
 		
 		public static const FIND_NEARBY:String = "findNearby";
 		
@@ -36,7 +36,7 @@ package org.geonames.events
 		
 		public static const FIND_NEARBY_STREETS_OSM:String = "findNearbyStreetsOSM";
 		
-		public static const FIND_NEARBY_WEARTHER:String = "findNearbyWeather?";
+		public static const FIND_NEARBY_WEARTHER:String = "findNearByWeatherXML";
 		
 		public static const FIND_NEARBY_WIKIPEDIA:String = "findNearbyWikipedia";
 		
