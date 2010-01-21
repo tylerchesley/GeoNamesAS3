@@ -1,6 +1,7 @@
 package org.geonames.data
 {
 	/**
+	 * Encapsulates a country.
 	 * 
 	 * @langversion ActionScript 3.0
      * @playerversion Flash 9

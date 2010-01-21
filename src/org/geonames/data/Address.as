@@ -2,6 +2,9 @@ package org.geonames.data
 {
 	
 	/**
+	 * Encapsulates an address.
+	 * 
+	 * <p>Extends PostalCode class, inheriting it's properties.</p>
 	 * 
 	 * @langversion ActionScript 3.0
 	 * @playerversion Flash 9

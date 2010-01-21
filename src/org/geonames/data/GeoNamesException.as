@@ -1,6 +1,7 @@
 package org.geonames.data
 {
 	/**
+	 * Encapsulates a GeoNames exception.
 	 * 
 	 * @langversion ActionScript 3.0
      * @playerversion Flash 9
@@ -8,6 +9,7 @@ package org.geonames.data
 	 * 
 	 * @author Tyler Chesley
 	 * 
+	 * @see http://www.geonames.org/export/webservice-exception.html
 	 */	
 	public class GeoNamesException
 	{
