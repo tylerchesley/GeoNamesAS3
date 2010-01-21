@@ -5,8 +5,12 @@ package org.geonames.criteria
 	
 	/**
 	 * 
-	 * @author Tyler Chesley
+	 * @langversion ActionScript 3.0
+	 * @playerversion Flash 9
+	 * @tiptext
 	 * 
+	 * @author Tyler Chesley
+	 *
 	 */
 	public class PostalCodeSearchCriteria
 	{
@@ -17,6 +21,7 @@ package org.geonames.criteria
 		 * @param postalcode
 		 * @param placename
 		 * 
+		 * <p>Creates a new <code>PostalCodeSearchCriteria/code> object.
 		 */		
 		public function PostalCodeSearchCriteria(postalcode:String = "", placename:String = "")
 		{

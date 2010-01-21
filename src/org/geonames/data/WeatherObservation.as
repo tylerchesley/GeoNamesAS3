@@ -1,7 +1,23 @@
 package org.geonames.data
 {
+	
+	/**
+	 * 
+	 * @langversion ActionScript 3.0
+	 * @playerversion Flash 9
+	 * @tiptext
+	 * 
+	 * @author Tyler Chesley
+	 * 
+	 */	
 	public class WeatherObservation
 	{
+		
+		/**
+		 * Constructor
+		 * 
+		 * <p>Creates a new <code>WeatherObservation</code> object.
+		 */		
 		public function WeatherObservation()
 		{
 		}

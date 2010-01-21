@@ -1,12 +1,27 @@
 package org.geonames.criteria
 {
+	
 	/**
 	 * 
-	 * @author Tyler Chesley
+	 * @langversion ActionScript 3.0
+	 * @playerversion Flash 9
+	 * @tiptext
 	 * 
-	 */	
+	 * @author Tyler Chesley
+	 *
+	 */
 	public class ToponymSearchCriteria
 	{
+		
+		/**
+		 * Constructor
+		 * 
+		 * @param q
+		 * @param name
+		 * @param name_equals
+		 * 
+		 * <p>Creates a new <code>ToponymSearchCriteria</code> object.
+		 */		
 		public function ToponymSearchCriteria(q:String = "", name:String = "", 
 											  name_equals:String = "")
 		{

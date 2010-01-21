@@ -3,11 +3,21 @@ package org.geonames.data
 
 	/**
 	 * 
-	 * @author tchesley
+	 * @langversion ActionScript 3.0
+	 * @playerversion Flash 9
+	 * @tiptext
+	 * 
+	 * @author Tyler Chesley
 	 * 
 	 */	
 	public class ToponymResult
 	{
+		
+		/**
+		 * Constructor
+		 * 
+		 * <p>Creates a new <code>ToponymResult</code> object.
+		 */		
 		public function ToponymResult()
 		{
 		}

@@ -1,6 +1,11 @@
 package org.geonames.data
 {
+	
 	/**
+	 * 
+	 * @langversion ActionScript 3.0
+	 * @playerversion Flash 9
+	 * @tiptext
 	 * 
 	 * @author Tyler Chesley
 	 * 
@@ -11,6 +16,7 @@ package org.geonames.data
 		/**
 		 * Constructor 
 		 * 
+		 * <p>Creates a new <code>WikipediaEntry</code> object.
 		 */		
 		public function WikipediaEntry()
 		{

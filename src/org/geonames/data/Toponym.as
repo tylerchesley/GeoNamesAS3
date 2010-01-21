@@ -1,7 +1,23 @@
 package org.geonames.data
 {
+	
+	/**
+	 * 
+	 * @langversion ActionScript 3.0
+	 * @playerversion Flash 9
+	 * @tiptext
+	 * 
+	 * @author Tyler Chesley
+	 * 
+	 */	
 	public class Toponym
 	{
+		
+		/**
+		 * Constructor
+		 * 
+		 * <p>Creates a new <code>Toponym</code> object.
+		 */		
 		public function Toponym()
 		{
 		}

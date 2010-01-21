@@ -6,9 +6,13 @@ package org.geonames.events
 
 	/**
 	 * 
-	 * @author Tyler Chesley
+	 * @langversion ActionScript 3.0
+	 * @playerversion Flash 9
+	 * @tiptext
 	 * 
-	 */	
+	 * @author Tyler Chesley
+	 *
+	 */
 	public class GeoNamesEvent extends ServiceEvent
 	{
 		
@@ -74,6 +78,15 @@ package org.geonames.events
 		
 		public static const GEONAMES_EXCEPTION:String = "geonamesException";
 		
+		/**
+		 * Constructor
+		 * 
+		 * @param type
+		 * @param bubbles
+		 * @param cancelable
+		 * 
+		 * <p>Creates a new <code>GeoNamesEvent/code> object.
+		 */		
 		public function GeoNamesEvent(type:String, bubbles:Boolean=false, cancelable:Boolean=false)
 		{
 			super(type, bubbles, cancelable);

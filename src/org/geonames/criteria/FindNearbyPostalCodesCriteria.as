@@ -15,6 +15,12 @@ package org.geonames.criteria
 	 */	
 	public class FindNearbyPostalCodesCriteria
 	{
+		
+		/**
+		 * Constructor 
+		 * 
+		 * <p>Creates a new <code>FindNearbyPostalCodesCriteria</code> object.
+		 */		
 		public function FindNearbyPostalCodesCriteria()
 		{
 		}

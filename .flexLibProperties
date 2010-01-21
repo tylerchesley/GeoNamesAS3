@@ -17,16 +17,12 @@
     <classEntry path="org.geonames.data.Ocean"/>
     <classEntry path="org.geonames.data.PostalCode"/>
     <classEntry path="org.geonames.data.PostalCodeCountryInfo"/>
-    <classEntry path="org.geonames.data.PostalCodeResult"/>
     <classEntry path="org.geonames.data.StreetSegment"/>
     <classEntry path="org.geonames.data.Timezone"/>
     <classEntry path="org.geonames.data.Toponym"/>
-    <classEntry path="org.geonames.data.ToponymResult"/>
     <classEntry path="org.geonames.data.WeatherObservation"/>
     <classEntry path="org.geonames.data.WikipediaEntry"/>
     <classEntry path="org.geonames.events.GeoNamesEvent"/>
-    <classEntry path="org.geonames.utils.Bearing"/>
-    <classEntry path="org.geonames.utils.Distance"/>
     <classEntry path="org.geonames.tests.GeoNamesResultParserTest"/>
     <classEntry path="org.geonames.tests.GeoNamesServiceTest"/>
     <classEntry path="org.geonames.criteria.FindNearbyCriteria"/>
