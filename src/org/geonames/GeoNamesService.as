@@ -567,9 +567,17 @@ package org.geonames
 	[Event(name="geonamesException", type="org.geonames.events.GeoNamesEvent")]
 	
 	/**
+	 * Class that provides an ActionScript 3.0 interface to the remote
+     * GeoNames XML API.
+	 * 
+	 * @langversion ActionScript 3.0
+     * @playerversion Flash 9
+     * @tiptext
 	 * 
 	 * @author Tyler Chesley
 	 * 
+	 * @see http://www.geonames.org/
+	 * @see http://www.geonames.org/export/ws-overview.html
 	 */	
 	public class GeoNamesService extends URLLoaderBase
 	{
