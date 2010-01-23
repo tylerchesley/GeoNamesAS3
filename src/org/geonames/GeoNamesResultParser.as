@@ -22,6 +22,12 @@ package org.geonames
 	import org.geonames.events.GeoNamesEvent;
 	
 	/**
+	 * Class that contains internal helper functions used to parse
+     * the XML returned from the GeoNames servers to create the relevant
+     * objects.
+     * 
+     * Only meant as helpers for the library; NOT meant for use by
+     * developers using the library.
 	 * 
 	 * @langversion ActionScript 3.0
 	 * @playerversion Flash 9
@@ -33,6 +39,14 @@ package org.geonames
 	public class GeoNamesResultParser
 	{
 		
+		/**
+		 * Creates an <code>Address</code> object.
+		 * 
+		 * @param node The XML representation of the address.
+		 * @return A new <code>Address</code> object.
+		 * 
+		 * @see org.geonames.data.Address
+		 */		
 		public static function parseAddress(node:XML):Address
 		{
 			var address:Address = new Address();
@@ -52,6 +66,14 @@ package org.geonames
 			return address;
 		}
 		
+		/**
+		 * Creates a <code>Country</code> object.
+		 * 
+		 * @param node The XML representation of the country.
+		 * @return A new <code>Country</code> object.
+		 * 
+		 * @see org.geonames.data.Country
+		 */	
 		public static function parseCountry(node:XML):Country
 		{
 			var country:Country = new Country();
@@ -74,6 +96,14 @@ package org.geonames
 			return country;
 		}
 		
+		/**
+		 * Creates a <code>CountrySubdivision</code> object.
+		 * 
+		 * @param node The XML representation of the country subdivision.
+		 * @return A new <code>CountrySubdivision</code> object.
+		 * 
+		 * @see org.geonames.data.CountrySubdivision
+		 */	
 		public static function parseCountrySubdivision(node:XML):CountrySubdivision
 		{
 			var subdivision:CountrySubdivision = new CountrySubdivision();
@@ -94,6 +124,14 @@ package org.geonames
 			return subdivision;
 		}
 		
+		/**
+		 * Creates a <code>Intersection</code> object.
+		 * 
+		 * @param node The XML representation of the intersection.
+		 * @return A new <code>Intersection</code> object.
+		 * 
+		 * @see org.geonames.data.Intersection
+		 */
 		public static function parseIntersection(node:XML):Intersection
 		{
 			var intersection:Intersection = new Intersection();
@@ -111,6 +149,14 @@ package org.geonames
 			return intersection;
 		}
 		
+		/**
+		 * Creates a <code>Neighbourhood</code> object.
+		 * 
+		 * @param node The XML representation of the neighbourhood.
+		 * @return A new <code>Neighbourhood</code> object.
+		 * 
+		 * @see org.geonames.data.Neighbourhood
+		 */
 		public static function parseNeighbourhood(node:XML):Neighbourhood
 		{
 			var neighborhood:Neighbourhood = new Neighbourhood();
@@ -125,6 +171,14 @@ package org.geonames
 			return neighborhood;
 		}
 		
+		/**
+		 * Creates a <code>PostalCode</code> object.
+		 * 
+		 * @param node The XML representation of the postal code.
+		 * @return A new <code>PostalCode</code> object.
+		 * 
+		 * @see org.geonames.data.PostalCode
+		 */
 		public static function parsePostalCode(node:XML):PostalCode
 		{
 			var postalCode:PostalCode = new PostalCode();
@@ -143,6 +197,14 @@ package org.geonames
 			return postalCode;
 		}
 		
+		/**
+		 * Creates a <code>PostalCodeCountryInfo</code> object.
+		 * 
+		 * @param node The XML representation of the postal code country info.
+		 * @return A new <code>PostalCodeCountryInfo</code> object.
+		 * 
+		 * @see org.geonames.data.PostalCodeCountryInfo
+		 */
 		public static function parsePostalCodeCountryInfo(node:XML):PostalCodeCountryInfo
 		{
 			var info:PostalCodeCountryInfo = new PostalCodeCountryInfo();
@@ -154,6 +216,14 @@ package org.geonames
 			return info;
 		}
 		
+		/**
+		 * Creates a <code>StreetSegment</code> object.
+		 * 
+		 * @param node The XML representation of the street segment.
+		 * @return A new <code>StreetSegment</code> object.
+		 * 
+		 * @see org.geonames.data.StreetSegment
+		 */
 		public static function parseStreetSegment(node:XML):StreetSegment
 		{
 			var segment:StreetSegment = new StreetSegment();
@@ -177,11 +247,13 @@ package org.geonames
 		}
 		
 		/**
+		 * Creates a <code>Toponym</code> object.
 		 * 
-		 * @param node
-		 * @param style
-		 * @return 
+		 * @param node The XML representation of the toponym.
+		 * @param style Passed in by the <code>parseToponymResult</code> method.
+		 * @return A new <code>Toponym</code> object.
 		 * 
+		 * @see org.geonames.data.Toponym
 		 */		
 		public static function parseToponym(node:XML, style:String = null):Toponym
 		{
@@ -220,6 +292,14 @@ package org.geonames
 			return toponym;
 		}
 		
+		/**
+		 * Creates a <code>WeatherObservation</code> object.
+		 * 
+		 * @param node The XML representation of the weather observation.
+		 * @return A new <code>WeatherObservation</code> object.
+		 * 
+		 * @see org.geonames.data.WeatherObservation
+		 */
 		public static function parseWeatherObservation(node:XML):WeatherObservation
 		{
 			var observation:WeatherObservation = new WeatherObservation();
@@ -242,6 +322,14 @@ package org.geonames
 			return observation;
 		}
 		
+		/**
+		 * Creates a <code>WikipediaEntry</code> object.
+		 * 
+		 * @param node The XML representation of the wikipedia entry.
+		 * @return A new <code>WikipediaEntry</code> object.
+		 * 
+		 * @see org.geonames.data.WikipediaEntry
+		 */
 		public static function parseWikipediaEntry(node:XML):WikipediaEntry
 		{
 			var entry:WikipediaEntry = new WikipediaEntry();
@@ -259,6 +347,14 @@ package org.geonames
 			return entry;
 		}
 		
+		/**
+		 * Creates a <code>PostalCodeResult</code> object.
+		 * 
+		 * @param data The XML representation of the postal code result.
+		 * @return A new <code>PostalCodeResult</code> object.
+		 * 
+		 * @see org.geonames.data.PostalCodeResult
+		 */
 		public static function parsePostalCodeResult(data:XML):PostalCodeResult
 		{
 			var result:PostalCodeResult = new PostalCodeResult();
@@ -273,6 +369,14 @@ package org.geonames
 			return result;
 		}
 		
+		/**
+		 * Creates a <code>Timezone</code> object.
+		 * 
+		 * @param node The XML representation of the timezone.
+		 * @return A new <code>Timezone</code> object.
+		 * 
+		 * @see org.geonames.data.Timezone
+		 */
 		public static function parseTimezone(node:XML):Timezone
 		{
 			var timezone:Timezone = new Timezone();
@@ -288,6 +392,14 @@ package org.geonames
 			return timezone;
 		}
 		
+		/**
+		 * Creates a <code>Ocean</code> object.
+		 * 
+		 * @param node The XML representation of the ocean.
+		 * @return A new <code>Ocean</code> object.
+		 * 
+		 * @see org.geonames.data.Ocean
+		 */
 		public static function parseOcean(node:XML):Ocean
 		{
 			var ocean:Ocean = new Ocean();
@@ -296,11 +408,13 @@ package org.geonames
 		}
 		
 		/**
+		 * Creates a <code>ToponymResult</code> object.
 		 * 
-		 * @param data
-		 * @return 
+		 * @param node The XML representation of the toponym result.
+		 * @return A new <code>ToponymResult</code> object.
 		 * 
-		 */		
+		 * @see org.geonames.data.ToponymResult
+		 */	
 		public static function parseToponymResult(data:XML):ToponymResult
 		{
 			var result:ToponymResult = new ToponymResult();
@@ -316,7 +430,18 @@ package org.geonames
 			return result;
 		}
 		
-		public static function parseRepeatedElements(elementName:String, parseFunction:Function, data:XML):Array
+		/**
+		 * @private
+		 *  
+		 * Utility function parse repeated elements.
+		 * 
+		 * @param elementName The repeated element name.
+		 * @param parseFunction The function used to parse the repeated element.
+		 * @param data The data containing the repeated elements.
+		 * @return An array of the repeated elements.
+		 * 
+		 */		
+		private static function parseRepeatedElements(elementName:String, parseFunction:Function, data:XML):Array
 		{
 			var result:Array = [];
 			
@@ -328,6 +453,14 @@ package org.geonames
 			return result;
 		}
 		
+		/**
+		 * Creates a <code>GeoNamesException</code> object.
+		 * 
+		 * @param node The XML representation of the exception.
+		 * @return A new <code>GeoNamesException</code> object.
+		 * 
+		 * @see org.geonames.data.GeoNamesException
+		 */
 		public static function parseException(data:XML):GeoNamesException
 		{
 			var exception:GeoNamesException = new GeoNamesException();
@@ -336,12 +469,29 @@ package org.geonames
 			return exception;
 		}
 		
-		public static function checkException(data:XML):Boolean
+		/**
+		 * @private
+		 * 
+		 * Method that checks for GeoNamesExceptions.
+		 * 
+		 * @param data Raw data to check for GeoNames exception.
+		 * @return True if there is an exception or false otherwise.
+		 * 
+		 */		
+		private static function checkException(data:XML):Boolean
 		{
 			var status:XMLList = data.descendants("status");
 			return status.length() > 0 ? true : false;
 		}
 		
+		/**
+		 * Determines the correct parse method for the returned data.
+		 *  
+		 * @param type The event type used to determine the correct parse method.
+		 * @param data The raw data returned from the GeoNames server.
+		 * @return The parsed result object.
+		 * 
+		 */		
 		public static function parse(type:String, data:String):Object
 		{
 			var result:Object;
