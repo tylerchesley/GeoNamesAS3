@@ -1,6 +1,7 @@
 package org.geonames.codes
 {
 	/**
+	 * Provides constants for the <code>featureClass</code> property.
 	 * 
 	 * @langversion ActionScript 3.0
 	 * @playerversion Flash 9
@@ -8,6 +9,7 @@ package org.geonames.codes
 	 * 
 	 * @author Tyler Chesley
 	 *
+	 * @see http://www.geonames.org/export/codes.html
 	 */
 	public class FreatureClass
 	{

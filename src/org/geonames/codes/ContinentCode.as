@@ -1,5 +1,14 @@
 package org.geonames.codes
 {
+	/**
+	 * Provides constants for <code>continentCode</code>.
+	 * 
+	 * @langversion ActionScript 3.0
+	 * @playerversion Flash 9
+	 * @tiptext
+	 * 
+	 * @author Tyler Chesley
+	 */	
 	public class ContinentCode
 	{
 		public static const AFRICA:String = "AF";

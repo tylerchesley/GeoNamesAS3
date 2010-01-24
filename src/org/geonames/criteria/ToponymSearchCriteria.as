@@ -111,10 +111,8 @@ package org.geonames.criteria
 		 * English and Bulgarian. 
 		 * 
 		 * @default "en"
-		 * 
-		 * @see org.geonames.codes.Language
 		 */		
-		public var lang:String = Language.ENGLISH;
+		public var lang:String;
 		
 		/**
 		 * The maximal number of rows in the document returned by 

@@ -1,6 +1,10 @@
 package org.geonames.codes
 {
 	/**
+	 * Provides constants for the <code>style</code> property.
+	 * 
+	 * <p>This class identifies the values of the <style>property</code> which 
+	 * controls the verbosity of the returned results for certain services.</p>
 	 * 
 	 * @langversion ActionScript 3.0
 	 * @playerversion Flash 9
