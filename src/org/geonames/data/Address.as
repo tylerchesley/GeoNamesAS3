@@ -11,7 +11,8 @@ package org.geonames.data
 	 * @tiptext
 	 * 
 	 * @author Tyler Chesley
-	 *
+	 * 
+	 * @see org.geonames.GeoNamesService#findNearestAddress
 	 */
 	public class Address extends PostalCode
 	{

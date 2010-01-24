@@ -2,6 +2,7 @@ package org.geonames.data
 {
 
 	/**
+	 * Encapsulates the search results for the <code>search</code> service.
 	 * 
 	 * @langversion ActionScript 3.0
 	 * @playerversion Flash 9
@@ -9,6 +10,7 @@ package org.geonames.data
 	 * 
 	 * @author Tyler Chesley
 	 * 
+	 * @see org.geonames.GeoNamesService#search
 	 */	
 	public class ToponymResult
 	{

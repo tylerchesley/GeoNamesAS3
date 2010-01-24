@@ -2,6 +2,7 @@ package org.geonames.data
 {
 	
 	/**
+	 * Encapsulates a toponym.
 	 * 
 	 * @langversion ActionScript 3.0
 	 * @playerversion Flash 9
@@ -9,6 +10,12 @@ package org.geonames.data
 	 * 
 	 * @author Tyler Chesley
 	 * 
+	 * @see org.geonames.GeoNamesService#cities
+	 * @see org.geonames.GeoNamesService#findNearby
+	 * @see org.geonames.GeoNamesService#extendedFindNearby
+	 * @see org.geonames.GeoNamesService#findNearbyPlacename
+	 * @see org.geonames.GeoNamesService#getToponym
+	 * @see org.geonames.GeoNamesService#search
 	 */	
 	public class Toponym
 	{

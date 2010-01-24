@@ -9,6 +9,7 @@ package org.geonames.data
 	 * 
 	 * @author Tyler Chesley
 	 * 
+	 * @see org.geonames.GeoNamesService#countryInfo
 	 */	
 	public class Country
 	{

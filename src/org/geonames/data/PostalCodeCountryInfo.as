@@ -2,6 +2,7 @@ package org.geonames.data
 {
 	
 	/**
+	 * Encapsulates postal code country information.
 	 * 
 	 * @langversion ActionScript 3.0
      * @playerversion Flash 9
@@ -9,6 +10,7 @@ package org.geonames.data
 	 * 
 	 * @author Tyler Chesley
 	 * 
+	 * @see org.geonames.GeoNamesService#postalCodeCountryInfo
 	 */	
 	public class PostalCodeCountryInfo
 	{

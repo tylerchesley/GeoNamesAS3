@@ -2,6 +2,7 @@ package org.geonames.data
 {
 	
 	/**
+	 * Encapsulates an ocean.
 	 * 
 	 * @langversion ActionScript 3.0
      * @playerversion Flash 9
@@ -9,6 +10,7 @@ package org.geonames.data
 	 * 
 	 * @author Tyler Chesley
 	 * 
+	 * @see org.geonames.GeoNamesService#ocean
 	 */	
 	public class Ocean
 	{

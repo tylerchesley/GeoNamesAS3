@@ -1,6 +1,7 @@
 package org.geonames.data
 {
 	/**
+	 * Encapsulates a street segment.
 	 * 
 	 * @langversion ActionScript 3.0
 	 * @playerversion Flash 9
@@ -8,6 +9,8 @@ package org.geonames.data
 	 * 
 	 * @author Tyler Chesley
 	 * 
+	 * @see org.geonames.GeoNamesService#findNearbyStreets
+	 * @see org.geonames.GeoNamesService#findNearbyStreetsOSM
 	 */	
 	public class StreetSegment extends PostalCode
 	{
@@ -29,38 +32,18 @@ package org.geonames.data
 		
 		public var mtfcc:String;
 		
-		/**
-		 * 
-		 */		
 		public var latitudes:Array;
 		
-		/**
-		 * 
-		 */		
 		public var longitudes:Array;
-		 
 		
 		public var cfcc:String;
 
-
-		/**
-		 * 
-		 */		
 		public var fraddl:String;
 
-		/**
-		 * 
-		 */		
 		public var fraddr:String;
 
-		/**
-		 * 
-		 */		
 		public var toaddl:String;
 
-		/**
-		 * 
-		 */		
 		public var toaddr:String;
 		
 		public var placeName:String;
