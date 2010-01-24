@@ -97,6 +97,38 @@ package org.geonames
 		}
 		
 		/**
+		 * Parses the results for the <code>extendedFindNearby</code>.
+		 * 
+		 * @param node The XML result.
+		 * @return Either an <code>array</code> of <code>Toponym</code> objects, 
+		 * an <code>array</code> of <code>Address</code> objects or an 
+		 * <code>Ocean</code> object.
+		 * 
+		 * @see org.geonames.data.Address
+		 * @see org.geonames.data.Ocean
+		 * @see org.geonames.data.Toponym
+		 */		
+		public static function parseExtendedFindNearby(node:XML):Object
+		{
+			var result:Object;
+			
+			if (node.descendants("geoname").length() > 0)
+			{
+				result = parseRepeatedElements("geoname", parseToponym, node);
+			}
+			else if (node.descendants("address").length() > 0)
+			{
+				result = parseRepeatedElements("address", parseAddress, node);
+			}
+			else if (node.descendants("ocean").length() > 0)
+			{
+				result = parseOcean(node.ocean[0]);
+			}
+			
+			return result;
+		}
+		
+		/**
 		 * Creates a <code>CountrySubdivision</code> object.
 		 * 
 		 * @param node The XML representation of the country subdivision.
@@ -517,10 +549,13 @@ package org.geonames
 					break;
 				
 				case GeoNamesEvent.CITIES:
-				case GeoNamesEvent.EXTENDED_FIND_NEARBY:
 				case GeoNamesEvent.FIND_NEARBY:
 				case GeoNamesEvent.FIND_NEARBY_PLACE_NAME:
 					result = parseRepeatedElements("geoname", parseToponym, XML(data));
+					break;
+				
+				case GeoNamesEvent.EXTENDED_FIND_NEARBY:
+					result = parseExtendedFindNearby(XML(data));
 					break;
 				
 				case GeoNamesEvent.COUNTRY_CODE:

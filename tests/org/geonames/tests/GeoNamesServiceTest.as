@@ -212,13 +212,14 @@ package org.geonames.tests
 		
 		[Test(async)]
 		// http://ws.geonames.org/extendedFindNearby?lat=47.3&lng=9
-		public function testExtendedFindNearby():void
+		public function testExtendedFindNearby_outsideUS():void
 		{
-			Async.handleEvent(this, geonames, GeoNamesEvent.EXTENDED_FIND_NEARBY, extendedFindNearbyHandler, TIMEOUT);
+			Async.handleEvent(this, geonames, GeoNamesEvent.EXTENDED_FIND_NEARBY, 
+				extendedFindNearby_outsideUSHandler, TIMEOUT);
 			geonames.extendedFindNearby(47.3, 9);
 		}
 		
-		private function extendedFindNearbyHandler(event:GeoNamesEvent, params:*):void
+		private function extendedFindNearby_outsideUSHandler(event:GeoNamesEvent, params:*):void
 		{
 			var results:Array = event.data as Array;
 			Assert.assertTrue(results.length > 0);
@@ -227,6 +228,41 @@ package org.geonames.tests
 				var item:Object = results[i];
 				Assert.assertTrue(item is Toponym);
 			}
+		}
+		
+		[Test(async)]
+		// http://ws.geonames.org/extendedFindNearby?lat=37.451&lng=-122.18
+		public function testExtendedFindNearby_inUS():void
+		{
+			Async.handleEvent(this, geonames, GeoNamesEvent.EXTENDED_FIND_NEARBY, 
+				extendedFindNearby_inUSHandler, TIMEOUT);
+			geonames.extendedFindNearby(37.451, -122.18);
+		}
+		
+		private function extendedFindNearby_inUSHandler(event:GeoNamesEvent, params:*):void
+		{
+			var results:Array = event.data as Array;
+			Assert.assertTrue(results.length > 0);
+			for (var i:int = 0; i < results.length; i++)
+			{
+				var item:Object = results[i];
+				Assert.assertTrue(item is Address);
+			}
+		}
+		
+		[Test(async)]
+		// http://ws.geonames.org/extendedFindNearby?lat=40.78343&lng=-43.96625
+		public function testExtendedFindNearby_ocean():void
+		{
+			Async.handleEvent(this, geonames, GeoNamesEvent.EXTENDED_FIND_NEARBY, 
+				extendedFindNearby_oceanHandler, TIMEOUT);
+			geonames.extendedFindNearby(40.78343, -43.96625);
+		}
+		
+		private function extendedFindNearby_oceanHandler(event:GeoNamesEvent, params:*):void
+		{
+			var result:Ocean = event.data as Ocean;
+			Assert.assertNotNull(result.name);
 		}
 		
 		[Test(async)]
