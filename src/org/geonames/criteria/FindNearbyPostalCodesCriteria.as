@@ -8,9 +8,13 @@ package org.geonames.criteria
 	 * <p>The service can take two different sets of parameters. You can either 
 	 * pass the lat/long or a postalcode/placename. </p>
 	 * 
+	 * @langversion ActionScript 3.0
+	 * @playerversion Flash 9
+	 * @tiptext
+	 * 
 	 * @author Tyler Chesley
 	 * 
-	 * @see org.geonames.GeoNamesService
+	 * @see org.geonames.GeoNamesService#findNearbyPostalCodes
 	 * @see http://www.geonames.org/export/web-services.html#findNearbyPostalCodes
 	 */	
 	public class FindNearbyPostalCodesCriteria
@@ -40,6 +44,9 @@ package org.geonames.criteria
 		public var lng:Number;
 		
 		/**
+		 * The maximal number of rows in the document returned by 
+		 * the service.
+		 * 
 		 * @default 5 
 		 */		
 		public var maxRows:uint = 5;
@@ -54,8 +61,10 @@ package org.geonames.criteria
 		public var style:String = Style.MEDIUM;
 		
 		/**
-		 * @default all countries 
-		 */		
+		 * An ISO-3166 country code. 
+		 * 
+		 * @default All countries.
+		 */	
 		public var country:String;
 		
 		/**
@@ -71,6 +80,9 @@ package org.geonames.criteria
 		 */		
 		public var radius:Number;
 		
+		/**
+		 * The postal code to search for.
+		 */	
 		public var postalcode:String;
 		
 	}

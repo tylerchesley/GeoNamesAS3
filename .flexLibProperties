@@ -28,6 +28,7 @@
     <classEntry path="org.geonames.tests.GeoNamesResultParserTest"/>
     <classEntry path="org.geonames.tests.GeoNamesServiceTest"/>
     <classEntry path="org.geonames.criteria.FindNearbyCriteria"/>
+    <classEntry path="org.geonames.codes.ContinentCode"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

@@ -4,24 +4,28 @@ package org.geonames.criteria
 	import org.geonames.codes.Style;
 	
 	/**
+	 * Encapsulates the parameters for <code>postalCodeSearch</code> service.
 	 * 
 	 * @langversion ActionScript 3.0
 	 * @playerversion Flash 9
 	 * @tiptext
 	 * 
 	 * @author Tyler Chesley
-	 *
+	 * 
+	 * @see org.geonames.GeoNamesService#postalCodeSearch
+	 * @see http://www.geonames.org/export/web-services.html#postalCodeSearch
 	 */
 	public class PostalCodeSearchCriteria
 	{
 		
 		/**
-		 * Constructor
-		 *  
-		 * @param postalcode
-		 * @param placename
+		 * Creates a new <code>PostalCodeSearchCriteria/code> object.
 		 * 
-		 * <p>Creates a new <code>PostalCodeSearchCriteria/code> object.
+		 * <p>Either <code>postalcode</code> or <code>placename</code> is required. 
+		 * All other paramaters are optional.</p>
+		 *  
+		 * @param postalcode The postal code to search for.
+		 * @param placename Search string for all fields.
 		 */		
 		public function PostalCodeSearchCriteria(postalcode:String = "", placename:String = "")
 		{
@@ -55,7 +59,9 @@ package org.geonames.criteria
 		public var placename_startswith:String;
 		
 		/**
-		 * An ISO-3166 country code. Default is all countries.
+		 * An ISO-3166 country code. 
+		 * 
+		 * @default All countries.
 		 */		
 		public var country:String;
 		
@@ -72,10 +78,11 @@ package org.geonames.criteria
 		public var maxRows:uint = 10;
 		
 		[Inspectable(category="General", enumeration="short,medium,long,full", defaultValue="medium")]
+		
 		/**
-		 * Verbosity of returned xml document.
+		 * Controls the verbosity of the returned results.
 		 * 
-		 * @default "MEDIUM"
+		 * @default "MEDIUM" 
 		 */		
 		public var style:String = Style.MEDIUM;
 		
