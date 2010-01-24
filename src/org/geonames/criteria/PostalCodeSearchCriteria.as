@@ -19,7 +19,9 @@ package org.geonames.criteria
 	{
 		
 		/**
-		 * Creates a new <code>PostalCodeSearchCriteria/code> object.
+		 * Constructor
+		 * 
+		 * <p>Creates a new <code>PostalCodeSearchCriteria/code> object.</p>
 		 * 
 		 * <p>Either <code>postalcode</code> or <code>placename</code> is required. 
 		 * All other paramaters are optional.</p>

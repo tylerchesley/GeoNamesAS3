@@ -17,7 +17,7 @@ package org.geonames.data
 		/**
 		 * Constructor
 		 * 
-		 * <p>Creates a new <code>CountrySubdivision</code> object.
+		 * <p>Creates a new <code>CountrySubdivision</code> object.</p>
 		 */		
 		public function CountrySubdivision()
 		{

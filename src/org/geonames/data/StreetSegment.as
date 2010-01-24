@@ -18,7 +18,7 @@ package org.geonames.data
 		/**
 		 * Constructor 
 		 * 
-		 * <p>Creates a new <code>StreetSegment</code> object.
+		 * <p>Creates a new <code>StreetSegment</code> object.</p>
 		 */		
 		public function StreetSegment()
 		{

@@ -23,7 +23,7 @@ package org.geonames.criteria
 		/**
 		 * Constructor 
 		 * 
-		 * <p>Creates a new <code>FindNearbyPostalCodesCriteria</code> object.
+		 * <p>Creates a new <code>FindNearbyPostalCodesCriteria</code> object.</p>
 		 */		
 		public function FindNearbyPostalCodesCriteria()
 		{

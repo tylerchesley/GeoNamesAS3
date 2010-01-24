@@ -23,7 +23,7 @@ package org.geonames.data
 		/**
 		 * Constructor
 		 * 
-		 * <p>Creates a new <code>Toponym</code> object.
+		 * <p>Creates a new <code>Toponym</code> object.</p>
 		 */		
 		public function Toponym()
 		{

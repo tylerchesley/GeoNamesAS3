@@ -633,6 +633,8 @@ package org.geonames
 		
 		/**
 		 * Constructor 
+		 * 
+		 * <p>Creates a new <code>GeoNamesService</code> object.</p>
 		 */		
 		public function GeoNamesService():void
 		{

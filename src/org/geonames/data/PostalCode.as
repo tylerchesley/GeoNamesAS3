@@ -19,7 +19,7 @@ package org.geonames.data
 		/**
 		 * Constructor
 		 * 
-		 * <p>Creates a new <code>PostalCode</code> object.
+		 * <p>Creates a new <code>PostalCode</code> object.</p>
 		 */		
 		public function PostalCode()
 		{

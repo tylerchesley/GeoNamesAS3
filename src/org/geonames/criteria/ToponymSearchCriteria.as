@@ -18,7 +18,9 @@ package org.geonames.criteria
 	{
 		
 		/**
-		 * Creates a new <code>ToponymSearchCriteria</code> object.
+		 * Constructor
+		 * 
+		 * <p>Creates a new <code>ToponymSearchCriteria</code> object.</p>
 		 * 
 		 * <p>Either <code>q</code> or <code>name</code> or <code>name_equals</code> is 
 		 * required. All other parameters are optional.</p>

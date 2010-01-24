@@ -18,7 +18,7 @@ package org.geonames.data
 		/**
 		 * Constructor
 		 * 
-		 * <p>Creates a new <code>WeatherObservation</code> object.
+		 * <p>Creates a new <code>WeatherObservation</code> object.</p>
 		 */		
 		public function WeatherObservation()
 		{

@@ -19,7 +19,7 @@ package org.geonames.data
 		/**
 		 * Constructor 
 		 * 
-		 * <p>Creates a new <code>Code</code> object.
+		 * <p>Creates a new <code>Code</code> object.</p>
 		 */		
 		public function Code()
 		{
