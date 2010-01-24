@@ -290,6 +290,16 @@ package org.geonames.events
 		
 		/**
 		 * The event type for the event broadcast when the results have been loaded
+		 * in response to a srtm3 API call.
+		 * 
+		 * @eventType srtm3
+		 * 
+		 * @see http://www.geonames.org/export/web-services.html#srtm3
+		 */
+		public static const SRTM3:String = "srtm3";
+		
+		/**
+		 * The event type for the event broadcast when the results have been loaded
 		 * in response to a timezone API call.
 		 * 
 		 * @eventType timezone

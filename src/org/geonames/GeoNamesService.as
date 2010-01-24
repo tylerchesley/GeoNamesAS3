@@ -500,6 +500,20 @@ package org.geonames
 	
 	/**
 	 * Event broadcast when the results have been retrieved from GeoNames servers 
+	 * in response to <code>srtm3</code> being called.
+	 * 
+	 * <p>The event will contain a number representing the elevation in the 
+	 * <code>data</code> property</p>
+	 * 
+	 * @eventType org.geonames.events.GeoNamesEvent
+	 * 
+	 * @see #srtm3()
+	 * @see org.geonames.data.ToponymResult
+	 */
+	[Event(name="srtm3", type="org.geonames.events.GeoNamesEvent")]
+	
+	/**
+	 * Event broadcast when the results have been retrieved from GeoNames servers 
 	 * in response to <code>timezone</code> being called.
 	 * 
 	 * <p>The event contains the following properties:
@@ -1407,6 +1421,31 @@ package org.geonames
 			params.style = style ? style : defaultStyle;
 			params.language = language ? language : defaultLanguage;
 			invokeMethod(GeoNamesEvent.SIBLINGS, params);
+		}
+		
+		/**
+		 * Retrieves the elevation for the given latitude/longitude.
+		 * 
+		 * <p>Shuttle Radar Topography Mission (SRTM) elevation data. SRTM consisted 
+		 * of a specially modified radar system that flew onboard the Space Shuttle 
+		 * Endeavour during an 11-day mission in February of 2000. The dataset covers 
+		 * land areas between 60 degrees north and 56 degrees south. 
+		 * This web service is using SRTM3 data with data points located every 
+		 * 3-arc-second (approximately 90 meters) on a latitude/longitude grid.</p>
+		 *  
+		 * @param latitude
+		 * @param longitude
+		 * 
+		 * @see #event:srtm3
+		 * @see http://www.geonames.org/export/web-services.html#srtm3
+		 * @see http://www2.jpl.nasa.gov/srtm/
+		 */
+		public function srtm3(latitude:Number, longitude:Number):void
+		{
+			var params:URLVariables = new URLVariables();
+			params.lat = latitude;
+			params.lng = longitude;
+			invokeMethod(GeoNamesEvent.SRTM3, params);
 		}
 		
 		/**

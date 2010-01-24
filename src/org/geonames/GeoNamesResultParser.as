@@ -504,6 +504,7 @@ package org.geonames
 			{
 				case GeoNamesEvent.ASTERGDEM:
 				case GeoNamesEvent.GTOPO30:
+				case GeoNamesEvent.SRTM3:
 					return Number(data);
 					break;
 				

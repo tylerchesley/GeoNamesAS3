@@ -30,7 +30,7 @@ package org.geonames.tests
 		
 		private static var geonames:GeoNamesService = new GeoNamesService();
 		
-		private static const TIMEOUT:int = 100000;
+		private static const TIMEOUT:int = 10000;
 		
 		// Reference declaration for class to test
 		private var classToTestRef : org.geonames.GeoNamesService;
@@ -731,6 +731,20 @@ package org.geonames.tests
 			var toponym:Toponym = result.toponyms[0];
 			Assert.assertEquals(49, result.total);
 			Assert.assertTrue(result.toponyms.length > 0);
+		}
+		
+		[Test(async)]
+		// http://ws.geonames.org/srtm3?lat=50.01&lng=10.2
+		public function testSrtm3():void
+		{
+			Async.handleEvent(this, geonames, GeoNamesEvent.SRTM3, 
+				srtm3Handler, TIMEOUT);
+			geonames.srtm3(50.01, 10.2);
+		}
+		
+		private function srtm3Handler(event:GeoNamesEvent, params:*):void
+		{
+			Assert.assertEquals(206, event.data);
 		}
 		
 		[Test(async)]
