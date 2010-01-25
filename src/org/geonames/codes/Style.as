@@ -13,7 +13,7 @@ package org.geonames.codes
 	 * @author Tyler Chesley
 	 *
 	 */
-	public class Style
+	public final class Style
 	{
 		public static const SHORT:String = 'SHORT';
 		

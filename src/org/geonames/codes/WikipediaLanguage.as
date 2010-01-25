@@ -9,7 +9,7 @@ package org.geonames.codes
 	 * @author Tyler Chesley
 	 *
 	 */
-	public class WikipediaLanguage
+	public final class WikipediaLanguage
 	{
 		public static const ENGLISH:String = 'en';
 		

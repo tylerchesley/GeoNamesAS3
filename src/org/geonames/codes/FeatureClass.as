@@ -11,7 +11,7 @@ package org.geonames.codes
 	 *
 	 * @see http://www.geonames.org/export/codes.html
 	 */
-	public class FeatureClass
+	public final class FeatureClass
 	{
 		
 		/**

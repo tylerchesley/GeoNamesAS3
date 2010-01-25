@@ -13,7 +13,7 @@ package org.geonames.codes
 	 * @author Tyler Chesley
 	 *
 	 */
-	public class Operator
+	public final class Operator
 	{
 		public static const AND:String = "AND";
 		

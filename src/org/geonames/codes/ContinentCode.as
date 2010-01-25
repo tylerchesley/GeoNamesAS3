@@ -9,7 +9,7 @@ package org.geonames.codes
 	 * 
 	 * @author Tyler Chesley
 	 */	
-	public class ContinentCode
+	public final class ContinentCode
 	{
 		public static const AFRICA:String = "AF";
 		
