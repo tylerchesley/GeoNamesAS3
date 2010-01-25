@@ -17,7 +17,7 @@ package org.geonames.criteria
 	 * @see org.geonames.GeoNamesService#findNearbyPostalCodes
 	 * @see http://www.geonames.org/export/web-services.html#findNearbyPostalCodes
 	 */	
-	public class FindNearbyPostalCodesCriteria
+	public class FindNearbyPostalCodesCriteria extends Criteria
 	{
 		
 		/**
@@ -51,21 +51,63 @@ package org.geonames.criteria
 		 */		
 		public var maxRows:uint = 5;
 		
+		/**
+		 * @private
+		 */		
+		private var _style:String;
+		
 		[Inspectable(category="General", enumeration="short,medium,long,full", defaultValue="medium")]
 		
 		/**
 		 * Controls the verbosity of the returned results.
 		 * 
 		 * @default "MEDIUM" 
+		 */	
+		public function get style():String
+		{
+			return _style;
+		}
+		
+		/**
+		 * @private
 		 */		
-		public var style:String = Style.MEDIUM;
+		public function set style(value:String):void
+		{
+			if (!validateEnumeration(value, Style))
+			{
+				throw new Error("Invalid style specified.");
+			}
+			
+			_style = value;
+		}
+		
+		/**
+		 * @private
+		 */		
+		private var _country:String;
 		
 		/**
 		 * An ISO-3166 country code. 
 		 * 
 		 * @default All countries.
-		 */	
-		public var country:String;
+		 */		
+		public function get country():String
+		{
+			return _country;
+		}
+		
+		/**
+		 * @private
+		 */		
+		public function set country(value:String):void
+		{
+			if (value.length != 2)
+			{
+				throw new Error("Invalid country specified.");
+			}
+			
+			_country = value;
+		}
 		
 		/**
 		 * In border areas this parameter will restrict the search on the 
@@ -78,12 +120,27 @@ package org.geonames.criteria
 		/**
 		 * The radius in kilometers to search within.
 		 */		
-		public var radius:Number;
+		public var radius:uint;
 		
 		/**
 		 * The postal code to search for.
 		 */	
 		public var postalcode:String;
+		
+	//------------------------------------------------------------------------------
+	//	Overriden Methods
+	//------------------------------------------------------------------------------
+		
+		override public function toString():String
+		{
+			if (!lat && !lng && !postalcode)
+			{
+				throw new Error("Either the latitude/longitude or the postalcode " +
+					"must be specified.");
+			}
+			
+			return super.toString();
+		}
 		
 	}
 }

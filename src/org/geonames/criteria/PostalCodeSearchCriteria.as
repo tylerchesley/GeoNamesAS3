@@ -15,7 +15,7 @@ package org.geonames.criteria
 	 * @see org.geonames.GeoNamesService#postalCodeSearch
 	 * @see http://www.geonames.org/export/web-services.html#postalCodeSearch
 	 */
-	public class PostalCodeSearchCriteria
+	public class PostalCodeSearchCriteria extends Criteria
 	{
 		
 		/**
@@ -61,11 +61,32 @@ package org.geonames.criteria
 		public var placename_startswith:String;
 		
 		/**
+		 * @private
+		 */		
+		private var _country:String;
+		
+		/**
 		 * An ISO-3166 country code. 
 		 * 
 		 * @default All countries.
 		 */		
-		public var country:String;
+		public function get country():String
+		{
+			return _country;
+		}
+		
+		/**
+		 * @private
+		 */		
+		public function set country(value:String):void
+		{
+			if (value.length != 2)
+			{
+				throw new Error("Invalid country specified.");
+			}
+			
+			_country = value;
+		}
 		
 		/**
 		 * Records from the countryBias are listed first.
@@ -79,28 +100,89 @@ package org.geonames.criteria
 		 */		
 		public var maxRows:uint = 10;
 		
+		/**
+		 * @private
+		 */		
+		private var _style:String;
+		
 		[Inspectable(category="General", enumeration="short,medium,long,full", defaultValue="medium")]
 		
 		/**
 		 * Controls the verbosity of the returned results.
 		 * 
 		 * @default "MEDIUM" 
+		 */	
+		public function get style():String
+		{
+			return _style;
+		}
+		
+		/**
+		 * @private
 		 */		
-		public var style:String = Style.MEDIUM;
+		public function set style(value:String):void
+		{
+			if (!validateEnumeration(value, Style))
+			{
+				throw new Error("Invalid style specified.");
+			}
+			
+			_style = value;
+		}
+		
+		/**
+		 * @private
+		 */		
+		private var _operator:String;
 		
 		[Inspectable(category="General", enumeration="AND,OR", defaultValue="AND")]
-		/**
-		 * The operator 'AND' searches for all terms in the placename parameter, 
-		 * the operator 'OR' searches for any term.
-		 * 
-		 * @default "AND"
-		 */		
-		public var operator:String = Operator.AND;
 		
 		/**
-		 * The default is 'UTF8', defines the encoding used for the document returned by the web service.
+		 * The default is 'AND', with the operator 'OR' not all search terms 
+		 * need to be matched by the response.
+		 * 
+		 * @default "AND"
+		 * 
+		 * @see org.geonames.codes.Operator
+		 */	
+		public function get operator():String
+		{
+			return _operator;
+		}
+		
+		/**
+		 * @private
+		 */		
+		public function set operator(value:String):void
+		{
+			if (!validateEnumeration(value, Operator))
+			{
+				throw new Error("Invalid operator specified.");
+			}
+			
+			_operator = value;
+		}
+		
+		/**
+		 * The default is 'UTF8', defines the encoding used for the document 
+		 * returned by the web service.
 		 */		
 		public var charset:String;
-	
+		
+	//------------------------------------------------------------------------------
+	//	Overriden Methods
+	//------------------------------------------------------------------------------
+		
+		override public function toString():String
+		{
+			if (!postalcode && !placename)
+			{
+				throw new Error("Either postalcode or placename must be " +
+					"specified.");
+			}
+			
+			return super.toString();
+		}
+		
 	}
 }

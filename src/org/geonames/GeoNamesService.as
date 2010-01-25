@@ -8,12 +8,12 @@ package org.geonames
 	import flash.net.URLVariables;
 	import flash.utils.describeType;
 	
-	import org.geonames.codes.Language;
 	import org.geonames.codes.Style;
 	import org.geonames.criteria.FindNearbyCriteria;
 	import org.geonames.criteria.FindNearbyPostalCodesCriteria;
 	import org.geonames.criteria.PostalCodeSearchCriteria;
 	import org.geonames.criteria.ToponymSearchCriteria;
+	import org.geonames.criteria.WikipediaSearchCriteria;
 	import org.geonames.data.GeoNamesException;
 	import org.geonames.events.GeoNamesEvent;
 
@@ -596,41 +596,6 @@ package org.geonames
 	public class GeoNamesService extends URLLoaderBase
 	{
 		
-	//------------------------------------------------------------------------------
-	//	Class Methods
-	//------------------------------------------------------------------------------
-		
-		/**
-		 * Method used to copy criteria values to a new params object 
-		 * without any properties that are null. This prevents errors 
-		 * from the geonames server for null values.
-		 *  
-		 * @param criteria
-		 * @return 
-		 * 
-		 */		
-		public static function criteriaToParams(criteria:Object):URLVariables
-		{
-			var params:URLVariables = new URLVariables();
-			var type:XML = describeType(criteria);
-			
-			for each (var param:XML in type..variable)
-			{
-				var name:String = param.@name;
-				var value:* = criteria[name];
-				if (value)
-				{
-					params[name] = value;
-				}
-			}
-			
-			return params;
-		}
-		
-	//------------------------------------------------------------------------------
-	//	Constructor
-	//------------------------------------------------------------------------------
-		
 		/**
 		 * Constructor 
 		 * 
@@ -653,7 +618,7 @@ package org.geonames
 		 * @private
 		 * Storage of the defaultLanguage property. 
 		 */		
-		private var _defaultLanguage:String = Language.ENGLISH;
+		private var _defaultLanguage:String = "en";
 		
 		/**
 		 * The default language to use for all methods that support a 
@@ -752,7 +717,7 @@ package org.geonames
 		/**
 		 * @private
 		 */		
-		protected function invokeMethod(eventType:String, 
+		private function invokeMethod(eventType:String, 
 										params:Object = null):void
 		{
 			var loader:DynamicURLLoader = getURLLoader();
@@ -836,7 +801,7 @@ package org.geonames
 		 * @see http://www.geonames.org/export/JSON-webservices.html#citiesJSON
 		 */		
 		public function cities(north:Number, south:Number, east:Number, west:Number, 
-							   maxRows:Number = 10, language:String = Language.ENGLISH):void
+							   maxRows:Number = 10, language:String = ""):void
 		{
 			var params:URLVariables = new URLVariables();
 			params.north = north;
@@ -974,8 +939,7 @@ package org.geonames
 		 */		
 		public function findNearby(criteria:FindNearbyCriteria):void
 		{
-			var params:URLVariables = criteriaToParams(criteria);
-			invokeMethod(GeoNamesEvent.FIND_NEARBY, params);
+			invokeMethod(GeoNamesEvent.FIND_NEARBY, criteria);
 		}
 		
 		/**
@@ -1025,8 +989,7 @@ package org.geonames
 		 */		
 		public function findNearbyPostalCodes(criteria:FindNearbyPostalCodesCriteria):void
 		{
-			var params:URLVariables = criteriaToParams(criteria);
-			invokeMethod(GeoNamesEvent.FIND_NEARBY_POSTAL_CODES, params);
+			invokeMethod(GeoNamesEvent.FIND_NEARBY_POSTAL_CODES, criteria);
 		}
 		
 		/**
@@ -1368,12 +1331,7 @@ package org.geonames
 		 */		
 		public function postalCodeSearch(criteria:PostalCodeSearchCriteria):void
 		{
-			var params:URLVariables = criteriaToParams(criteria);
-			
-			if (!params.postalcode && !params.placename)
-					throw new Error("postalcode or placename is required.");
-			
-			invokeMethod(GeoNamesEvent.POSTAL_CODE_SEARCH, params);
+			invokeMethod(GeoNamesEvent.POSTAL_CODE_SEARCH, criteria);
 		}
 		
 		/**
@@ -1392,12 +1350,7 @@ package org.geonames
 		 */		
 		public function search(criteria:ToponymSearchCriteria):void
 		{
-			var params:URLVariables = criteriaToParams(criteria);
-			
-			if (!params.q && !params.name && !params.name_equals)
-				throw new Error("q, name or name_equals is required.");
-			
-			invokeMethod(GeoNamesEvent.SEARCH, params);
+			invokeMethod(GeoNamesEvent.SEARCH, criteria);
 		}
 		
 		/**
@@ -1512,26 +1465,15 @@ package org.geonames
 		 * when the result has been retrieved and parsed. The result event 
 		 * contains an <code>Array</code> of <code>WikipediaEntry</code> objects.</p>
 		 * 
-		 * @param placeName
-		 * @param title
-		 * @param maxRows
-		 * @param language
+		 * @param criteria
 		 * 
 		 * @see #event:wikipediaSearch
 		 * @see org.geonames.data.WikipediaEntry
 		 * @see http://www.geonames.org/export/wikipedia-webservice.html#wikipediaSearch
 		 */		
-		public function wikipediaSearch(placeName:String, title:String = null, 
-										maxRows:Number = 10, 
-										language:String = null):void
+		public function wikipediaSearch(criteria:WikipediaSearchCriteria):void
 		{
-			var params:URLVariables = new URLVariables();
-			params.q = placeName;
-			if (title)
-				params.title = title;
-			params.maxRows = maxRows;
-			params.language = language ? language : defaultLanguage;
-			invokeMethod(GeoNamesEvent.WIKIPEDIA_SEARCH, params);
+			invokeMethod(GeoNamesEvent.WIKIPEDIA_SEARCH, criteria);
 		}
 	
 	//------------------------------------------------------------------------------

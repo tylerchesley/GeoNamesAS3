@@ -3,7 +3,7 @@
   <includeClasses>
     <classEntry path="org.geonames.GeoNamesResultParser"/>
     <classEntry path="org.geonames.GeoNamesService"/>
-    <classEntry path="org.geonames.codes.Language"/>
+    <classEntry path="org.geonames.codes.WikipediaLanguage"/>
     <classEntry path="org.geonames.codes.Style"/>
     <classEntry path="org.geonames.criteria.PostalCodeSearchCriteria"/>
     <classEntry path="org.geonames.criteria.ToponymSearchCriteria"/>
@@ -11,7 +11,7 @@
     <classEntry path="org.geonames.data.Code"/>
     <classEntry path="org.geonames.data.Country"/>
     <classEntry path="org.geonames.data.CountrySubdivision"/>
-    <classEntry path="org.geonames.codes.FreatureClass"/>
+    <classEntry path="org.geonames.codes.FeatureClass"/>
     <classEntry path="org.geonames.data.Intersection"/>
     <classEntry path="org.geonames.data.Neighbourhood"/>
     <classEntry path="org.geonames.data.Ocean"/>
@@ -29,6 +29,9 @@
     <classEntry path="org.geonames.tests.GeoNamesServiceTest"/>
     <classEntry path="org.geonames.criteria.FindNearbyCriteria"/>
     <classEntry path="org.geonames.codes.ContinentCode"/>
+    <classEntry path="org.geonames.criteria.WikipediaSearchCriteria"/>
+    <classEntry path="org.geonames.criteria.Criteria"/>
+    <classEntry path="org.geonames.tests.CriteriaTest"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

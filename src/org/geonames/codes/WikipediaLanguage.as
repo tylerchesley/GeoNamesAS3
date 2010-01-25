@@ -9,8 +9,10 @@ package org.geonames.codes
 	 * @author Tyler Chesley
 	 *
 	 */
-	public class Language
+	public class WikipediaLanguage
 	{
 		public static const ENGLISH:String = 'en';
+		
+		public static const GERMAN:String = "de";
 	}
 }

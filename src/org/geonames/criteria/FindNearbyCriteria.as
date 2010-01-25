@@ -1,5 +1,6 @@
 package org.geonames.criteria
 {
+	import org.geonames.codes.FeatureClass;
 	import org.geonames.codes.Style;
 	
 	/**
@@ -14,7 +15,7 @@ package org.geonames.criteria
 	 * @see org.geonames.GeoNamesService#findNearby
 	 * @see http://www.geonames.org/export/web-services.html#findNearby
 	 */
-	public class FindNearbyCriteria
+	public class FindNearbyCriteria extends Criteria
 	{
 		
 		/**
@@ -45,6 +46,11 @@ package org.geonames.criteria
 		 */		
 		public var lng:Number;
 		
+		/**
+		 * @private
+		 */		
+		private var _featureClass:String;
+		
 		[Inspectable(category="General", enumeration="A,H,L,P,R,S,T,U,V")]
 		
 		/**
@@ -55,7 +61,23 @@ package org.geonames.criteria
 		 * @see org.geonames.codes.FeatureClass
 		 * @see http://www.geonames.org/export/codes.html
 		 */			
-		public var featureClass:String;
+		public function get featureClass():String
+		{
+			return _featureClass;
+		}
+		
+		/**
+		 * @private
+		 */		
+		public function set featureClass(value:String):void
+		{
+			if (!validateEnumeration(value, FeatureClass))
+			{
+				throw new Error("Invalid featureClass specified.");
+			}
+			
+			_featureClass = value;
+		}
 		
 		/**
 		 * This parameter may occur more then once, example: featureCode=PPLC&featureCode=PPL
@@ -69,7 +91,7 @@ package org.geonames.criteria
 		/**
 		 * Confines the search to the specified radius in kilometers.
 		 */		
-		public var radius:Number;
+		public var radius:uint;
 		
 		/**
 		 * The maximal number of rows in the document returned by 
@@ -77,7 +99,12 @@ package org.geonames.criteria
 		 * 
 		 * @default 10 
 		 */		
-		public var maxRows:Number = 10;
+		public var maxRows:uint = 10;
+		
+		/**
+		 * @private
+		 */		
+		private var _style:String;
 		
 		[Inspectable(category="General", enumeration="short,medium,long,full", defaultValue="medium")]
 		
@@ -86,7 +113,23 @@ package org.geonames.criteria
 		 * 
 		 * @default "MEDIUM" 
 		 */	
-		public var style:String = Style.MEDIUM;
+		public function get style():String
+		{
+			return _style;
+		}
+		
+		/**
+		 * @private
+		 */		
+		public function set style(value:String):void
+		{
+			if (!validateEnumeration(value, Style))
+			{
+				throw new Error("Invalid style specified.");
+			}
+			
+			_style = value;
+		}
 		
 	}
 }
