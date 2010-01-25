@@ -1,0 +1,2933 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="GeoNamesService,org.geonames.GeoNamesService,defaultLanguage,defaultStyle,geoNamesServer,astergdem,children,cities,countryCode,countryInfo,countrySubdivision,extendedFindNearby,findNearby,findNearbyPlaceName,findNearbyPostalCodes,findNearbyStreets,findNearbyStreetsOSM,findNearbyWeather,findNearbyWikipedia,findNearestAddress,findNearestIntersection,findNearestIntersectionOSM,getToponym,gtopo30,hierarchy,neighbourhood,neighbours,ocean,postalCodeCountryInfo,postalCodeSearch,search,siblings,srtm3,timezone,wikipediaBoundingBox,wikipediaSearch" name="keywords">
+<title>org.geonames.GeoNamesService</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'GeoNamesService - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">GeonamesAS3</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?org/geonames/GeoNamesService.html&amp;org/geonames/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;GeoNamesService</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class GeoNamesService"); titleBar_setSubNav(false,true,false,false,true,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">org.geonames</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class GeoNamesService</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">GeoNamesService <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> com.adobe.webapis.URLLoaderBase</td>
+</tr>
+</table>
+<p></p>
+  Class that provides an ActionScript 3.0 interface to the remote
+     GeoNames XML API.
+  
+  <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/" target="mm_external">http://www.geonames.org/</a>
+<br>
+<a href="http://www.geonames.org/export/ws-overview.html" target="mm_external">http://www.geonames.org/export/ws-overview.html</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#defaultLanguage">defaultLanguage</a> : String<div class="summaryTableDescription">
+   The default language to use for all methods that support a 
+   language parameter.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#defaultStyle">defaultStyle</a> : String<div class="summaryTableDescription">
+   The style property controls the verbosity of returned xml document.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#geoNamesServer">geoNamesServer</a> : String<div class="summaryTableDescription">
+   </div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#GeoNamesService()">GeoNamesService</a>()</div>
+<div class="summaryTableDescription">
+   Constructor 
+   
+   <p>Creates a new <code>GeoNamesService</code> object.</p>
+   </div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#astergdem()">astergdem</a>(latitude:Number, longitude:Number):void</div>
+<div class="summaryTableDescription">
+   Retrieves the elevation in meters according to aster gdem, 
+   ocean areas have been masked as "no data" and have been assigned 
+   a value of -9999.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#children()">children</a>(geonameId:int, maxRows:Number = 200, style:String = null, language:String = null):void</div>
+<div class="summaryTableDescription">
+   Retrieves the children for a given geonameId.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#cities()">cities</a>(north:Number, south:Number, east:Number, west:Number, maxRows:Number = 10, language:String = ""):void</div>
+<div class="summaryTableDescription">
+   Retrieves a list of cities and placenames in the bounding box, ordered by 
+   relevancy (capital/population).</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#countryCode()">countryCode</a>(latitude:Number, longitude:Number):void</div>
+<div class="summaryTableDescription">
+   Retrieves the iso country code for the given latitude/longitude.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#countryInfo()">countryInfo</a>(country:String = null, language:String = null):void</div>
+<div class="summaryTableDescription">
+   Retrieves the capital, population, area in square km, bounding box 
+   of mainland (excluding offshore islands).</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#countrySubdivision()">countrySubdivision</a>(latitude:Number, longitude:Number, radius:Number = 0, maxRows:Number = 10, language:String = null):void</div>
+<div class="summaryTableDescription">
+   Retrieves the iso country code and the administrative subdivision of any given point.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#extendedFindNearby()">extendedFindNearby</a>(latitude:Number, longitude:Number, style:String = "", language:String = ""):void</div>
+<div class="summaryTableDescription">
+   Retrieves the most detailed information for the given latitude/longitude.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#findNearby()">findNearby</a>(criteria:<a href="criteria/FindNearbyCriteria.html">FindNearbyCriteria</a>):void</div>
+<div class="summaryTableDescription">
+   Retrieves the closest toponym for the given latitude/longitude and 
+   other criteria.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#findNearbyPlaceName()">findNearbyPlaceName</a>(latitude:Number, longitude:Number, style:String = null, language:String = null):void</div>
+<div class="summaryTableDescription">
+    Retrieves the closest populated place for the given latitude/longitued.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#findNearbyPostalCodes()">findNearbyPostalCodes</a>(criteria:<a href="criteria/FindNearbyPostalCodesCriteria.html">FindNearbyPostalCodesCriteria</a>):void</div>
+<div class="summaryTableDescription">
+   Retrieves a list of postalcodes and places for the latitude/longitude.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#findNearbyStreets()">findNearbyStreets</a>(latitude:Number, longitude:Number):void</div>
+<div class="summaryTableDescription">
+   Retrieves a list of streets for the latitude/longitude.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#findNearbyStreetsOSM()">findNearbyStreetsOSM</a>(latitude:Number, longitude:Number):void</div>
+<div class="summaryTableDescription">
+   Retrieves a list of streets for the latitude/longitude.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#findNearbyWeather()">findNearbyWeather</a>(latitude:Number, longitude:Number):void</div>
+<div class="summaryTableDescription">
+   Retrieves a weather station with the most recent weather observation.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#findNearbyWikipedia()">findNearbyWikipedia</a>(latitude:Number, longitude:Number, language:String = null):void</div>
+<div class="summaryTableDescription">
+   Retrieves a list of wikipedia entries for the latitude/longitude.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#findNearestAddress()">findNearestAddress</a>(latitude:Number, longitude:Number):void</div>
+<div class="summaryTableDescription">
+   Retrieves the nearest address for the given latitude/longitude.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#findNearestIntersection()">findNearestIntersection</a>(latitude:Number, longitude:Number):void</div>
+<div class="summaryTableDescription">
+   Retrieves the nearest intersection for the given latitude/longitude.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#findNearestIntersectionOSM()">findNearestIntersectionOSM</a>(latitude:Number, longitude:Number):void</div>
+<div class="summaryTableDescription">
+   Retrieves the nearest intersection for the given latitude/longitude.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getToponym()">getToponym</a>(geonameId:int, style:String = null, language:String = null):void</div>
+<div class="summaryTableDescription">
+   Retrieves the toponym for the given geonameId.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#gtopo30()">gtopo30</a>(latitude:Number, longitude:Number):void</div>
+<div class="summaryTableDescription">
+   Retrieves the elevation in meters according to gtopo30, ocean areas have 
+   been masked as "no data" and have been assigned a value of -9999.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#hierarchy()">hierarchy</a>(geonameId:int, style:String = null, language:String = null):void</div>
+<div class="summaryTableDescription">
+   Retrieves all toponyms higher up in the hierarchy of a the given 
+   <code>geonameId</code>.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#neighbourhood()">neighbourhood</a>(latitude:Number, longitude:Number):void</div>
+<div class="summaryTableDescription">
+   Retrieves the neighbourhood information for the given latitude/longitude.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#neighbours()">neighbours</a>(geonameId:Number, style:String = null, language:String = null):void</div>
+<div class="summaryTableDescription">
+   Retrieves the neighbour toponyms for the given <code>geonameId</code>.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#ocean()">ocean</a>(latitude:Number, longitude:Number):void</div>
+<div class="summaryTableDescription">
+   Retrieves the ocean name for the given latitude/longitude.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#postalCodeCountryInfo()">postalCodeCountryInfo</a>():void</div>
+<div class="summaryTableDescription">
+   Retrieves the postal code information for which postal code geocoding is available.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#postalCodeSearch()">postalCodeSearch</a>(criteria:<a href="criteria/PostalCodeSearchCriteria.html">PostalCodeSearchCriteria</a>):void</div>
+<div class="summaryTableDescription">
+   Retrieves a list of postal codes and places for the 
+   placename/postalcode query.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#search()">search</a>(criteria:<a href="criteria/ToponymSearchCriteria.html">ToponymSearchCriteria</a>):void</div>
+<div class="summaryTableDescription">
+   Retrieves the toponyms found for the search criteria.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#siblings()">siblings</a>(geonameId:int, style:String = null, language:String = null):void</div>
+<div class="summaryTableDescription">
+   Retrieves the siblings of the given <code>geonameId</code>.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#srtm3()">srtm3</a>(latitude:Number, longitude:Number):void</div>
+<div class="summaryTableDescription">
+   Retrieves the elevation for the given latitude/longitude.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#timezone()">timezone</a>(latitude:Number, longitude:Number):void</div>
+<div class="summaryTableDescription">
+   Retrieves the timezone for the given latitude/longitude.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#wikipediaBoundingBox()">wikipediaBoundingBox</a>(north:Number, south:Number, east:Number, west:Number, maxRows:Number = 10, language:String = null):void</div>
+<div class="summaryTableDescription">
+   Retrieves the wikipedia entries within the bounding box.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#wikipediaSearch()">wikipediaSearch</a>(criteria:<a href="criteria/WikipediaSearchCriteria.html">WikipediaSearchCriteria</a>):void</div>
+<div class="summaryTableDescription">
+   Retrieves the wikipedia entries found for the search criteria.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:astergdem">astergdem</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the elevation has been retrieved from GeoNames servers 
+  in response to <code>astergdem</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:children">children</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>children</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:cities">cities</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>cities</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:countryCode">countryCode</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the country code has been retrieved from GeoNames servers 
+  in response to <code>countryCode</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:countryInfo">countryInfo</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the country information has been retrieved from 
+  GeoNames servers in response to <code>countryInfo</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:countrySubdivision">countrySubdivision</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the country subdivisons have been retrieved 
+  from GeoNames servers in response to <code>countrySubdivion</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:extendedFindNearby">extendedFindNearby</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>extendedFindNearby</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:findNearby">findNearby</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearby</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:findNearbyPlaceName">findNearbyPlaceName</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearbyPlaceName</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:findNearbyPostalCodes">findNearbyPostalCodes</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearbyPostalCodes</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:findNearbyStreets">findNearbyStreets</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearbyStreets</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:findNearbyStreetsOSM">findNearbyStreetsOSM</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearbyStreetsOSM</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:findNearByWeatherXML">findNearByWeatherXML</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearbyWeather</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:findNearbyWikipedia">findNearbyWikipedia</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearbyWikipediar</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:findNearestAddress">findNearestAddress</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearestAddress</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:findNearestIntersection">findNearestIntersection</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearestIntersection</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:findNearestIntersectionOSM">findNearestIntersectionOSM</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearestIntersectionOSM</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:geonamesException">geonamesException</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when an exception has occured on the GeoNames servers.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:get">get</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>getToponym</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:gtopo30">gtopo30</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the elevation has been retrieved from GeoNames servers 
+  in response to <code>gtopo30</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:hierarchy">hierarchy</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>hierarchy</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:neighbourhood">neighbourhood</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>neighbourhood</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:neighbours">neighbours</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>neighbours</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:ocean">ocean</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>Ocean</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:postalCodeCountryInfo">postalCodeCountryInfo</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>postalCodeCountryInfo</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:postalCodeSearch">postalCodeSearch</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>postalCodeSearch</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:search">search</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>search</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:siblings">siblings</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>siblings</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:srtm3">srtm3</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>srtm3</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:timezone">timezone</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>timezone</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:wikipediaBoundingBox">wikipediaBoundingBox</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>wikipediaBoundingBox</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:wikipediaSearch">wikipediaSearch</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>wikipediaSearch</code> being called.</td><td class="summaryTableOwnerCol">GeoNamesService</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="defaultLanguage"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">defaultLanguage</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>defaultLanguage:String</code>&nbsp;&nbsp;[read-write]<p>
+   The default language to use for all methods that support a 
+   language parameter.
+   
+   </p><p>You can override the default language set here for any method that has a 
+   language parameter by passing in a value to the method, otherwise the 
+   <code>defaultLanguage</code> property will be used.</p>
+   
+   <p>The default value is <code>"en"</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get defaultLanguage():String</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set defaultLanguage(value:String):void</code>
+<br>
+</div>
+<a name="defaultStyle"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">defaultStyle</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>defaultStyle:String</code>&nbsp;&nbsp;[read-write]<p>
+   The style property controls the verbosity of returned xml document.
+   
+   </p><p>The default value is <code>"medium"</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get defaultStyle():String</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set defaultStyle(value:String):void</code>
+<br>
+</div>
+<a name="geoNamesServer"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">geoNamesServer</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>geoNamesServer:String</code>&nbsp;&nbsp;[read-write]<p>
+   </p><p>The default value is <code>"http://ws.geonames.org"</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get geoNamesServer():String</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set geoNamesServer(value:String):void</code>
+<br>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="GeoNamesService()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">GeoNamesService</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function GeoNamesService()</code><p>
+   Constructor 
+   
+   </p><p>Creates a new <code>GeoNamesService</code> object.</p>
+   </div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="astergdem()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">astergdem</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function astergdem(latitude:Number, longitude:Number):void</code><p>
+   Retrieves the elevation in meters according to aster gdem, 
+   ocean areas have been masked as "no data" and have been assigned 
+   a value of -9999.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>astergdem</code> 
+   when the elevation has been retrieved. The result event 
+   contains a number representing the elevation.</p>
+    
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:astergdem" target="">astergdem</a>
+<br>
+<a href="http://www.geonames.org/export/web-services.html#astergdem" target="mm_external">http://www.geonames.org/export/web-services.html#astergdem</a>
+<br>
+<a href="http://asterweb.jpl.nasa.gov/gdem.asp" target="mm_external">http://asterweb.jpl.nasa.gov/gdem.asp</a>
+</div>
+</div>
+<a name="children()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">children</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function children(geonameId:int, maxRows:Number = 200, style:String = null, language:String = null):void</code><p>
+   Retrieves the children for a given geonameId.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>children</code> 
+   when the children have been retrieved and parsed. The result event 
+   contains a <code>ToponymResult</code> object.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">geonameId</span>:int</code> &mdash; The geonameId of the parent.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">maxRows</span>:Number</code> (default = <code>200</code>)<code></code> &mdash; The number of rows returned, default is 200.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">style</span>:String</code> (default = <code>null</code>)<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">language</span>:String</code> (default = <code>null</code>)<code></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:children" target="">children</a>
+<br>
+<a href="data/ToponymResult.html" target="">org.geonames.data.ToponymResult</a>
+<br>
+<a href="http://www.geonames.org/export/place-hierarchy.html#children" target="mm_external">http://www.geonames.org/export/place-hierarchy.html#children</a>
+</div>
+</div>
+<a name="cities()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">cities</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function cities(north:Number, south:Number, east:Number, west:Number, maxRows:Number = 10, language:String = ""):void</code><p>
+   Retrieves a list of cities and placenames in the bounding box, ordered by 
+   relevancy (capital/population). Placenames close together are filterered 
+   out and only the larger name is included in the resulting list.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>cities</code> 
+   when the list of cities has been retrieved and parsed. The result event 
+   contains an <code>Array</code> of <code>Toponym</code> objects.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">north</span>:Number</code> &mdash; The northren coordinate of bounding box. 
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">south</span>:Number</code> &mdash; The southren coordinate of bounding box.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">east</span>:Number</code> &mdash; The eastern coordinate of bounding box.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">west</span>:Number</code> &mdash; The western coordinate of bounding box.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">maxRows</span>:Number</code> (default = <code>10</code>)<code></code> &mdash; The maximal number of rows returned (default = 10).
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">language</span>:String</code> (default = "<code></code>")<code></code> &mdash; The language of placenames and wikipedia urls (default = en).
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:cities" target="">cities</a>
+<br>
+<a href="data/Toponym.html" target="">org.geonames.data.Toponym</a>
+<br>
+<a href="http://www.geonames.org/export/JSON-webservices.html#citiesJSON" target="mm_external">http://www.geonames.org/export/JSON-webservices.html#citiesJSON</a>
+</div>
+</div>
+<a name="countryCode()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">countryCode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function countryCode(latitude:Number, longitude:Number):void</code><p>
+   Retrieves the iso country code for the given latitude/longitude.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>countryCode</code> 
+   when the country code has been retrieved. The result event 
+   contains a two character <code>String</code> representing the 
+   country code.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:countryCode" target="">countryCode</a>
+<br>
+<a href="http://www.geonames.org/export/JSON-webservices.html#countrycode" target="mm_external">http://www.geonames.org/export/JSON-webservices.html#countrycode</a>
+</div>
+</div>
+<a name="countryInfo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">countryInfo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function countryInfo(country:String = null, language:String = null):void</code><p>
+   Retrieves the capital, population, area in square km, bounding box 
+   of mainland (excluding offshore islands).
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>countryInfo</code> 
+   when the country information has been retrieved and parsed. The result event 
+   contains an <code>Array</code> of <code>Country</code> objects.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">country</span>:String</code> (default = <code>null</code>)<code></code> &mdash; The ISO 2 country code (default = all countries).
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">language</span>:String</code> (default = <code>null</code>)<code></code> &mdash; ISO-639-1 language code (en,de,fr,it,es,...) (default = english).
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:countryInfo" target="">countryInfo</a>
+<br>
+<a href="data/Country.html" target="">org.geonames.data.Country</a>
+<br>
+<a href="http://www.geonames.org/export/JSON-webservices.html#countryinfo" target="mm_external">http://www.geonames.org/export/JSON-webservices.html#countryinfo</a>
+</div>
+</div>
+<a name="countrySubdivision()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">countrySubdivision</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function countrySubdivision(latitude:Number, longitude:Number, radius:Number = 0, maxRows:Number = 10, language:String = null):void</code><p>
+   Retrieves the iso country code and the administrative subdivision of any given point. 
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>countrySubdivision</code> 
+   when the country subdivision information has been retrieved and parsed. The result event 
+   contains an <code>Array</code> of <code>CountrySubdivion</code> objects.</p>
+   
+   <p>With the parameters 'radius' and 'maxRows' you get the closest subdivisions ordered by distance</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">radius</span>:Number</code> (default = <code>0</code>)<code></code> &mdash; A buffer in km for closest country in coastal areas.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">maxRows</span>:Number</code> (default = <code>10</code>)<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">language</span>:String</code> (default = <code>null</code>)<code></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:countrySubdivision" target="">countrySubdivision</a>
+<br>
+<a href="data/CountrySubdivision.html" target="">org.geonames.data.CountrySubdivision</a>
+<br>
+<a href="http://www.geonames.org/export/JSON-webservices.html#countrysubdivision" target="mm_external">http://www.geonames.org/export/JSON-webservices.html#countrysubdivision</a>
+</div>
+</div>
+<a name="extendedFindNearby()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">extendedFindNearby</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function extendedFindNearby(latitude:Number, longitude:Number, style:String = "", language:String = ""):void</code><p>
+   Retrieves the most detailed information for the given latitude/longitude.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>extendedFindNearby</code> 
+   when the result has been retrieved and parsed. In the U.S. it returns the 
+   address information. In other countries it returns the hierarchy service. 
+   On the oceans it returns the ocean name.</p>
+    
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">style</span>:String</code> (default = "<code></code>")<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">language</span>:String</code> (default = "<code></code>")<code></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:extendedFindNearby" target="">extendedFindNearby</a>
+<br>
+<a href="data/Address.html" target="">org.geonames.data.Address</a>
+<br>
+<a href="../geonames/GeoNamesService.html#ocean()" target="">ocean()</a>
+<br>
+<a href="../geonames/GeoNamesService.html#hierarchy()" target="">hierarchy()</a>
+<br>
+<a href="http://www.geonames.org/export/web-services.html#extendedFindNearby" target="mm_external">http://www.geonames.org/export/web-services.html#extendedFindNearby</a>
+</div>
+</div>
+<a name="findNearby()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearby</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function findNearby(criteria:<a href="criteria/FindNearbyCriteria.html">FindNearbyCriteria</a>):void</code><p>
+   Retrieves the closest toponym for the given latitude/longitude and 
+   other criteria.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearby</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains an <code>Array</code> of <code>Toponym</code> objects.</p>
+    
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">criteria</span>:<a href="criteria/FindNearbyCriteria.html">FindNearbyCriteria</a></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:findNearby" target="">findNearby</a>
+<br>
+<a href="data/Toponym.html" target="">org.geonames.data.Toponym</a>
+<br>
+<a href="http://www.geonames.org/export/web-services.html#findNearby" target="mm_external">http://www.geonames.org/export/web-services.html#findNearby</a>
+</div>
+</div>
+<a name="findNearbyPlaceName()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearbyPlaceName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function findNearbyPlaceName(latitude:Number, longitude:Number, style:String = null, language:String = null):void</code><p>
+    Retrieves the closest populated place for the given latitude/longitued.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearbyPlaceName</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains an <code>Array</code> of <code>Toponym</code> objects.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">style</span>:String</code> (default = <code>null</code>)<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">language</span>:String</code> (default = <code>null</code>)<code></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:findNearbyPlaceName" target="">findNearbyPlaceName</a>
+<br>
+<a href="data/Toponym.html" target="">org.geonames.data.Toponym</a>
+<br>
+<a href="http://www.geonames.org/export/web-services.html#findNearbyPlaceName" target="mm_external">http://www.geonames.org/export/web-services.html#findNearbyPlaceName</a>
+</div>
+</div>
+<a name="findNearbyPostalCodes()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearbyPostalCodes</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function findNearbyPostalCodes(criteria:<a href="criteria/FindNearbyPostalCodesCriteria.html">FindNearbyPostalCodesCriteria</a>):void</code><p>
+   Retrieves a list of postalcodes and places for the latitude/longitude.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearbyPostalCodes</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains an <code>Array</code> of <code>PostalCode</code> objects.</p>
+   
+   <p>This service comes in two flavors. You can either pass the 
+   latitude/longitude or a postalcode/placename.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">criteria</span>:<a href="criteria/FindNearbyPostalCodesCriteria.html">FindNearbyPostalCodesCriteria</a></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:findNearbyPostalCodes" target="">findNearbyPostalCodes</a>
+<br>
+<a href="data/PostalCode.html" target="">org.geonames.data.PostalCode</a>
+<br>
+<a href="criteria/FindNearbyPostalCodesCriteria.html" target="">org.geonames.criteria.FindNearbyPostalCodesCriteria</a>
+<br>
+<a href="http://www.geonames.org/export/web-services.html#findNearbyPostalCodes" target="mm_external">http://www.geonames.org/export/web-services.html#findNearbyPostalCodes</a>
+</div>
+</div>
+<a name="findNearbyStreets()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearbyStreets</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function findNearbyStreets(latitude:Number, longitude:Number):void</code><p>
+   Retrieves a list of streets for the latitude/longitude. (U.S. Only)
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearbyStreets</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains an <code>Array</code> of <code>StreetSegments</code> objects.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:findNearbyStreets" target="">findNearbyStreets</a>
+<br>
+<a href="data/StreetSegment.html" target="">org.geonames.data.StreetSegment</a>
+<br>
+<a href="http://www.geonames.org/maps/us-reverse-geocoder.html#findNearbyStreets" target="mm_external">http://www.geonames.org/maps/us-reverse-geocoder.html#findNearbyStreets</a>
+</div>
+</div>
+<a name="findNearbyStreetsOSM()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearbyStreetsOSM</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function findNearbyStreetsOSM(latitude:Number, longitude:Number):void</code><p>
+   Retrieves a list of streets for the latitude/longitude.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearbyStreetsOSM</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains an <code>Array</code> of <code>StreetSegments</code> objects.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:findNearbyStreetsOSM" target="">findNearbyStreetsOSM</a>
+<br>
+<a href="data/StreetSegment.html" target="">org.geonames.data.StreetSegment</a>
+<br>
+<a href="http://www.geonames.org/maps/osm-reverse-geocoder.html#findNearbyStreetsOSM" target="mm_external">http://www.geonames.org/maps/osm-reverse-geocoder.html#findNearbyStreetsOSM</a>
+</div>
+</div>
+<a name="findNearbyWeather()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearbyWeather</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function findNearbyWeather(latitude:Number, longitude:Number):void</code><p>
+   Retrieves a weather station with the most recent weather observation.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearByWeatherXML</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains a <code>WeatherObservation</code> object.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:findNearbyWeather" target="">findNearbyWeather</a>
+<br>
+<a href="data/WeatherObservation.html" target="">org.geonames.data.WeatherObservation</a>
+<br>
+<a href="http://www.geonames.org/export/JSON-webservices.html#findNearByWeatherJSON" target="mm_external">http://www.geonames.org/export/JSON-webservices.html#findNearByWeatherJSON</a>
+</div>
+</div>
+<a name="findNearbyWikipedia()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearbyWikipedia</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function findNearbyWikipedia(latitude:Number, longitude:Number, language:String = null):void</code><p>
+   Retrieves a list of wikipedia entries for the latitude/longitude.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearbyWikipedia</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains an <code>Array</code> of <code>WikipediaEntry</code> objects.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">language</span>:String</code> (default = <code>null</code>)<code></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:findNearbyWikipedia" target="">findNearbyWikipedia</a>
+<br>
+<a href="data/WikipediaEntry.html" target="">org.geonames.data.WikipediaEntry</a>
+<br>
+<a href="http://www.geonames.org/export/wikipedia-webservice.html#findNearbyWikipedia" target="mm_external">http://www.geonames.org/export/wikipedia-webservice.html#findNearbyWikipedia</a>
+</div>
+</div>
+<a name="findNearestAddress()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearestAddress</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function findNearestAddress(latitude:Number, longitude:Number):void</code><p>
+   Retrieves the nearest address for the given latitude/longitude. (U.S. Only)
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearestAddress</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains an <code>Address</code> object.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:findNearestAddress" target="">findNearestAddress</a>
+<br>
+<a href="data/Address.html" target="">org.geonames.data.Address</a>
+<br>
+<a href="http://www.geonames.org/maps/us-reverse-geocoder.html#findNearestAddress" target="mm_external">http://www.geonames.org/maps/us-reverse-geocoder.html#findNearestAddress</a>
+</div>
+</div>
+<a name="findNearestIntersection()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearestIntersection</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function findNearestIntersection(latitude:Number, longitude:Number):void</code><p>
+   Retrieves the nearest intersection for the given latitude/longitude. (U.S. Only)
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearestIntersection</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains an <code>Intersection/code> object.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:findNearestIntersection" target="">findNearestIntersection</a>
+<br>
+<a href="data/Intersection.html" target="">org.geonames.data.Intersection</a>
+<br>
+<a href="http://www.geonames.org/maps/us-reverse-geocoder.html#findNearestIntersection" target="mm_external">http://www.geonames.org/maps/us-reverse-geocoder.html#findNearestIntersection</a>
+</div>
+</div>
+<a name="findNearestIntersectionOSM()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearestIntersectionOSM</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function findNearestIntersectionOSM(latitude:Number, longitude:Number):void</code><p>
+   Retrieves the nearest intersection for the given latitude/longitude.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>findNearestIntersectionOSM</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains an <code>Intersection/code> object.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:findNearestIntersection" target="">findNearestIntersection</a>
+<br>
+<a href="data/Intersection.html" target="">org.geonames.data.Intersection</a>
+<br>
+<a href="http://www.geonames.org/maps/osm-reverse-geocoder.html#findNearestIntersectionOSM" target="mm_external">http://www.geonames.org/maps/osm-reverse-geocoder.html#findNearestIntersectionOSM</a>
+</div>
+</div>
+<a name="getToponym()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getToponym</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getToponym(geonameId:int, style:String = null, language:String = null):void</code><p>
+   Retrieves the toponym for the given geonameId.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>get</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains a <code>Toponym/code> object.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">geonameId</span>:int</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">style</span>:String</code> (default = <code>null</code>)<code></code> &mdash; The verbosity of the return result. If no style is specified the <code>defaultStyle</code>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">language</span>:String</code> (default = <code>null</code>)<code></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:get" target="">get</a>
+<br>
+<a href="data/Toponym.html" target="">org.geonames.data.Toponym</a>
+<br>
+<a href="http://www.geonames.org/#" target="mm_external">http://www.geonames.org/#</a>
+</div>
+</div>
+<a name="gtopo30()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">gtopo30</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function gtopo30(latitude:Number, longitude:Number):void</code><p>
+   Retrieves the elevation in meters according to gtopo30, ocean areas have 
+   been masked as "no data" and have been assigned a value of -9999.
+   
+   </p><p>GTOPO30 is a global digital elevation model (DEM) with a horizontal grid 
+   spacing of 30 arc seconds (approximately 1 kilometer). GTOPO30 was 
+   derived from several raster and vector sources of topographic information.</p>
+    
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:gtopo30" target="">gtopo30</a>
+<br>
+<a href="http://www.geonames.org/export/web-services.html#gtopo30" target="mm_external">http://www.geonames.org/export/web-services.html#gtopo30</a>
+</div>
+</div>
+<a name="hierarchy()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">hierarchy</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function hierarchy(geonameId:int, style:String = null, language:String = null):void</code><p>
+   Retrieves all toponyms higher up in the hierarchy of a the given 
+   <code>geonameId</code>.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>hierarchy</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains a <code>ToponymResult/code> object.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">geonameId</span>:int</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">style</span>:String</code> (default = <code>null</code>)<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">language</span>:String</code> (default = <code>null</code>)<code></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:hierarchy" target="">hierarchy</a>
+<br>
+<a href="data/ToponymResult.html" target="">org.geonames.data.ToponymResult</a>
+<br>
+<a href="http://www.geonames.org/export/place-hierarchy.html#hierarchy" target="mm_external">http://www.geonames.org/export/place-hierarchy.html#hierarchy</a>
+</div>
+</div>
+<a name="neighbourhood()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">neighbourhood</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function neighbourhood(latitude:Number, longitude:Number):void</code><p>
+   Retrieves the neighbourhood information for the given latitude/longitude. 
+   Data provided by Zillow under cc-by-sa license. (U.S. Only)
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>neighbourhood</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains a <code>Neighbourhood/code> object.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:neighbourhood" target="">neighbourhood</a>
+<br>
+<a href="data/Neighbourhood.html" target="">org.geonames.data.Neighbourhood</a>
+<br>
+<a href="http://www.geonames.org/export/web-services.html#neighbourhood" target="mm_external">http://www.geonames.org/export/web-services.html#neighbourhood</a>
+</div>
+</div>
+<a name="neighbours()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">neighbours</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function neighbours(geonameId:Number, style:String = null, language:String = null):void</code><p>
+   Retrieves the neighbour toponyms for the given <code>geonameId</code>.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>hierarchy</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains a <code>ToponymResult/code> object.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">geonameId</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">style</span>:String</code> (default = <code>null</code>)<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">language</span>:String</code> (default = <code>null</code>)<code></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:neighbours" target="">neighbours</a>
+<br>
+<a href="data/ToponymResult.html" target="">org.geonames.data.ToponymResult</a>
+<br>
+<a href="http://www.geonames.org/export/place-hierarchy.html#neighbours" target="mm_external">http://www.geonames.org/export/place-hierarchy.html#neighbours</a>
+</div>
+</div>
+<a name="ocean()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ocean</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function ocean(latitude:Number, longitude:Number):void</code><p>
+   Retrieves the ocean name for the given latitude/longitude.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>ocean</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains an <code>Ocean/code> object.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:ocean" target="">ocean</a>
+<br>
+<a href="data/Ocean.html" target="">org.geonames.data.Ocean</a>
+<br>
+<a href="http://www.geonames.org/export/web-services.html#ocean" target="mm_external">http://www.geonames.org/export/web-services.html#ocean</a>
+</div>
+</div>
+<a name="postalCodeCountryInfo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">postalCodeCountryInfo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function postalCodeCountryInfo():void</code><p>
+   Retrieves the postal code information for which postal code geocoding is available.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>postalCodeCountryInfo</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains an <code>Array</code> of <code>PostalCodeCountryInfo</code> objects.</p>
+   
+   <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:postalCodeCountryInfo" target="">postalCodeCountryInfo</a>
+<br>
+<a href="data/PostalCodeCountryInfo.html" target="">org.geonames.data.PostalCodeCountryInfo</a>
+<br>
+<a href="http://www.geonames.org/export/web-services.html#postalCodeCountryInfo" target="mm_external">http://www.geonames.org/export/web-services.html#postalCodeCountryInfo</a>
+</div>
+</div>
+<a name="postalCodeSearch()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">postalCodeSearch</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function postalCodeSearch(criteria:<a href="criteria/PostalCodeSearchCriteria.html">PostalCodeSearchCriteria</a>):void</code><p>
+   Retrieves a list of postal codes and places for the 
+   placename/postalcode query.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>postalCodeCountryInfo</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains an <code>Array</code> of <code>PostalCodeCountryInfo</code> objects.</p>
+   
+   <p>For the US the first returned zip code is determined using zip code 
+   area shapes, the following zip codes are based on the centroid. For all 
+   other supported countries all returned postal codes are based on 
+   centroids.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">criteria</span>:<a href="criteria/PostalCodeSearchCriteria.html">PostalCodeSearchCriteria</a></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:postalCodeSearch" target="">postalCodeSearch</a>
+<br>
+<a href="data/PostalCode.html" target="">org.geonames.data.PostalCode</a>
+<br>
+<a href="http://www.geonames.org/export/web-services.html#postalCodeSearch" target="mm_external">http://www.geonames.org/export/web-services.html#postalCodeSearch</a>
+</div>
+</div>
+<a name="search()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">search</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function search(criteria:<a href="criteria/ToponymSearchCriteria.html">ToponymSearchCriteria</a>):void</code><p>
+   Retrieves the toponyms found for the search criteria.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>search</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains an <code>Array</code> of <code>Toponym</code> objects.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">criteria</span>:<a href="criteria/ToponymSearchCriteria.html">ToponymSearchCriteria</a></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:search" target="">search</a>
+<br>
+<a href="data/Toponym.html" target="">org.geonames.data.Toponym</a>
+<br>
+<a href="criteria/ToponymSearchCriteria.html" target="">org.geonames.criteria.ToponymSearchCriteria</a>
+<br>
+<a href="http://www.geonames.org/export/geonames-search.html" target="mm_external">http://www.geonames.org/export/geonames-search.html</a>
+</div>
+</div>
+<a name="siblings()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">siblings</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function siblings(geonameId:int, style:String = null, language:String = null):void</code><p>
+   Retrieves the siblings of the given <code>geonameId</code>.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>siblings</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains a <code>ToponymResult/code> object.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">geonameId</span>:int</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">style</span>:String</code> (default = <code>null</code>)<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">language</span>:String</code> (default = <code>null</code>)<code></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:siblings" target="">siblings</a>
+<br>
+<a href="data/ToponymResult.html" target="">org.geonames.data.ToponymResult</a>
+<br>
+<a href="http://www.geonames.org/export/place-hierarchy.html#siblings" target="mm_external">http://www.geonames.org/export/place-hierarchy.html#siblings</a>
+</div>
+</div>
+<a name="srtm3()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">srtm3</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function srtm3(latitude:Number, longitude:Number):void</code><p>
+   Retrieves the elevation for the given latitude/longitude.
+   
+   </p><p>Shuttle Radar Topography Mission (SRTM) elevation data. SRTM consisted 
+   of a specially modified radar system that flew onboard the Space Shuttle 
+   Endeavour during an 11-day mission in February of 2000. The dataset covers 
+   land areas between 60 degrees north and 56 degrees south. 
+   This web service is using SRTM3 data with data points located every 
+   3-arc-second (approximately 90 meters) on a latitude/longitude grid.</p>
+    
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:srtm3" target="">srtm3</a>
+<br>
+<a href="http://www.geonames.org/export/web-services.html#srtm3" target="mm_external">http://www.geonames.org/export/web-services.html#srtm3</a>
+<br>
+<a href="http://www2.jpl.nasa.gov/srtm/" target="mm_external">http://www2.jpl.nasa.gov/srtm/</a>
+</div>
+</div>
+<a name="timezone()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">timezone</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function timezone(latitude:Number, longitude:Number):void</code><p>
+   Retrieves the timezone for the given latitude/longitude.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>timezone</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains a <code>Timezone/code> object.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">latitude</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">longitude</span>:Number</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:timezone" target="">timezone</a>
+<br>
+<a href="data/Timezone.html" target="">org.geonames.data.Timezone</a>
+<br>
+<a href="http://www.geonames.org/export/web-services.html#timezone" target="mm_external">http://www.geonames.org/export/web-services.html#timezone</a>
+</div>
+</div>
+<a name="wikipediaBoundingBox()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">wikipediaBoundingBox</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function wikipediaBoundingBox(north:Number, south:Number, east:Number, west:Number, maxRows:Number = 10, language:String = null):void</code><p>
+   Retrieves the wikipedia entries within the bounding box.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>wikipediaBoundingBox</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains an <code>Array</code> of <code>WikipediaEntry</code> objects.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">north</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">south</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">east</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">west</span>:Number</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">maxRows</span>:Number</code> (default = <code>10</code>)<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">language</span>:String</code> (default = <code>null</code>)<code></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:wikipediaBoundingBox" target="">wikipediaBoundingBox</a>
+<br>
+<a href="data/WikipediaEntry.html" target="">org.geonames.data.WikipediaEntry</a>
+<br>
+<a href="http://www.geonames.org/export/wikipedia-webservice.html#wikipediaBoundingBox" target="mm_external">http://www.geonames.org/export/wikipedia-webservice.html#wikipediaBoundingBox</a>
+</div>
+</div>
+<a name="wikipediaSearch()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">wikipediaSearch</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function wikipediaSearch(criteria:<a href="criteria/WikipediaSearchCriteria.html">WikipediaSearchCriteria</a>):void</code><p>
+   Retrieves the wikipedia entries found for the search criteria.
+   
+   </p><p>Dispatches a <code>GeoNamesEvent</code> of type <code>wikipediaSearch</code> 
+   when the result has been retrieved and parsed. The result event 
+   contains an <code>Array</code> of <code>WikipediaEntry</code> objects.</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">criteria</span>:<a href="criteria/WikipediaSearchCriteria.html">WikipediaSearchCriteria</a></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#event:wikipediaSearch" target="">wikipediaSearch</a>
+<br>
+<a href="data/WikipediaEntry.html" target="">org.geonames.data.WikipediaEntry</a>
+<br>
+<a href="http://www.geonames.org/export/wikipedia-webservice.html#wikipediaSearch" target="mm_external">http://www.geonames.org/export/wikipedia-webservice.html#wikipediaSearch</a>
+</div>
+</div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:astergdem"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">astergdem</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the elevation has been retrieved from GeoNames servers 
+  in response to <code>astergdem</code> being called.
+  
+  </p><p>The event will contain a number representing the elevation in the 
+  <code>data</code> property</p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#astergdem()" target="">astergdem()</a>
+</div>
+</div>
+<a name="event:children"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">children</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>children</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>ToponymResult</code> object.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#children()" target="">children()</a>
+<br>
+<a href="data/ToponymResult.html" target="">org.geonames.data.ToponymResult</a>
+</div>
+</div>
+<a name="event:cities"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">cities</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>cities</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Array</code> object - an array containing 
+     the <code>Toponym</code> objects retrieved from 
+     the geonames server.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#cities()" target="">cities()</a>
+<br>
+<a href="data/Toponym.html" target="">org.geonames.data.Toponym</a>
+</div>
+</div>
+<a name="event:countryCode"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">countryCode</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the country code has been retrieved from GeoNames servers 
+  in response to <code>countryCode</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>String</code> object - a string representing the ISO 
+     alpha 2 country code.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#countryCode()" target="">countryCode()</a>
+</div>
+</div>
+<a name="event:countryInfo"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">countryInfo</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the country information has been retrieved from 
+  GeoNames servers in response to <code>countryInfo</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Array</code> object - an array containing 
+     the <code>Country/code> objects retrieved from 
+     the geonames server.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#countryInfo()" target="">countryInfo()</a>
+<br>
+<a href="data/Country.html" target="">org.geonames.data.Country</a>
+</div>
+</div>
+<a name="event:countrySubdivision"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">countrySubdivision</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the country subdivisons have been retrieved 
+  from GeoNames servers in response to <code>countrySubdivion</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Array</code> object - an array containing 
+     the <code>CountrySubdivision</code> objects retrieved from 
+     the geonames server.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#countrySubdivision()" target="">countrySubdivision()</a>
+<br>
+<a href="data/CountrySubdivision.html" target="">org.geonames.data.CountrySubdivision</a>
+</div>
+</div>
+<a name="event:extendedFindNearby"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">extendedFindNearby</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>extendedFindNearby</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Array</code> object - an array containing 
+     the <code>Toponym</code> objects retrieved from 
+     the geonames server.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#extendedFindNearby()" target="">extendedFindNearby()</a>
+<br>
+<a href="data/ToponymResult.html" target="">org.geonames.data.ToponymResult</a>
+</div>
+</div>
+<a name="event:findNearby"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearby</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearby</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Array</code> object - an array containing 
+     the <code>Toponym</code> objects retrieved from 
+     the geonames server.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#findNearby()" target="">findNearby()</a>
+<br>
+<a href="data/Toponym.html" target="">org.geonames.data.Toponym</a>
+</div>
+</div>
+<a name="event:findNearbyPlaceName"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearbyPlaceName</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearbyPlaceName</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Array</code> object - an array containing 
+     the <code>Toponym</code> objects retrieved from 
+     the geonames server.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#findNearbyPlaceName()" target="">findNearbyPlaceName()</a>
+<br>
+<a href="data/Toponym.html" target="">org.geonames.data.Toponym</a>
+</div>
+</div>
+<a name="event:findNearbyPostalCodes"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearbyPostalCodes</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearbyPostalCodes</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Array</code> object - an array containing 
+     the <code>PostalCode</code> objects retrieved from 
+     the geonames server.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#findNearbyPostalCodes()" target="">findNearbyPostalCodes()</a>
+<br>
+<a href="data/PostalCode.html" target="">org.geonames.data.PostalCode</a>
+</div>
+</div>
+<a name="event:findNearbyStreets"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearbyStreets</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearbyStreets</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Array</code> object - an array containing 
+     the <code>StreetSegments</code> objects retrieved from 
+     the geonames server.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#findNearbyStreets()" target="">findNearbyStreets()</a>
+<br>
+<a href="data/StreetSegment.html" target="">org.geonames.data.StreetSegment</a>
+</div>
+</div>
+<a name="event:findNearbyStreetsOSM"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearbyStreetsOSM</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearbyStreetsOSM</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Array</code> object - an array containing 
+     the <code>StreetSegments</code> objects retrieved from 
+     the geonames server.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#findNearbyStreetsOSM()" target="">findNearbyStreetsOSM()</a>
+<br>
+<a href="data/StreetSegment.html" target="">org.geonames.data.StreetSegment</a>
+</div>
+</div>
+<a name="event:findNearByWeatherXML"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearByWeatherXML</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearbyWeather</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Array</code> object - an array containing 
+     the <code>WeatherObservation</code> objects retrieved from 
+     the geonames server.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#findNearbyWeather()" target="">findNearbyWeather()</a>
+<br>
+<a href="data/WeatherObservation.html" target="">org.geonames.data.WeatherObservation</a>
+</div>
+</div>
+<a name="event:findNearbyWikipedia"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearbyWikipedia</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearbyWikipediar</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Array</code> object - an array containing 
+     <code>WikipediaEntry</code> objects.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#findNearbyWikipedia()" target="">findNearbyWikipedia()</a>
+<br>
+<a href="data/WeatherObservation.html" target="">org.geonames.data.WeatherObservation</a>
+</div>
+</div>
+<a name="event:findNearestAddress"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearestAddress</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearestAddress</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Address</code> object - an object representing the 
+     nearest address found.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#findNearestAddress()" target="">findNearestAddress()</a>
+<br>
+<a href="data/Address.html" target="">org.geonames.data.Address</a>
+</div>
+</div>
+<a name="event:findNearestIntersection"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearestIntersection</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearestIntersection</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Intersection</code> object - an object representing the 
+     nearest intersection found.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#findNearestIntersection()" target="">findNearestIntersection()</a>
+<br>
+<a href="data/Intersection.html" target="">org.geonames.data.Intersection</a>
+</div>
+</div>
+<a name="event:findNearestIntersectionOSM"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">findNearestIntersectionOSM</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>findNearestIntersectionOSM</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Intersection</code> object - an object representing the 
+     nearest intersection found.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#findNearestIntersectionOSM()" target="">findNearestIntersectionOSM()</a>
+<br>
+<a href="data/Intersection.html" target="">org.geonames.data.Intersection</a>
+</div>
+</div>
+<a name="event:geonamesException"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">geonamesException</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when an exception has occured on the GeoNames servers.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>GeoNamesException</code> object.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/GeoNamesException.html" target="">org.geonames.data.GeoNamesException</a>
+</div>
+</div>
+<a name="event:get"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">get</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>getToponym</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Toponym</code> object - an object representing the 
+     the geonames object with the given geonameId.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#getToponym()" target="">getToponym()</a>
+<br>
+<a href="data/Toponym.html" target="">org.geonames.data.Toponym</a>
+</div>
+</div>
+<a name="event:gtopo30"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">gtopo30</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the elevation has been retrieved from GeoNames servers 
+  in response to <code>gtopo30</code> being called.
+  
+  </p><p>The event will contain a number representing the elevation in the 
+  <code>data</code> property</p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#gtopo30()" target="">gtopo30()</a>
+</div>
+</div>
+<a name="event:hierarchy"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">hierarchy</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>hierarchy</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>ToponymResult</code> object.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#children()" target="">children()</a>
+<br>
+<a href="data/ToponymResult.html" target="">org.geonames.data.ToponymResult</a>
+</div>
+</div>
+<a name="event:neighbourhood"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">neighbourhood</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>neighbourhood</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Neighbourhood</code> object.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#neighbourhood()" target="">neighbourhood()</a>
+<br>
+<a href="data/Neighbourhood.html" target="">org.geonames.data.Neighbourhood</a>
+</div>
+</div>
+<a name="event:neighbours"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">neighbours</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>neighbours</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>ToponymResult</code> object.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#neighbours()" target="">neighbours()</a>
+<br>
+<a href="data/ToponymResult.html" target="">org.geonames.data.ToponymResult</a>
+</div>
+</div>
+<a name="event:ocean"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ocean</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>Ocean</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Ocean</code> object.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#ocean()" target="">ocean()</a>
+<br>
+<a href="data/Ocean.html" target="">org.geonames.data.Ocean</a>
+</div>
+</div>
+<a name="event:postalCodeCountryInfo"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">postalCodeCountryInfo</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>postalCodeCountryInfo</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Array</code> object - an array containing 
+     <code>PostalCodeCountryInfo</code> objects.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#postalCodeCountryInfo()" target="">postalCodeCountryInfo()</a>
+<br>
+<a href="data/PostalCodeCountryInfo.html" target="">org.geonames.data.PostalCodeCountryInfo</a>
+</div>
+</div>
+<a name="event:postalCodeSearch"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">postalCodeSearch</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>postalCodeSearch</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>PostalCodeResult</code> object.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#postalCodeSearch()" target="">postalCodeSearch()</a>
+<br>
+<a href="data/PostalCodeResult.html" target="">org.geonames.data.PostalCodeResult</a>
+</div>
+</div>
+<a name="event:search"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">search</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>search</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>ToponymResult</code> object.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#search()" target="">search()</a>
+<br>
+<a href="data/ToponymResult.html" target="">org.geonames.data.ToponymResult</a>
+</div>
+</div>
+<a name="event:siblings"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">siblings</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>siblings</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>ToponymResult</code> object.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#siblings()" target="">siblings()</a>
+<br>
+<a href="data/ToponymResult.html" target="">org.geonames.data.ToponymResult</a>
+</div>
+</div>
+<a name="event:srtm3"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">srtm3</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>srtm3</code> being called.
+  
+  </p><p>The event will contain a number representing the elevation in the 
+  <code>data</code> property</p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#srtm3()" target="">srtm3()</a>
+<br>
+<a href="data/ToponymResult.html" target="">org.geonames.data.ToponymResult</a>
+</div>
+</div>
+<a name="event:timezone"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">timezone</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>timezone</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Timezone</code> object.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#timezone()" target="">timezone()</a>
+<br>
+<a href="data/Timezone.html" target="">org.geonames.data.Timezone</a>
+</div>
+</div>
+<a name="event:wikipediaBoundingBox"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">wikipediaBoundingBox</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>wikipediaBoundingBox</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Array</code> object - an array containing 
+     <code>WikipediaEntry</code> objects.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#wikipediaBoundingBox()" target="">wikipediaBoundingBox()</a>
+<br>
+<a href="data/WikipediaEntry.html" target="">org.geonames.data.WikipediaEntry</a>
+</div>
+</div>
+<a name="event:wikipediaSearch"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">wikipediaSearch</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/GeoNamesEvent.html"><code>org.geonames.events.GeoNamesEvent</code></a>
+<br>
+<p></p><p>
+  Event broadcast when the results have been retrieved from GeoNames servers 
+  in response to <code>wikipediaSearch</code> being called.
+  
+  </p><p>The event contains the following properties:
+   <ul>
+    <li><code>Array</code> object - an array containing 
+     <code>WikipediaEntry</code> objects.</li>
+   </ul>
+  </p>
+  
+  <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geonames/GeoNamesService.html#wikipediaSearch()" target="">wikipediaSearch()</a>
+<br>org.geonames.data.WikipediaSearch</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

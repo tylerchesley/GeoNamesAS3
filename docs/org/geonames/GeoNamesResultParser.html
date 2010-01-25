@@ -1,0 +1,895 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="GeoNamesResultParser,org.geonames.GeoNamesResultParser,parse,parseAddress,parseCountry,parseCountrySubdivision,parseException,parseExtendedFindNearby,parseIntersection,parseNeighbourhood,parseOcean,parsePostalCode,parsePostalCodeCountryInfo,parsePostalCodeResult,parseStreetSegment,parseTimezone,parseToponym,parseToponymResult,parseWeatherObservation,parseWikipediaEntry" name="keywords">
+<title>org.geonames.GeoNamesResultParser</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'GeoNamesResultParser - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">GeonamesAS3</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?org/geonames/GeoNamesResultParser.html&amp;org/geonames/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;GeoNamesResultParser</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class GeoNamesResultParser"); titleBar_setSubNav(false,false,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">org.geonames</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class GeoNamesResultParser</td>
+</tr>
+</table>
+<p></p>
+  Class that contains internal helper functions used to parse
+     the XML returned from the GeoNames servers to create the relevant
+     objects.
+     
+     Only meant as helpers for the library; NOT meant for use by
+     developers using the library.
+  
+  <p></p>
+<br>
+<hr>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parse()">parse</a>(type:String, data:String):Object</div>
+<div class="summaryTableDescription">[static]
+   Determines the correct parse method for the returned data.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parseAddress()">parseAddress</a>(node:XML):<a href="data/Address.html">Address</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates an <code>Address</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parseCountry()">parseCountry</a>(node:XML):<a href="data/Country.html">Country</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates a <code>Country</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parseCountrySubdivision()">parseCountrySubdivision</a>(node:XML):<a href="data/CountrySubdivision.html">CountrySubdivision</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates a <code>CountrySubdivision</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parseException()">parseException</a>(data:XML):<a href="data/GeoNamesException.html">GeoNamesException</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates a <code>GeoNamesException</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parseExtendedFindNearby()">parseExtendedFindNearby</a>(node:XML):Object</div>
+<div class="summaryTableDescription">[static]
+   Parses the results for the <code>extendedFindNearby</code>.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parseIntersection()">parseIntersection</a>(node:XML):<a href="data/Intersection.html">Intersection</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates a <code>Intersection</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parseNeighbourhood()">parseNeighbourhood</a>(node:XML):<a href="data/Neighbourhood.html">Neighbourhood</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates a <code>Neighbourhood</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parseOcean()">parseOcean</a>(node:XML):<a href="data/Ocean.html">Ocean</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates a <code>Ocean</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parsePostalCode()">parsePostalCode</a>(node:XML):<a href="data/PostalCode.html">PostalCode</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates a <code>PostalCode</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parsePostalCodeCountryInfo()">parsePostalCodeCountryInfo</a>(node:XML):<a href="data/PostalCodeCountryInfo.html">PostalCodeCountryInfo</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates a <code>PostalCodeCountryInfo</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parsePostalCodeResult()">parsePostalCodeResult</a>(data:XML):<a href="data/PostalCodeResult.html">PostalCodeResult</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates a <code>PostalCodeResult</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parseStreetSegment()">parseStreetSegment</a>(node:XML):<a href="data/StreetSegment.html">StreetSegment</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates a <code>StreetSegment</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parseTimezone()">parseTimezone</a>(node:XML):<a href="data/Timezone.html">Timezone</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates a <code>Timezone</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parseToponym()">parseToponym</a>(node:XML, style:String = null):<a href="data/Toponym.html">Toponym</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates a <code>Toponym</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parseToponymResult()">parseToponymResult</a>(data:XML):<a href="data/ToponymResult.html">ToponymResult</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates a <code>ToponymResult</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parseWeatherObservation()">parseWeatherObservation</a>(node:XML):<a href="data/WeatherObservation.html">WeatherObservation</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates a <code>WeatherObservation</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parseWikipediaEntry()">parseWikipediaEntry</a>(node:XML):<a href="data/WikipediaEntry.html">WikipediaEntry</a>
+</div>
+<div class="summaryTableDescription">[static]
+   Creates a <code>WikipediaEntry</code> object.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesResultParser</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="parse()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parse</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parse(type:String, data:String):Object</code><p>
+   Determines the correct parse method for the returned data.
+    
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">type</span>:String</code> &mdash; The event type used to determine the correct parse method.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">data</span>:String</code> &mdash; The raw data returned from the GeoNames server.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Object</code> &mdash; The parsed result object.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="parseAddress()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseAddress</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parseAddress(node:XML):<a href="data/Address.html">Address</a></code><p>
+   Creates an <code>Address</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:XML</code> &mdash; The XML representation of the address.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/Address.html">Address</a></code> &mdash; 
+                        A new <code>Address</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/Address.html" target="">org.geonames.data.Address</a>
+</div>
+</div>
+<a name="parseCountry()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseCountry</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parseCountry(node:XML):<a href="data/Country.html">Country</a></code><p>
+   Creates a <code>Country</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:XML</code> &mdash; The XML representation of the country.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/Country.html">Country</a></code> &mdash; 
+                        A new <code>Country</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/Country.html" target="">org.geonames.data.Country</a>
+</div>
+</div>
+<a name="parseCountrySubdivision()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseCountrySubdivision</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parseCountrySubdivision(node:XML):<a href="data/CountrySubdivision.html">CountrySubdivision</a></code><p>
+   Creates a <code>CountrySubdivision</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:XML</code> &mdash; The XML representation of the country subdivision.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/CountrySubdivision.html">CountrySubdivision</a></code> &mdash; 
+                        A new <code>CountrySubdivision</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/CountrySubdivision.html" target="">org.geonames.data.CountrySubdivision</a>
+</div>
+</div>
+<a name="parseException()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseException</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parseException(data:XML):<a href="data/GeoNamesException.html">GeoNamesException</a></code><p>
+   Creates a <code>GeoNamesException</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">data</span>:XML</code> &mdash; The XML representation of the exception.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/GeoNamesException.html">GeoNamesException</a></code> &mdash; 
+                        A new <code>GeoNamesException</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/GeoNamesException.html" target="">org.geonames.data.GeoNamesException</a>
+</div>
+</div>
+<a name="parseExtendedFindNearby()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseExtendedFindNearby</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parseExtendedFindNearby(node:XML):Object</code><p>
+   Parses the results for the <code>extendedFindNearby</code>.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:XML</code> &mdash; The XML result.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Object</code> &mdash; Either an <code>array</code> of <code>Toponym</code> objects, 
+   an <code>array</code> of <code>Address</code> objects or an 
+   <code>Ocean</code> object.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/Address.html" target="">org.geonames.data.Address</a>
+<br>
+<a href="data/Ocean.html" target="">org.geonames.data.Ocean</a>
+<br>
+<a href="data/Toponym.html" target="">org.geonames.data.Toponym</a>
+</div>
+</div>
+<a name="parseIntersection()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseIntersection</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parseIntersection(node:XML):<a href="data/Intersection.html">Intersection</a></code><p>
+   Creates a <code>Intersection</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:XML</code> &mdash; The XML representation of the intersection.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/Intersection.html">Intersection</a></code> &mdash; 
+                        A new <code>Intersection</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/Intersection.html" target="">org.geonames.data.Intersection</a>
+</div>
+</div>
+<a name="parseNeighbourhood()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseNeighbourhood</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parseNeighbourhood(node:XML):<a href="data/Neighbourhood.html">Neighbourhood</a></code><p>
+   Creates a <code>Neighbourhood</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:XML</code> &mdash; The XML representation of the neighbourhood.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/Neighbourhood.html">Neighbourhood</a></code> &mdash; 
+                        A new <code>Neighbourhood</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/Neighbourhood.html" target="">org.geonames.data.Neighbourhood</a>
+</div>
+</div>
+<a name="parseOcean()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseOcean</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parseOcean(node:XML):<a href="data/Ocean.html">Ocean</a></code><p>
+   Creates a <code>Ocean</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:XML</code> &mdash; The XML representation of the ocean.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/Ocean.html">Ocean</a></code> &mdash; 
+                        A new <code>Ocean</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/Ocean.html" target="">org.geonames.data.Ocean</a>
+</div>
+</div>
+<a name="parsePostalCode()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parsePostalCode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parsePostalCode(node:XML):<a href="data/PostalCode.html">PostalCode</a></code><p>
+   Creates a <code>PostalCode</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:XML</code> &mdash; The XML representation of the postal code.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/PostalCode.html">PostalCode</a></code> &mdash; 
+                        A new <code>PostalCode</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/PostalCode.html" target="">org.geonames.data.PostalCode</a>
+</div>
+</div>
+<a name="parsePostalCodeCountryInfo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parsePostalCodeCountryInfo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parsePostalCodeCountryInfo(node:XML):<a href="data/PostalCodeCountryInfo.html">PostalCodeCountryInfo</a></code><p>
+   Creates a <code>PostalCodeCountryInfo</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:XML</code> &mdash; The XML representation of the postal code country info.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/PostalCodeCountryInfo.html">PostalCodeCountryInfo</a></code> &mdash; 
+                        A new <code>PostalCodeCountryInfo</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/PostalCodeCountryInfo.html" target="">org.geonames.data.PostalCodeCountryInfo</a>
+</div>
+</div>
+<a name="parsePostalCodeResult()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parsePostalCodeResult</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parsePostalCodeResult(data:XML):<a href="data/PostalCodeResult.html">PostalCodeResult</a></code><p>
+   Creates a <code>PostalCodeResult</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">data</span>:XML</code> &mdash; The XML representation of the postal code result.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/PostalCodeResult.html">PostalCodeResult</a></code> &mdash; 
+                        A new <code>PostalCodeResult</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/PostalCodeResult.html" target="">org.geonames.data.PostalCodeResult</a>
+</div>
+</div>
+<a name="parseStreetSegment()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseStreetSegment</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parseStreetSegment(node:XML):<a href="data/StreetSegment.html">StreetSegment</a></code><p>
+   Creates a <code>StreetSegment</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:XML</code> &mdash; The XML representation of the street segment.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/StreetSegment.html">StreetSegment</a></code> &mdash; 
+                        A new <code>StreetSegment</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/StreetSegment.html" target="">org.geonames.data.StreetSegment</a>
+</div>
+</div>
+<a name="parseTimezone()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseTimezone</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parseTimezone(node:XML):<a href="data/Timezone.html">Timezone</a></code><p>
+   Creates a <code>Timezone</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:XML</code> &mdash; The XML representation of the timezone.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/Timezone.html">Timezone</a></code> &mdash; 
+                        A new <code>Timezone</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/Timezone.html" target="">org.geonames.data.Timezone</a>
+</div>
+</div>
+<a name="parseToponym()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseToponym</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parseToponym(node:XML, style:String = null):<a href="data/Toponym.html">Toponym</a></code><p>
+   Creates a <code>Toponym</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:XML</code> &mdash; The XML representation of the toponym.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">style</span>:String</code> (default = <code>null</code>)<code></code> &mdash; Passed in by the <code>parseToponymResult</code> method.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/Toponym.html">Toponym</a></code> &mdash; 
+                        A new <code>Toponym</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/Toponym.html" target="">org.geonames.data.Toponym</a>
+</div>
+</div>
+<a name="parseToponymResult()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseToponymResult</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parseToponymResult(data:XML):<a href="data/ToponymResult.html">ToponymResult</a></code><p>
+   Creates a <code>ToponymResult</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">data</span>:XML</code> &mdash; The XML representation of the toponym result.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/ToponymResult.html">ToponymResult</a></code> &mdash; 
+                        A new <code>ToponymResult</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/ToponymResult.html" target="">org.geonames.data.ToponymResult</a>
+</div>
+</div>
+<a name="parseWeatherObservation()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseWeatherObservation</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parseWeatherObservation(node:XML):<a href="data/WeatherObservation.html">WeatherObservation</a></code><p>
+   Creates a <code>WeatherObservation</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:XML</code> &mdash; The XML representation of the weather observation.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/WeatherObservation.html">WeatherObservation</a></code> &mdash; 
+                        A new <code>WeatherObservation</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/WeatherObservation.html" target="">org.geonames.data.WeatherObservation</a>
+</div>
+</div>
+<a name="parseWikipediaEntry()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parseWikipediaEntry</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function parseWikipediaEntry(node:XML):<a href="data/WikipediaEntry.html">WikipediaEntry</a></code><p>
+   Creates a <code>WikipediaEntry</code> object.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:XML</code> &mdash; The XML representation of the wikipedia entry.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="data/WikipediaEntry.html">WikipediaEntry</a></code> &mdash; 
+                        A new <code>WikipediaEntry</code> object.
+   
+   
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="data/WikipediaEntry.html" target="">org.geonames.data.WikipediaEntry</a>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

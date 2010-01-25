@@ -1,0 +1,928 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
+<meta content="GeoNamesEvent,org.geonames.events.GeoNamesEvent,ASTERGDEM,CHILDREN,CITIES,COUNTRY_CODE,COUNTRY_INFO,COUNTRY_SUBDIVISION,EXTENDED_FIND_NEARBY,FIND_NEARBY,FIND_NEARBY_PLACE_NAME,FIND_NEARBY_POSTAL_CODES,FIND_NEARBY_STREETS,FIND_NEARBY_STREETS_OSM,FIND_NEARBY_WEARTHER,FIND_NEARBY_WIKIPEDIA,FIND_NEAREST_ADDRESS,FIND_NEAREST_INTERSECTION,FIND_NEAREST_INTERSECTION_OSM,GEONAMES_EXCEPTION,GET_TOPONYM,GTOPO30,HIERARCHY,NEIGHBOURHOOD,NEIGHBOURS,OCEAN,POSTAL_CODE_COUNTRY_INFO,POSTAL_CODE_SEARCH,SEARCH,SIBLINGS,SRTM3,TIMEZONE,WIKIPEDIA_BOUNDING_BOX,WIKIPEDIA_SEARCH,clone" name="keywords">
+<title>org.geonames.events.GeoNamesEvent</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'GeoNamesEvent - API Documentation';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">GeonamesAS3</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../index-list.html')" href="../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../index.html?org/geonames/events/GeoNamesEvent.html&amp;org/geonames/events/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;GeoNamesEvent</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class GeoNamesEvent"); titleBar_setSubNav(true,false,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">org.geonames.events</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class GeoNamesEvent</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">GeoNamesEvent <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../../images/inherit-arrow.gif"> com.adobe.webapis.events.ServiceEvent</td>
+</tr>
+</table>
+<p></p>
+  The event that is broadcast when the results are loaded and parsed after a 
+  call an GeoNames API call.
+  
+  <p></p>
+<br>
+<hr>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#GeoNamesEvent()">GeoNamesEvent</a>(type:String, bubbles:Boolean = false, cancelable:Boolean = false)</div>
+<div class="summaryTableDescription">
+   Constructor
+   
+   </div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#clone()">clone</a>():Event</div>
+<div class="summaryTableDescription">
+   Override of the clone function in the parent class <code>ServiceEvent</code>.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+</table>
+</div>
+<a name="constantSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Constants</div>
+<table id="summaryTableConstant" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ASTERGDEM">ASTERGDEM</a> : String = "astergdem"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to an astergdem API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#CHILDREN">CHILDREN</a> : String = "children"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a children API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#CITIES">CITIES</a> : String = "cities"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a cities API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#COUNTRY_CODE">COUNTRY_CODE</a> : String = "countryCode"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a countryCode API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#COUNTRY_INFO">COUNTRY_INFO</a> : String = "countryInfo"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a countryInfo API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#COUNTRY_SUBDIVISION">COUNTRY_SUBDIVISION</a> : String = "countrySubdivision"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a countrySubdivision API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#EXTENDED_FIND_NEARBY">EXTENDED_FIND_NEARBY</a> : String = "extendedFindNearby"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a extendedFindNearby API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#FIND_NEARBY">FIND_NEARBY</a> : String = "findNearby"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearby API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#FIND_NEARBY_PLACE_NAME">FIND_NEARBY_PLACE_NAME</a> : String = "findNearbyPlaceName"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to an findNearbyPlaceName API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#FIND_NEARBY_POSTAL_CODES">FIND_NEARBY_POSTAL_CODES</a> : String = "findNearbyPostalCodes"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearbyPostalCodes API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#FIND_NEARBY_STREETS">FIND_NEARBY_STREETS</a> : String = "findNearbyStreets"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearbyStreets API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#FIND_NEARBY_STREETS_OSM">FIND_NEARBY_STREETS_OSM</a> : String = "findNearbyStreetsOSM"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearbyStreetsOSM API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#FIND_NEARBY_WEARTHER">FIND_NEARBY_WEARTHER</a> : String = "findNearByWeatherXML"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearbyWeather API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#FIND_NEARBY_WIKIPEDIA">FIND_NEARBY_WIKIPEDIA</a> : String = "findNearbyWikipedia"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearbyWikipedia API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#FIND_NEAREST_ADDRESS">FIND_NEAREST_ADDRESS</a> : String = "findNearestAddress"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearestAddress API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#FIND_NEAREST_INTERSECTION">FIND_NEAREST_INTERSECTION</a> : String = "findNearestIntersection"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearestIntersection API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#FIND_NEAREST_INTERSECTION_OSM">FIND_NEAREST_INTERSECTION_OSM</a> : String = "findNearestIntersectionOSM"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearestIntersectionOSM API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#GEONAMES_EXCEPTION">GEONAMES_EXCEPTION</a> : String = "geonamesException"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the an exception is returned 
+   from the GeoNames server.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#GET_TOPONYM">GET_TOPONYM</a> : String = "get"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a get API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#GTOPO30">GTOPO30</a> : String = "gtopo30"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a gtopo30 API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#HIERARCHY">HIERARCHY</a> : String = "hierarchy"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a hierarchy API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#NEIGHBOURHOOD">NEIGHBOURHOOD</a> : String = "neighbourhood"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a neighbourhood API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#NEIGHBOURS">NEIGHBOURS</a> : String = "neighbours"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a neighbours API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#OCEAN">OCEAN</a> : String = "ocean"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to an ocean API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#POSTAL_CODE_COUNTRY_INFO">POSTAL_CODE_COUNTRY_INFO</a> : String = "postalCodeCountryInfo"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a postalCodeCountryInfo API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#POSTAL_CODE_SEARCH">POSTAL_CODE_SEARCH</a> : String = "postalCodeSearch"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a gtopo30 API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SEARCH">SEARCH</a> : String = "search"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a search API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SIBLINGS">SIBLINGS</a> : String = "siblings"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a siblings API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SRTM3">SRTM3</a> : String = "srtm3"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a srtm3 API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#TIMEZONE">TIMEZONE</a> : String = "timezone"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a timezone API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#WIKIPEDIA_BOUNDING_BOX">WIKIPEDIA_BOUNDING_BOX</a> : String = "wikipediaBoundingBox"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a wikipediaBoundingBox API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#WIKIPEDIA_SEARCH">WIKIPEDIA_SEARCH</a> : String = "wikipediaSearch"<div class="summaryTableDescription">[static]
+   The event type for the event broadcast when the results have been loaded
+   in response to a wikipediaSearch API call.</div>
+</td><td class="summaryTableOwnerCol">GeoNamesEvent</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="GeoNamesEvent()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">GeoNamesEvent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function GeoNamesEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false)</code><p>
+   Constructor
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">type</span>:String</code> &mdash; The type of event that the instance represents.
+   
+   <p>Creates a new <code>GeoNamesEvent/code> object.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">bubbles</span>:Boolean</code> (default = <code>false</code>)<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">cancelable</span>:Boolean</code> (default = <code>false</code>)<code></code></td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="clone()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">clone</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public override function clone():Event</code><p>
+   Override of the clone function in the parent class <code>ServiceEvent</code>.
+   
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Event</code> &mdash; A new <code>GeoNamesEvent</code> object.
+   </td>
+</tr>
+</table>
+</div>
+<a name="constantDetail"></a>
+<div class="detailSectionHeader">Constant detail</div>
+<a name="ASTERGDEM"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ASTERGDEM</td><td class="detailHeaderType">constant</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const ASTERGDEM:String = "astergdem"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to an astergdem API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/web-services.html#astergdem" target="mm_external">http://www.geonames.org/export/web-services.html#astergdem</a>
+</div>
+</div>
+<a name="CHILDREN"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">CHILDREN</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const CHILDREN:String = "children"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a children API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/place-hierarchy.html#children" target="mm_external">http://www.geonames.org/export/place-hierarchy.html#children</a>
+</div>
+</div>
+<a name="CITIES"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">CITIES</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const CITIES:String = "cities"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a cities API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/JSON-webservices.html#citiesJSON" target="mm_external">http://www.geonames.org/export/JSON-webservices.html#citiesJSON</a>
+</div>
+</div>
+<a name="COUNTRY_CODE"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">COUNTRY_CODE</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const COUNTRY_CODE:String = "countryCode"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a countryCode API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/web-services.html#countrycode" target="mm_external">http://www.geonames.org/export/web-services.html#countrycode</a>
+</div>
+</div>
+<a name="COUNTRY_INFO"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">COUNTRY_INFO</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const COUNTRY_INFO:String = "countryInfo"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a countryInfo API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/web-services.html#countryInfo" target="mm_external">http://www.geonames.org/export/web-services.html#countryInfo</a>
+</div>
+</div>
+<a name="COUNTRY_SUBDIVISION"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">COUNTRY_SUBDIVISION</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const COUNTRY_SUBDIVISION:String = "countrySubdivision"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a countrySubdivision API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/web-services.html#countrysubdiv" target="mm_external">http://www.geonames.org/export/web-services.html#countrysubdiv</a>
+</div>
+</div>
+<a name="EXTENDED_FIND_NEARBY"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">EXTENDED_FIND_NEARBY</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const EXTENDED_FIND_NEARBY:String = "extendedFindNearby"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a extendedFindNearby API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/web-services.html#extendedFindNearby" target="mm_external">http://www.geonames.org/export/web-services.html#extendedFindNearby</a>
+</div>
+</div>
+<a name="FIND_NEARBY"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FIND_NEARBY</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const FIND_NEARBY:String = "findNearby"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearby API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/web-services.html#findNearby" target="mm_external">http://www.geonames.org/export/web-services.html#findNearby</a>
+</div>
+</div>
+<a name="FIND_NEARBY_PLACE_NAME"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FIND_NEARBY_PLACE_NAME</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const FIND_NEARBY_PLACE_NAME:String = "findNearbyPlaceName"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to an findNearbyPlaceName API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/web-services.html#findNearbyPlaceName" target="mm_external">http://www.geonames.org/export/web-services.html#findNearbyPlaceName</a>
+</div>
+</div>
+<a name="FIND_NEARBY_POSTAL_CODES"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FIND_NEARBY_POSTAL_CODES</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const FIND_NEARBY_POSTAL_CODES:String = "findNearbyPostalCodes"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearbyPostalCodes API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/web-services.html#findNearbyPostalCodes" target="mm_external">http://www.geonames.org/export/web-services.html#findNearbyPostalCodes</a>
+</div>
+</div>
+<a name="FIND_NEARBY_STREETS"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FIND_NEARBY_STREETS</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const FIND_NEARBY_STREETS:String = "findNearbyStreets"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearbyStreets API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/maps/us-reverse-geocoder.html#findNearbyStreets" target="mm_external">http://www.geonames.org/maps/us-reverse-geocoder.html#findNearbyStreets</a>
+</div>
+</div>
+<a name="FIND_NEARBY_STREETS_OSM"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FIND_NEARBY_STREETS_OSM</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const FIND_NEARBY_STREETS_OSM:String = "findNearbyStreetsOSM"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearbyStreetsOSM API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/maps/osm-reverse-geocoder.html#findNearbyStreetsOSM" target="mm_external">http://www.geonames.org/maps/osm-reverse-geocoder.html#findNearbyStreetsOSM</a>
+</div>
+</div>
+<a name="FIND_NEARBY_WEARTHER"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FIND_NEARBY_WEARTHER</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const FIND_NEARBY_WEARTHER:String = "findNearByWeatherXML"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearbyWeather API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/JSON-webservices.html#findNearByWeatherJSON" target="mm_external">http://www.geonames.org/export/JSON-webservices.html#findNearByWeatherJSON</a>
+</div>
+</div>
+<a name="FIND_NEARBY_WIKIPEDIA"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FIND_NEARBY_WIKIPEDIA</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const FIND_NEARBY_WIKIPEDIA:String = "findNearbyWikipedia"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearbyWikipedia API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/wikipedia-webservice.html#findNearbyWikipedia" target="mm_external">http://www.geonames.org/export/wikipedia-webservice.html#findNearbyWikipedia</a>
+</div>
+</div>
+<a name="FIND_NEAREST_ADDRESS"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FIND_NEAREST_ADDRESS</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const FIND_NEAREST_ADDRESS:String = "findNearestAddress"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearestAddress API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/maps/us-reverse-geocoder.html#findNearestAddress" target="mm_external">http://www.geonames.org/maps/us-reverse-geocoder.html#findNearestAddress</a>
+</div>
+</div>
+<a name="FIND_NEAREST_INTERSECTION"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FIND_NEAREST_INTERSECTION</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const FIND_NEAREST_INTERSECTION:String = "findNearestIntersection"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearestIntersection API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/maps/us-reverse-geocoder.html#findNearestIntersection" target="mm_external">http://www.geonames.org/maps/us-reverse-geocoder.html#findNearestIntersection</a>
+</div>
+</div>
+<a name="FIND_NEAREST_INTERSECTION_OSM"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FIND_NEAREST_INTERSECTION_OSM</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const FIND_NEAREST_INTERSECTION_OSM:String = "findNearestIntersectionOSM"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a findNearestIntersectionOSM API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/maps/osm-reverse-geocoder.html#findNearestIntersectionOSM" target="mm_external">http://www.geonames.org/maps/osm-reverse-geocoder.html#findNearestIntersectionOSM</a>
+</div>
+</div>
+<a name="GEONAMES_EXCEPTION"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">GEONAMES_EXCEPTION</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const GEONAMES_EXCEPTION:String = "geonamesException"</code><p>
+   The event type for the event broadcast when the an exception is returned 
+   from the GeoNames server.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/webservice-exception.html" target="mm_external">http://www.geonames.org/export/webservice-exception.html</a>
+</div>
+</div>
+<a name="GET_TOPONYM"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">GET_TOPONYM</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const GET_TOPONYM:String = "get"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a get API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/#" target="mm_external">http://www.geonames.org/#</a>
+</div>
+</div>
+<a name="GTOPO30"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">GTOPO30</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const GTOPO30:String = "gtopo30"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a gtopo30 API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/web-services.html#gtopo30" target="mm_external">http://www.geonames.org/export/web-services.html#gtopo30</a>
+</div>
+</div>
+<a name="HIERARCHY"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">HIERARCHY</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const HIERARCHY:String = "hierarchy"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a hierarchy API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/place-hierarchy.html#hierarchy" target="mm_external">http://www.geonames.org/export/place-hierarchy.html#hierarchy</a>
+</div>
+</div>
+<a name="NEIGHBOURHOOD"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">NEIGHBOURHOOD</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const NEIGHBOURHOOD:String = "neighbourhood"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a neighbourhood API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/web-services.html#neighbourhood" target="mm_external">http://www.geonames.org/export/web-services.html#neighbourhood</a>
+</div>
+</div>
+<a name="NEIGHBOURS"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">NEIGHBOURS</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const NEIGHBOURS:String = "neighbours"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a neighbours API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/place-hierarchy.html#neighbours" target="mm_external">http://www.geonames.org/export/place-hierarchy.html#neighbours</a>
+</div>
+</div>
+<a name="OCEAN"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">OCEAN</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const OCEAN:String = "ocean"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to an ocean API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/web-services.html#ocean" target="mm_external">http://www.geonames.org/export/web-services.html#ocean</a>
+</div>
+</div>
+<a name="POSTAL_CODE_COUNTRY_INFO"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">POSTAL_CODE_COUNTRY_INFO</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const POSTAL_CODE_COUNTRY_INFO:String = "postalCodeCountryInfo"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a postalCodeCountryInfo API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/web-services.html#postalCodeCountryInfo" target="mm_external">http://www.geonames.org/export/web-services.html#postalCodeCountryInfo</a>
+</div>
+</div>
+<a name="POSTAL_CODE_SEARCH"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">POSTAL_CODE_SEARCH</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const POSTAL_CODE_SEARCH:String = "postalCodeSearch"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a gtopo30 API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/web-services.html#postalCodeSearch" target="mm_external">http://www.geonames.org/export/web-services.html#postalCodeSearch</a>
+</div>
+</div>
+<a name="SEARCH"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SEARCH</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const SEARCH:String = "search"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a search API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/geonames-search.html" target="mm_external">http://www.geonames.org/export/geonames-search.html</a>
+</div>
+</div>
+<a name="SIBLINGS"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SIBLINGS</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const SIBLINGS:String = "siblings"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a siblings API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/place-hierarchy.html#siblings" target="mm_external">http://www.geonames.org/export/place-hierarchy.html#siblings</a>
+</div>
+</div>
+<a name="SRTM3"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SRTM3</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const SRTM3:String = "srtm3"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a srtm3 API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/web-services.html#srtm3" target="mm_external">http://www.geonames.org/export/web-services.html#srtm3</a>
+</div>
+</div>
+<a name="TIMEZONE"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">TIMEZONE</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const TIMEZONE:String = "timezone"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a timezone API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/web-services.html#timezone" target="mm_external">http://www.geonames.org/export/web-services.html#timezone</a>
+</div>
+</div>
+<a name="WIKIPEDIA_BOUNDING_BOX"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">WIKIPEDIA_BOUNDING_BOX</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const WIKIPEDIA_BOUNDING_BOX:String = "wikipediaBoundingBox"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a wikipediaBoundingBox API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/wikipedia-webservice.html#wikipediaBoundingBox" target="mm_external">http://www.geonames.org/export/wikipedia-webservice.html#wikipediaBoundingBox</a>
+</div>
+</div>
+<a name="WIKIPEDIA_SEARCH"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">WIKIPEDIA_SEARCH</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const WIKIPEDIA_SEARCH:String = "wikipediaSearch"</code><p>
+   The event type for the event broadcast when the results have been loaded
+   in response to a wikipediaSearch API call.
+   
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://www.geonames.org/export/wikipedia-webservice.html#wikipediaSearch" target="mm_external">http://www.geonames.org/export/wikipedia-webservice.html#wikipediaSearch</a>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->
