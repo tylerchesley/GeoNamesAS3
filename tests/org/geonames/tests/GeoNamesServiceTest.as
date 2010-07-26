@@ -1,7 +1,5 @@
 package org.geonames.tests
 {
-	import flash.net.URLVariables;
-	
 	import org.flexunit.Assert;
 	import org.flexunit.async.Async;
 	import org.geonames.GeoNamesService;
@@ -12,7 +10,6 @@ package org.geonames.tests
 	import org.geonames.criteria.ToponymSearchCriteria;
 	import org.geonames.criteria.WikipediaSearchCriteria;
 	import org.geonames.data.Address;
-	import org.geonames.data.Country;
 	import org.geonames.data.CountrySubdivision;
 	import org.geonames.data.Intersection;
 	import org.geonames.data.Neighbourhood;
@@ -140,7 +137,7 @@ package org.geonames.tests
 		public function testCountryInfo():void
 		{
 			Async.handleEvent(this, geonames, GeoNamesEvent.COUNTRY_INFO, countryInfoHandler, TIMEOUT);
-			geonames.countryInfo("AD");
+			geonames.countryInfo();
 		}
 		
 		/*<country>
@@ -163,23 +160,8 @@ package org.geonames.tests
 		</country>*/
 		private function countryInfoHandler(event:GeoNamesEvent, params:*):void
 		{
-			var country:Country = event.data[0];
-			Assert.assertEquals("AD", country.countryCode);
-			Assert.assertEquals("Andorra", country.countryName);
-			Assert.assertEquals(20, country.isoNumeric);
-			Assert.assertEquals("AND", country.isoAlpha3);
-			Assert.assertEquals("AN", country.fipsCode);
-			Assert.assertEquals("EU", country.continent);
-			Assert.assertEquals("Andorra la Vella", country.capital);
-			Assert.assertEquals(468.0, country.areaInSqKm);
-			Assert.assertEquals(72000, country.population);
-			Assert.assertEquals("EUR", country.currencyCode);
-			Assert.assertEquals("ca,fr-AD,pt", country.languages);
-			Assert.assertEquals(3041565, country.geonameId);
-			Assert.assertEquals(1.42211079597473, country.bBoxWest);
-			Assert.assertEquals(42.6586990356445, country.bBoxNorth);
-			Assert.assertEquals(1.78038918972015, country.bBoxEast);
-			Assert.assertEquals(42.4350738525391, country.bBoxSouth);
+			var countries:Array = event.data as Array;
+			Assert.assertTrue(countries.length > 0);
 		}
 		
 		[Test(async)]

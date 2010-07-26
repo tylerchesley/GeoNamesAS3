@@ -855,7 +855,10 @@ package org.geonames
 									language:String = null):void
 		{
 			var params:URLVariables = new URLVariables();
-			params.country = country;
+			if (country)
+			{
+				params.country = country;
+			}
 			params.language = language ? language : defaultLanguage;
 			invokeMethod(GeoNamesEvent.COUNTRY_INFO, params);
 		}
